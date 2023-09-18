@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpjxfjttxa3gm"]
+
+[ext_resource type="Script" path="res://Levels/Player.gd" id="1_d3n0t"]
+[ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
+[ext_resource type="Script" path="res://Player/walk.gd" id="3_1ap8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a7m"]
+size = Vector2(10, 16)
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(60, -22)
+script = ExtResource("1_d3n0t")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q5a7m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p0tff")
+hframes = 7
+vframes = 12
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="StateMachine" type="Node2D" parent="."]
+
+[node name="walk" type="Node2D" parent="StateMachine"]
+script = ExtResource("3_1ap8a")
