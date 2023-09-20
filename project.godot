@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Magiscape 2"
 run/main_scene="res://Levels/level_1.tscn"
-config/features=PackedStringArray("4.0", "Forward Plus")
+config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [input]
@@ -35,5 +35,5 @@ jump={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"

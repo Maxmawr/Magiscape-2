@@ -12015,11 +12015,8 @@ sources/0 = SubResource("TileSetAtlasSource_5uctd")
 [node name="Level 1" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_x6eib")]
-script = null
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4njh1")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 0, 6, 1, 0, 6, 2, 0, 6, 3, 0, 6, 4, 0, 6, 5, 0, 6, 6, 0, 6, 7, 0, 6, 8, 0, 6, 9, 0, 6, 65535, 0, 6)
-
-[node name="Camera2D" type="Camera2D" parent="."]
