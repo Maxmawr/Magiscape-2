@@ -1,0 +1,156 @@
+[gd_scene load_steps=13 format=3 uid="uid://bpww2np4khaf7"]
+
+[ext_resource type="Texture2D" uid="uid://c5fes3gl11lir" path="res://Assets/mages/blue_select.png" id="1_ii0ws"]
+[ext_resource type="Script" path="res://blue_select.gd" id="2_1jqj1"]
+[ext_resource type="Texture2D" uid="uid://benylyqhl7rld" path="res://Assets/mages/red_select.png" id="3_5fdok"]
+[ext_resource type="Script" path="res://red_select.gd" id="4_pvrbw"]
+
+[sub_resource type="Animation" id="Animation_oljqn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_s5w0q"]
+resource_name = "grow"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(6, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_5eu30"]
+resource_name = "shrink"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygjdl"]
+_data = {
+"RESET": SubResource("Animation_oljqn"),
+"grow": SubResource("Animation_s5w0q"),
+"shrink": SubResource("Animation_5eu30")
+}
+
+[sub_resource type="Animation" id="Animation_ftw8v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_bo0t8"]
+resource_name = "grow"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(6, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_g7kj8"]
+resource_name = "shrink"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_70qwk"]
+_data = {
+"RESET": SubResource("Animation_ftw8v"),
+"grow": SubResource("Animation_bo0t8"),
+"shrink": SubResource("Animation_g7kj8")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 1)
+
+[node name="blue_select" type="TextureButton" parent="."]
+offset_left = 379.0
+offset_top = 209.0
+offset_right = 389.0
+offset_bottom = 225.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("1_ii0ws")
+script = ExtResource("2_1jqj1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="blue_select"]
+libraries = {
+"": SubResource("AnimationLibrary_ygjdl")
+}
+
+[node name="red_select" type="TextureButton" parent="."]
+offset_left = 280.0
+offset_top = 215.0
+offset_right = 290.0
+offset_bottom = 231.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_5fdok")
+script = ExtResource("4_pvrbw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="red_select"]
+libraries = {
+"": SubResource("AnimationLibrary_70qwk")
+}
+
+[connection signal="mouse_entered" from="blue_select" to="blue_select" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="blue_select" to="blue_select" method="_on_mouse_exited"]
+[connection signal="pressed" from="blue_select" to="blue_select" method="_on_pressed"]
+[connection signal="mouse_entered" from="red_select" to="red_select" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="red_select" to="red_select" method="_on_mouse_exited"]
+[connection signal="pressed" from="red_select" to="red_select" method="_on_pressed"]
