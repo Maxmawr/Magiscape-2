@@ -1,9 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpww2np4khaf7"]
+[gd_scene load_steps=37 format=3 uid="uid://bpww2np4khaf7"]
 
 [ext_resource type="Texture2D" uid="uid://c5fes3gl11lir" path="res://Assets/mages/blue_select.png" id="1_ii0ws"]
 [ext_resource type="Script" path="res://blue_select.gd" id="2_1jqj1"]
 [ext_resource type="Texture2D" uid="uid://benylyqhl7rld" path="res://Assets/mages/red_select.png" id="3_5fdok"]
 [ext_resource type="Script" path="res://red_select.gd" id="4_pvrbw"]
+[ext_resource type="Texture2D" uid="uid://cuull21swcf54" path="res://Assets/mages/brown_select.png" id="5_gaqxh"]
+[ext_resource type="Script" path="res://brown_select.gd" id="6_swrxp"]
+[ext_resource type="Texture2D" uid="uid://cysqyblof2dgs" path="res://Assets/mages/dark_select.png" id="7_e4hwa"]
+[ext_resource type="Script" path="res://dark_select.gd" id="8_6gu5p"]
+[ext_resource type="Texture2D" uid="uid://c6vshkbl3hof0" path="res://Assets/mages/green_select.png" id="9_ixc16"]
+[ext_resource type="Script" path="res://green_select.gd" id="10_lhu4e"]
+[ext_resource type="Texture2D" uid="uid://drle2eb8rr4w0" path="res://Assets/mages/yellow_select.png" id="11_qqwcp"]
+[ext_resource type="Script" path="res://yellow_select.gd" id="12_873s1"]
 
 [sub_resource type="Animation" id="Animation_oljqn"]
 length = 0.001
@@ -113,6 +121,222 @@ _data = {
 "shrink": SubResource("Animation_g7kj8")
 }
 
+[sub_resource type="Animation" id="Animation_yqc7r"]
+resource_name = "grow"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(6, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_4jos0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_wnprx"]
+resource_name = "shrink"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fqa62"]
+_data = {
+"RESET": SubResource("Animation_4jos0"),
+"grow": SubResource("Animation_yqc7r"),
+"shrink": SubResource("Animation_wnprx")
+}
+
+[sub_resource type="Animation" id="Animation_iujs8"]
+resource_name = "grow"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(6, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_i30jf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_tnnwb"]
+resource_name = "shrink"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xx5u0"]
+_data = {
+"RESET": SubResource("Animation_i30jf"),
+"grow": SubResource("Animation_iujs8"),
+"shrink": SubResource("Animation_tnnwb")
+}
+
+[sub_resource type="Animation" id="Animation_st2g6"]
+resource_name = "grow"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(6, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_kkalv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_47oa0"]
+resource_name = "shrink"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7rv6d"]
+_data = {
+"RESET": SubResource("Animation_kkalv"),
+"grow": SubResource("Animation_st2g6"),
+"shrink": SubResource("Animation_47oa0")
+}
+
+[sub_resource type="Animation" id="Animation_dqiru"]
+resource_name = "grow"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(6, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_yo7d0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_h0uqy"]
+resource_name = "shrink"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(6, 6), Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g3ew0"]
+_data = {
+"RESET": SubResource("Animation_yo7d0"),
+"grow": SubResource("Animation_dqiru"),
+"shrink": SubResource("Animation_h0uqy")
+}
+
 [node name="Node2D" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -121,10 +345,10 @@ offset_bottom = 649.0
 color = Color(0, 0, 0, 1)
 
 [node name="blue_select" type="TextureButton" parent="."]
-offset_left = 379.0
-offset_top = 209.0
-offset_right = 389.0
-offset_bottom = 225.0
+offset_left = 200.0
+offset_top = 320.0
+offset_right = 210.0
+offset_bottom = 336.0
 scale = Vector2(4, 4)
 texture_normal = ExtResource("1_ii0ws")
 script = ExtResource("2_1jqj1")
@@ -135,10 +359,10 @@ libraries = {
 }
 
 [node name="red_select" type="TextureButton" parent="."]
-offset_left = 280.0
-offset_top = 215.0
-offset_right = 290.0
-offset_bottom = 231.0
+offset_left = 328.0
+offset_top = 320.0
+offset_right = 338.0
+offset_bottom = 336.0
 scale = Vector2(4, 4)
 texture_normal = ExtResource("3_5fdok")
 script = ExtResource("4_pvrbw")
@@ -148,9 +372,77 @@ libraries = {
 "": SubResource("AnimationLibrary_70qwk")
 }
 
+[node name="brown_select" type="TextureButton" parent="."]
+offset_left = 840.0
+offset_top = 320.0
+offset_right = 850.0
+offset_bottom = 336.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("5_gaqxh")
+script = ExtResource("6_swrxp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="brown_select"]
+libraries = {
+"": SubResource("AnimationLibrary_fqa62")
+}
+
+[node name="dark_select" type="TextureButton" parent="."]
+offset_left = 456.0
+offset_top = 320.0
+offset_right = 466.0
+offset_bottom = 336.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("7_e4hwa")
+script = ExtResource("8_6gu5p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dark_select"]
+libraries = {
+"": SubResource("AnimationLibrary_xx5u0")
+}
+
+[node name="green_select" type="TextureButton" parent="."]
+offset_left = 712.0
+offset_top = 320.0
+offset_right = 722.0
+offset_bottom = 336.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("9_ixc16")
+script = ExtResource("10_lhu4e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="green_select"]
+libraries = {
+"": SubResource("AnimationLibrary_7rv6d")
+}
+
+[node name="yellow_select" type="TextureButton" parent="."]
+offset_left = 584.0
+offset_top = 320.0
+offset_right = 594.0
+offset_bottom = 336.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("11_qqwcp")
+script = ExtResource("12_873s1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="yellow_select"]
+libraries = {
+"": SubResource("AnimationLibrary_g3ew0")
+}
+
 [connection signal="mouse_entered" from="blue_select" to="blue_select" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="blue_select" to="blue_select" method="_on_mouse_exited"]
 [connection signal="pressed" from="blue_select" to="blue_select" method="_on_pressed"]
 [connection signal="mouse_entered" from="red_select" to="red_select" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="red_select" to="red_select" method="_on_mouse_exited"]
 [connection signal="pressed" from="red_select" to="red_select" method="_on_pressed"]
+[connection signal="mouse_entered" from="brown_select" to="brown_select" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="brown_select" to="brown_select" method="_on_mouse_exited"]
+[connection signal="pressed" from="brown_select" to="brown_select" method="_on_pressed"]
+[connection signal="mouse_entered" from="dark_select" to="dark_select" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="dark_select" to="dark_select" method="_on_mouse_exited"]
+[connection signal="pressed" from="dark_select" to="dark_select" method="_on_pressed"]
+[connection signal="mouse_entered" from="green_select" to="green_select" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="green_select" to="green_select" method="_on_mouse_exited"]
+[connection signal="pressed" from="green_select" to="green_select" method="_on_pressed"]
+[connection signal="mouse_entered" from="yellow_select" to="yellow_select" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="yellow_select" to="yellow_select" method="_on_mouse_exited"]
+[connection signal="pressed" from="yellow_select" to="yellow_select" method="_on_pressed"]
