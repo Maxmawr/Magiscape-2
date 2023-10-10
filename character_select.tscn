@@ -121,6 +121,21 @@ _data = {
 "shrink": SubResource("Animation_g7kj8")
 }
 
+[sub_resource type="Animation" id="Animation_4jos0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
 [sub_resource type="Animation" id="Animation_yqc7r"]
 resource_name = "grow"
 length = 0.25
@@ -135,21 +150,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(4, 4), Vector2(6, 6)]
-}
-
-[sub_resource type="Animation" id="Animation_4jos0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_wnprx"]
@@ -175,6 +175,21 @@ _data = {
 "shrink": SubResource("Animation_wnprx")
 }
 
+[sub_resource type="Animation" id="Animation_i30jf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
 [sub_resource type="Animation" id="Animation_iujs8"]
 resource_name = "grow"
 length = 0.25
@@ -189,21 +204,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(4, 4), Vector2(6, 6)]
-}
-
-[sub_resource type="Animation" id="Animation_i30jf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_tnnwb"]
@@ -229,6 +229,21 @@ _data = {
 "shrink": SubResource("Animation_tnnwb")
 }
 
+[sub_resource type="Animation" id="Animation_kkalv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
 [sub_resource type="Animation" id="Animation_st2g6"]
 resource_name = "grow"
 length = 0.25
@@ -243,21 +258,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(4, 4), Vector2(6, 6)]
-}
-
-[sub_resource type="Animation" id="Animation_kkalv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_47oa0"]
@@ -283,6 +283,21 @@ _data = {
 "shrink": SubResource("Animation_47oa0")
 }
 
+[sub_resource type="Animation" id="Animation_yo7d0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
 [sub_resource type="Animation" id="Animation_dqiru"]
 resource_name = "grow"
 length = 0.25
@@ -297,21 +312,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(4, 4), Vector2(6, 6)]
-}
-
-[sub_resource type="Animation" id="Animation_yo7d0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_h0uqy"]
