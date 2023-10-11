@@ -1,6 +1,10 @@
 # Run.gd
 extends State
 
+@onready var animationplayer = owner.get_node("AnimationPlayer")
+
+func enter(_msg := {}) -> void:
+	animationplayer.play(owner.colour + "_walk")
 
 func physics_update(delta: float) -> void:
 	# Notice how we have some code duplication between states. That's inherent to the pattern,
@@ -18,6 +22,12 @@ func physics_update(delta: float) -> void:
 		- Input.get_action_strength("moveleft")
 	)
 	owner.velocity.x = owner.speed * input_direction_x
+	if input_direction_x < 0:
+		owner.get_node("sprite").flip_h = true
+		Permavariables.direction_facing = "left"
+	if input_direction_x > 0:
+		owner.get_node("sprite").flip_h = false
+		Permavariables.direction_facing = "right"
 	owner.velocity.y += owner.gravity * delta
 	owner.move_and_slide()
 

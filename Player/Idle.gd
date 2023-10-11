@@ -1,11 +1,13 @@
 # Idle.gd
 extends State
 
+@onready var animationplayer = owner.get_node("AnimationPlayer")
+
 # Upon entering the state, we set the Player node's velocity to zero.
 func enter(_msg := {}) -> void:
 	# We must declare all the properties we access through `owner` in the `Player.gd` script.
 	owner.velocity = Vector2.ZERO
-
+	animationplayer.play(owner.colour + "_idle")
 
 func update(delta: float) -> void:
 	# If you have platforms that break when standing on them, you need that check for 
