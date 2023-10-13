@@ -79,6 +79,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_be0fr"]
 resource_name = "blue_jump"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -129,6 +130,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_3x1ky"]
 resource_name = "brown_dead"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -145,6 +147,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_3qaog"]
 resource_name = "brown_idle"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -161,6 +164,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_e0dxd"]
 resource_name = "brown_jump"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -211,6 +215,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_kr07r"]
 resource_name = "dark_dead"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -227,6 +232,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_pvd1n"]
 resource_name = "dark_idle"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -243,6 +249,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_3exdi"]
 resource_name = "dark_jump"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -293,6 +300,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_s6jrt"]
 resource_name = "green_dead"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -309,6 +317,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_60cw5"]
 resource_name = "green_idle"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -325,6 +334,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_4p111"]
 resource_name = "green_jump"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -341,6 +351,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_6tnyc"]
 resource_name = "green_walk"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -442,6 +453,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_dv86o"]
 resource_name = "yellow_cast"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -458,6 +470,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_pccu7"]
 resource_name = "yellow_dead"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -474,6 +487,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_nbje5"]
 resource_name = "yellow_idle"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -490,6 +504,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_13sd3"]
 resource_name = "yellow_jump"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
