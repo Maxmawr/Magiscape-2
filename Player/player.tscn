@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dpjxfjttxa3gm"]
+[gd_scene load_steps=41 format=3 uid="uid://dpjxfjttxa3gm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8tbuo"]
 [ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Player/Run.gd" id="4_6dl0g"]
 [ext_resource type="Script" path="res://Player/Idle.gd" id="4_yum8l"]
 [ext_resource type="Script" path="res://Player/Air.gd" id="5_rkjk8"]
+[ext_resource type="Script" path="res://Player/Casting.gd" id="7_q10ft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a7m"]
 size = Vector2(10, 16)
@@ -604,3 +605,8 @@ script = ExtResource("4_6dl0g")
 
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource("5_rkjk8")
+
+[node name="Casting" type="Node" parent="StateMachine"]
+script = ExtResource("7_q10ft")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Casting" method="_on_animation_player_animation_finished"]

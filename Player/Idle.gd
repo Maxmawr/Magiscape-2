@@ -22,3 +22,5 @@ func update(delta: float) -> void:
 		state_machine.transition_to("Air", {do_jump = true})
 	elif Input.is_action_pressed("moveleft") or Input.is_action_pressed("moveright"):
 		state_machine.transition_to("Run")
+	elif Input.is_action_pressed("fireball"):
+		state_machine.transition_to("Casting")
