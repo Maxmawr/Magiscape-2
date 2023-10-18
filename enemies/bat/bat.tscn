@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dikixif346vf6"]
+
+[ext_resource type="Texture2D" uid="uid://dhps3rrs7wxvk" path="res://icon.svg" id="1_7sru0"]
+[ext_resource type="Script" path="res://enemies/bat/StateMachine.gd" id="1_oeag0"]
+[ext_resource type="Script" path="res://enemies/bat/Flying.gd" id="2_ldkfn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nt44k"]
+size = Vector2(124, 128)
+
+[node name="bat" type="PathFollow2D"]
+
+[node name="bat" type="Area2D" parent="."]
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bat"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_nt44k")
+
+[node name="Sprite2D" type="Sprite2D" parent="bat"]
+texture = ExtResource("1_7sru0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bat"]
+
+[node name="Bat_StateMachine" type="Node" parent="bat"]
+script = ExtResource("1_oeag0")
+
+[node name="Flying" type="Node" parent="bat/Bat_StateMachine"]
+script = ExtResource("2_ldkfn")
