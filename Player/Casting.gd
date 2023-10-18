@@ -1,8 +1,12 @@
 extends State
 
 @onready var animationplayer = owner.get_node("AnimationPlayer")
+@onready var spell_spawn = owner.get_node("spell_spawn")
 
 func enter(msg := {}) -> void:
+	print(msg)
+	if msg.has("fireball"):
+		fireball()
 	animationplayer.play(owner.colour + "_cast")
 
 func physics_update(delta: float) -> void:
@@ -29,3 +33,8 @@ func physics_update(delta: float) -> void:
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == owner.colour + "_cast":
 		state_machine.transition_to("Idle")
+
+func fireball():
+	var b = owner.fireball.instantiate()
+	owner.owner.add_child(b)
+	b.transform = spell_spawn.global_transform
