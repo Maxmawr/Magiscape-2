@@ -4,7 +4,6 @@ extends State
 @onready var spell_spawn = owner.get_node("spell_spawn")
 
 func enter(msg := {}) -> void:
-	print(msg)
 	if msg.has("fireball"):
 		fireball()
 	animationplayer.play(owner.colour + "_cast")
