@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dikixif346vf6"]
+[gd_scene load_steps=12 format=3 uid="uid://dikixif346vf6"]
 
 [ext_resource type="Texture2D" uid="uid://d1pg1h2ip1eu5" path="res://enemies/bat/bat.png" id="1_0yd68"]
 [ext_resource type="Script" path="res://enemies/bat/bat_area.gd" id="1_b07sf"]
@@ -7,7 +7,10 @@
 [ext_resource type="Script" path="res://enemies/bat/Dead.gd" id="4_ixxii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nt44k"]
-size = Vector2(124, 128)
+size = Vector2(64, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls8vy"]
+size = Vector2(52, 30)
 
 [sub_resource type="Animation" id="Animation_8fxed"]
 length = 0.001
@@ -70,9 +73,13 @@ _data = {
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_b07sf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bat_area"]
-position = Vector2(-2, 0)
+[node name="alive_collision" type="CollisionShape2D" parent="bat_area"]
+position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_nt44k")
+
+[node name="dead_collision" type="CollisionShape2D" parent="bat_area"]
+position = Vector2(2, 5)
+shape = SubResource("RectangleShape2D_ls8vy")
 
 [node name="sprite" type="Sprite2D" parent="bat_area"]
 scale = Vector2(4, 4)

@@ -5,6 +5,8 @@ var thispos
 
 @onready var animationplayer = get_parent().get_parent().get_node("AnimationPlayer")
 @onready var area = get_parent().get_parent()
+@onready var alive_collision = get_parent().get_parent().get_node("alive_collision")
+@onready var dead_collision = get_parent().get_parent().get_node("dead_collision")
 
 @export var speed = 0.5
 
@@ -12,6 +14,8 @@ func physics_update(delta: float) -> void:
 	owner.progress_ratio += delta * speed
 
 func enter(_msg := {}) -> void:
+	dead_collision.disabled = true
+	alive_collision.disabled = false
 	animationplayer.play("flying")
 
 func update(delta: float) -> void:
