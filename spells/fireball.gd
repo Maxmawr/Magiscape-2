@@ -32,7 +32,9 @@ func _on_body_entered(body):
 		speed = 0
 		if "dead" in body:
 			body.dead = true
-		$AnimationPlayer.play("impact")
+#		$AnimationPlayer.play("impact")
+		$Sprite2D.visible = false
+		$explosion.emitting = true
 
 
 func _on_area_entered(area):
@@ -40,4 +42,6 @@ func _on_area_entered(area):
 		speed = 0
 		if "dead" in area:
 			area.dead = true
-		$AnimationPlayer.play("impact")
+#		$AnimationPlayer.play("impact")
+		$Sprite2D.visible = false
+		$explosion.emitting = true

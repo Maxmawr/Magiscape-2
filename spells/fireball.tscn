@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmsd32g1ra52q"]
+[gd_scene load_steps=11 format=3 uid="uid://cmsd32g1ra52q"]
 
 [ext_resource type="Texture2D" uid="uid://c2b4u3i74xnjp" path="res://spells/fireball.png" id="1_5sd7j"]
 [ext_resource type="Script" path="res://spells/fireball.gd" id="1_jwo2r"]
@@ -61,6 +61,24 @@ _data = {
 "impact": SubResource("Animation_thgg5")
 }
 
+[sub_resource type="Gradient" id="Gradient_sa3pl"]
+offsets = PackedFloat32Array(0, 0.733333, 0.977778)
+colors = PackedColorArray(0.745098, 0.14902, 0.2, 1, 0.921569, 0.537255, 0.192157, 1, 0.968627, 0.886275, 0.419608, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y0ym5"]
+gradient = SubResource("Gradient_sa3pl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_punue"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -100.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_y0ym5")
+
 [node name="fireball" type="Area2D"]
 script = ExtResource("1_jwo2r")
 
@@ -78,6 +96,13 @@ root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_fn620")
 }
+
+[node name="explosion" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_punue")
+one_shot = true
+explosiveness = 1.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
