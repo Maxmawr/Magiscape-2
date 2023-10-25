@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dpjxfjttxa3gm"]
+[gd_scene load_steps=46 format=3 uid="uid://dpjxfjttxa3gm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8tbuo"]
 [ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://Player/Idle.gd" id="4_yum8l"]
 [ext_resource type="Script" path="res://Player/Air.gd" id="5_rkjk8"]
 [ext_resource type="Script" path="res://Player/Casting.gd" id="7_q10ft"]
+[ext_resource type="Texture2D" uid="uid://3i5sm6g5ccl0" path="res://Player/healthbar/outline.png" id="9_v3eek"]
+[ext_resource type="Texture2D" uid="uid://d2nbm4pk38cjn" path="res://Player/healthbar/top.png" id="10_p0a6t"]
+[ext_resource type="Script" path="res://Player/healthbar.gd" id="11_28avy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a7m"]
 size = Vector2(10, 16)
@@ -566,6 +569,9 @@ _data = {
 "yellow_walk": SubResource("Animation_tg6qw")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vi045"]
+size = Vector2(10, 16)
+
 [node name="player" type="CharacterBody2D"]
 position = Vector2(60, -22)
 script = ExtResource("1_8tbuo")
@@ -608,4 +614,24 @@ script = ExtResource("5_rkjk8")
 [node name="Casting" type="Node" parent="StateMachine"]
 script = ExtResource("7_q10ft")
 
+[node name="healthbar" type="TextureProgressBar" parent="."]
+offset_left = -138.0
+offset_top = -74.0
+offset_right = -114.0
+offset_bottom = -64.0
+max_value = 10.0
+value = 10.0
+texture_over = ExtResource("9_v3eek")
+texture_progress = ExtResource("10_p0a6t")
+texture_progress_offset = Vector2(2, 2)
+script = ExtResource("11_28avy")
+
+[node name="collision detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision detector"]
+shape = SubResource("RectangleShape2D_vi045")
+debug_color = Color(0.956863, 0, 0.533333, 0.419608)
+
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Casting" method="_on_animation_player_animation_finished"]
+[connection signal="health_changed" from="StateMachine/Idle" to="healthbar" method="_on_idle_health_changed"]
+[connection signal="area_entered" from="collision detector" to="StateMachine/Idle" method="_on_collision_detector_area_entered"]

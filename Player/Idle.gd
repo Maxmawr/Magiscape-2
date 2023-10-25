@@ -1,6 +1,8 @@
 # Idle.gd
 extends State
 
+signal health_changed
+
 @onready var animationplayer = owner.get_node("AnimationPlayer")
 
 # Upon entering the state, we set the Player node's velocity to zero.
@@ -24,3 +26,6 @@ func update(delta: float) -> void:
 		state_machine.transition_to("Run")
 	elif Input.is_action_pressed("fireball"):
 		state_machine.transition_to("Casting", {fireball = true})
+
+
+		

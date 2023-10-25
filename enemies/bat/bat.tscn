@@ -69,34 +69,34 @@ _data = {
 
 [node name="bat" type="PathFollow2D"]
 
-[node name="bat_area" type="Area2D" parent="." groups=["enemies"]]
+[node name="bat" type="Area2D" parent="." groups=["enemies"]]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_b07sf")
 
-[node name="alive_collision" type="CollisionShape2D" parent="bat_area"]
+[node name="alive_collision" type="CollisionShape2D" parent="bat"]
 position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_nt44k")
 
-[node name="dead_collision" type="CollisionShape2D" parent="bat_area"]
+[node name="dead_collision" type="CollisionShape2D" parent="bat"]
 position = Vector2(2, 5)
 shape = SubResource("RectangleShape2D_ls8vy")
 
-[node name="sprite" type="Sprite2D" parent="bat_area"]
+[node name="sprite" type="Sprite2D" parent="bat"]
 scale = Vector2(4, 4)
 texture = ExtResource("1_0yd68")
 hframes = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="bat_area"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bat"]
 libraries = {
 "": SubResource("AnimationLibrary_imk2m")
 }
 
-[node name="Bat_StateMachine" type="Node" parent="bat_area"]
+[node name="Bat_StateMachine" type="Node" parent="bat"]
 script = ExtResource("1_oeag0")
 initial_state = NodePath("Flying")
 
-[node name="Flying" type="Node" parent="bat_area/Bat_StateMachine"]
+[node name="Flying" type="Node" parent="bat/Bat_StateMachine"]
 script = ExtResource("2_ldkfn")
 
-[node name="Dead" type="Node" parent="bat_area/Bat_StateMachine"]
+[node name="Dead" type="Node" parent="bat/Bat_StateMachine"]
 script = ExtResource("4_ixxii")
