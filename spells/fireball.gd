@@ -39,9 +39,12 @@ func _on_body_entered(body):
 
 func _on_area_entered(area):
 	if area.is_in_group("enemies"):
-		speed = 0
 		if "dead" in area:
-			area.dead = true
+			if area.dead == false:
+				area.dead = true
+			elif area.dead == true:
+				return
 #		$AnimationPlayer.play("impact")
+		speed = 0
 		$Sprite2D.visible = false
 		$explosion.emitting = true

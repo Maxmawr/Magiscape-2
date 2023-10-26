@@ -633,5 +633,4 @@ shape = SubResource("RectangleShape2D_vi045")
 debug_color = Color(0.956863, 0, 0.533333, 0.419608)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Casting" method="_on_animation_player_animation_finished"]
-[connection signal="health_changed" from="StateMachine/Idle" to="healthbar" method="_on_idle_health_changed"]
 [connection signal="area_entered" from="collision detector" to="StateMachine/Idle" method="_on_collision_detector_area_entered"]
