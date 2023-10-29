@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var health = 10
+var mana = 100
 var ground_speed := 500.0
 var air_speed := 300.0
 var jump_height := 275.0

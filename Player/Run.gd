@@ -37,3 +37,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Idle")
 	elif Input.is_action_pressed("fireball"):
 		state_machine.transition_to("Casting", {fireball = true})
+		
+func update(delta: float) -> void:
+	if owner.health == 0:
+		state_machine.transition_to("Dead")

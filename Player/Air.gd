@@ -21,6 +21,7 @@ func physics_update(delta: float) -> void:
 		# Vertical movement.
 	owner.velocity.y += owner.gravity * delta
 	
+
 	if input_direction_x < 0:
 		owner.get_node("sprite").flip_h = true
 		Permavariables.direction_facing = "left"
@@ -36,3 +37,7 @@ func physics_update(delta: float) -> void:
 			state_machine.transition_to("Idle")
 		else:
 			state_machine.transition_to("Run")
+
+func update(delta: float) -> void:
+	if owner.health == 0:
+		state_machine.transition_to("Dead")

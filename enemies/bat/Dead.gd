@@ -8,6 +8,7 @@ var gravity = 10
 @onready var dead_collision = get_parent().get_parent().get_node("dead_collision")
 
 func enter(_msg := {}) -> void:
+	area.dead = true
 	dead_collision.disabled = false
 	alive_collision.disabled = true
 	animationplayer.play("dead")

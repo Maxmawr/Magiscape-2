@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxlk3jrm6l2dt"
-path="res://.godot/imported/Untitled.png-65dc856dcb312eba99e39be8ddfa0784.ctex"
+uid="uid://chdj4ul3rainr"
+path="res://.godot/imported/outline.png-554cf44a00ab1610ee88f1a7ac2b6e38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/healthbar/Untitled.png"
-dest_files=["res://.godot/imported/Untitled.png-65dc856dcb312eba99e39be8ddfa0784.ctex"]
+source_file="res://Player/manabar/outline.png"
+dest_files=["res://.godot/imported/outline.png-554cf44a00ab1610ee88f1a7ac2b6e38.ctex"]
 
 [params]
 
