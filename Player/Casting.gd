@@ -30,7 +30,7 @@ func physics_update(delta: float) -> void:
 		Permavariables.direction_facing = "right"
 
 func update(delta: float) -> void:
-	if owner.health == 0:
+	if Permavariables.health == 0:
 		state_machine.transition_to("Dead")
 
 
@@ -40,8 +40,7 @@ func _on_animation_player_animation_finished(anim_name):
 		state_machine.transition_to("Idle")
 
 func fireball():
-	owner.mana -= 50
-	mana.mana_changed()
+	Permavariables.mana -= 50
 	var b = owner.fireball.instantiate()
 	owner.owner.add_child(b)
 	b.transform = spell_spawn.global_transform

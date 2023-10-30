@@ -35,9 +35,9 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Air", {do_jump = true})
 	elif is_equal_approx(input_direction_x, 0.0):
 		state_machine.transition_to("Idle")
-	elif Input.is_action_pressed("fireball"):
+	elif Input.is_action_pressed("fireball") and Permavariables.mana >= 50:
 		state_machine.transition_to("Casting", {fireball = true})
 		
 func update(delta: float) -> void:
-	if owner.health == 0:
+	if Permavariables.health == 0:
 		state_machine.transition_to("Dead")

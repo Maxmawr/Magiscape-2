@@ -24,8 +24,8 @@ func update(delta: float) -> void:
 		state_machine.transition_to("Air", {do_jump = true})
 	elif Input.is_action_pressed("moveleft") or Input.is_action_pressed("moveright"):
 		state_machine.transition_to("Run")
-	elif Input.is_action_pressed("fireball"):
+	elif Input.is_action_pressed("fireball") and Permavariables.mana >= 50:
 		state_machine.transition_to("Casting", {fireball = true})
 	
-	if owner.health == 0:
+	if Permavariables.health == 0:
 		state_machine.transition_to("Dead")

@@ -1,5 +1,5 @@
 extends TextureProgressBar
 
 
-func mana_changed():
-	self.value = get_parent().mana
+func _process(delta):
+	self.value = Permavariables.mana

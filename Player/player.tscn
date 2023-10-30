@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dpjxfjttxa3gm"]
+[gd_scene load_steps=51 format=3 uid="uid://dpjxfjttxa3gm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8tbuo"]
 [ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://chdj4ul3rainr" path="res://Player/manabar/outline.png" id="13_psnnn"]
 [ext_resource type="Script" path="res://Player/manabar.gd" id="13_wyer3"]
 [ext_resource type="Texture2D" uid="uid://cy47txxtjajab" path="res://Player/manabar/top.png" id="14_cc34i"]
+[ext_resource type="Script" path="res://Player/mana_timer.gd" id="16_oimxa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a7m"]
 size = Vector2(10, 16)
@@ -637,9 +638,10 @@ offset_left = -138.0
 offset_top = -60.0
 offset_right = -90.0
 offset_bottom = -50.0
-value = 2.0
+value = 100.0
 texture_over = ExtResource("13_psnnn")
 texture_progress = ExtResource("14_cc34i")
+texture_progress_offset = Vector2(2, 2)
 script = ExtResource("13_wyer3")
 
 [node name="collision detector" type="Area2D" parent="."]
@@ -648,6 +650,11 @@ script = ExtResource("13_wyer3")
 shape = SubResource("RectangleShape2D_vi045")
 debug_color = Color(0.956863, 0, 0.533333, 0.419608)
 
+[node name="mana_timer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("16_oimxa")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Casting" method="_on_animation_player_animation_finished"]
 [connection signal="mana_changed" from="StateMachine/Casting" to="manabar" method="_on_casting_mana_changed"]
 [connection signal="area_entered" from="collision detector" to="healthbar" method="_on_collision_detector_area_entered"]
+[connection signal="timeout" from="mana_timer" to="mana_timer" method="_on_timeout"]
