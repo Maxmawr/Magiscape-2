@@ -11,7 +11,7 @@ func enter(_msg := {}) -> void:
 	owner.velocity = Vector2.ZERO
 	animationplayer.play(owner.colour + "_idle")
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	# If you have platforms that break when standing on them, you need that check for 
 	# the character to fall.
 	if not owner.is_on_floor():

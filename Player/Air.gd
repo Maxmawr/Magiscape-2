@@ -38,6 +38,6 @@ func physics_update(delta: float) -> void:
 		else:
 			state_machine.transition_to("Run")
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	if Permavariables.health == 0:
 		state_machine.transition_to("Dead")

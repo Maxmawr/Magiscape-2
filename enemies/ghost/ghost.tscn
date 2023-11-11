@@ -1,0 +1,139 @@
+[gd_scene load_steps=14 format=3 uid="uid://dhplvlnmkohun"]
+
+[ext_resource type="Texture2D" uid="uid://n5yvmanbmw7p" path="res://enemies/ghost/ghost.png" id="1_3tkra"]
+[ext_resource type="Script" path="res://enemies/ghost/ghost.gd" id="1_fgp5q"]
+[ext_resource type="Script" path="res://enemies/ghost/Ghost_StateMachine.gd" id="2_6kewg"]
+[ext_resource type="Script" path="res://enemies/ghost/Patrolling.gd" id="3_lrtn3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bylx"]
+size = Vector2(14, 16)
+
+[sub_resource type="Animation" id="Animation_5odh8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_mpf40"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_gpjd5"]
+resource_name = "dead"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_ecs0v"]
+resource_name = "moving"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wd22w"]
+_data = {
+"RESET": SubResource("Animation_5odh8"),
+"attack": SubResource("Animation_mpf40"),
+"dead": SubResource("Animation_gpjd5"),
+"moving": SubResource("Animation_ecs0v")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ir84"]
+radius = 66.0076
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4lsg"]
+size = Vector2(98, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g271j"]
+size = Vector2(94, 20)
+
+[node name="Ghost" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_fgp5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_4bylx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3tkra")
+hframes = 6
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wd22w")
+}
+
+[node name="sight_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sight_area"]
+shape = SubResource("CircleShape2D_3ir84")
+
+[node name="patrol_left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="patrol_left"]
+position = Vector2(-55, 0)
+shape = SubResource("RectangleShape2D_y4lsg")
+debug_color = Color(0.87451, 0.317647, 0.360784, 0.419608)
+
+[node name="patrol_right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="patrol_right"]
+position = Vector2(55, 0)
+shape = SubResource("RectangleShape2D_g271j")
+debug_color = Color(0.87451, 0.317647, 0.360784, 0.419608)
+
+[node name="Ghost_StateMachine" type="Node" parent="."]
+script = ExtResource("2_6kewg")
+initial_state = NodePath("Patrolling")
+
+[node name="Patrolling" type="Node" parent="Ghost_StateMachine"]
+script = ExtResource("3_lrtn3")
+
+[connection signal="body_entered" from="patrol_left" to="Ghost_StateMachine/Patrolling" method="_on_patrol_left_body_entered"]
+[connection signal="body_entered" from="patrol_right" to="Ghost_StateMachine/Patrolling" method="_on_patrol_right_body_entered"]

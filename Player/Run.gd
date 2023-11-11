@@ -2,6 +2,7 @@
 extends State
 
 @onready var animationplayer = owner.get_node("AnimationPlayer")
+@onready var spell_spawn = owner.get_node("spell_spawn")
 
 func enter(_msg := {}) -> void:
 	animationplayer.play(owner.colour + "_walk")
@@ -25,9 +26,11 @@ func physics_update(delta: float) -> void:
 	if input_direction_x < 0:
 		owner.get_node("sprite").flip_h = true
 		Permavariables.direction_facing = "left"
+		spell_spawn.position.x = -10
 	if input_direction_x > 0:
 		owner.get_node("sprite").flip_h = false
 		Permavariables.direction_facing = "right"
+		spell_spawn.position.x = 10
 	owner.velocity.y += owner.gravity * delta
 	owner.move_and_slide()
 
@@ -38,6 +41,6 @@ func physics_update(delta: float) -> void:
 	elif Input.is_action_pressed("fireball") and Permavariables.mana >= 50:
 		state_machine.transition_to("Casting", {fireball = true})
 		
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	if Permavariables.health == 0:
 		state_machine.transition_to("Dead")

@@ -18,7 +18,7 @@ func enter(_msg := {}) -> void:
 	alive_collision.disabled = false
 	animationplayer.play("flying")
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	thispos = owner.progress
 #	if thispos > lastpos:
 #		owner.get_node("sprite").flip_h = false

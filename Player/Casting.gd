@@ -1,13 +1,13 @@
 extends State
 
+var current_spell
 signal mana_changed
 @onready var animationplayer = owner.get_node("AnimationPlayer")
 @onready var spell_spawn = owner.get_node("spell_spawn")
 @onready var mana = owner.get_node("manabar")
 
 func enter(msg := {}) -> void:
-	if msg.has("fireball"):
-		fireball()
+	current_spell = msg
 	animationplayer.play(owner.colour + "_cast")
 
 func physics_update(delta: float) -> void:
@@ -29,7 +29,7 @@ func physics_update(delta: float) -> void:
 		owner.get_node("sprite").flip_h = false
 		Permavariables.direction_facing = "right"
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	if Permavariables.health == 0:
 		state_machine.transition_to("Dead")
 
@@ -45,3 +45,6 @@ func fireball():
 	owner.owner.add_child(b)
 	b.transform = spell_spawn.global_transform
 
+func handle_spell():
+	if current_spell.has("fireball"):
+		fireball()

@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://d1pg1h2ip1eu5" path="res://enemies/bat/bat.png" id="1_0yd68"]
 [ext_resource type="Script" path="res://enemies/bat/bat_area.gd" id="1_b07sf"]
-[ext_resource type="Script" path="res://enemies/bat/StateMachine.gd" id="1_oeag0"]
 [ext_resource type="Script" path="res://enemies/bat/Flying.gd" id="2_ldkfn"]
+[ext_resource type="Script" path="res://enemies/bat/Bat_StateMachine.gd" id="3_plofm"]
 [ext_resource type="Script" path="res://enemies/bat/Dead.gd" id="4_ixxii"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nt44k"]
@@ -92,7 +92,7 @@ libraries = {
 }
 
 [node name="Bat_StateMachine" type="Node" parent="bat"]
-script = ExtResource("1_oeag0")
+script = ExtResource("3_plofm")
 initial_state = NodePath("Flying")
 
 [node name="Flying" type="Node" parent="bat/Bat_StateMachine"]

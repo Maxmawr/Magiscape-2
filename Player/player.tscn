@@ -50,6 +50,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [3, 4]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/Casting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"handle_spell"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_cqkd7"]
 resource_name = "blue_dead"
@@ -133,6 +147,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [17, 18]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/Casting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"handle_spell"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_3x1ky"]
@@ -218,6 +246,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [31, 32]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/Casting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"handle_spell"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_kr07r"]
 resource_name = "dark_dead"
@@ -301,6 +343,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [45, 46]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/Casting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"handle_spell"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_s6jrt"]
@@ -386,6 +442,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [59, 60]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/Casting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"handle_spell"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_3x13b"]
 resource_name = "red_dead"
@@ -469,6 +539,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [73, 74]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/Casting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"handle_spell"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_pccu7"]
@@ -597,11 +681,11 @@ libraries = {
 "": SubResource("AnimationLibrary_kis8h")
 }
 
+[node name="spell_spawn" type="Marker2D" parent="."]
+position = Vector2(10, 0)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-
-[node name="spell_spawn" type="Marker2D" parent="."]
-position = Vector2(9, 0)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_lxbhr")
@@ -625,7 +709,7 @@ script = ExtResource("9_b4lrf")
 [node name="healthbar" type="TextureProgressBar" parent="."]
 offset_left = -138.0
 offset_top = -74.0
-offset_right = -114.0
+offset_right = -90.0
 offset_bottom = -64.0
 max_value = 10.0
 value = 10.0
