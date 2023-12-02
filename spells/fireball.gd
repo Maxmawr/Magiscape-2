@@ -22,29 +22,33 @@ func _process(_delta):
 		$Sprite2D.set_flip_h(true)
 
 
-func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "impact":
-		queue_free()
-
-
 func _on_body_entered(body):
 	if body.is_in_group("enemies") or body.is_in_group("wall"):
+		if body.name == "Ghost":
+			body.handle_hit(5)
 		speed = 0
-		if "dead" in body:
-			body.dead = true
-#		$AnimationPlayer.play("impact")
 		$Sprite2D.visible = false
+		call_deferred("disable_collision")
 		$explosion.emitting = true
+		$delete_timer.start()
 
 
 func _on_area_entered(area):
 	if area.is_in_group("enemies"):
-		if "dead" in area:
+		if area.name == "bat":
 			if area.dead == false:
 				area.dead = true
 			elif area.dead == true:
 				return
-#		$AnimationPlayer.play("impact")
 		speed = 0
 		$Sprite2D.visible = false
+		call_deferred("disable_collision")
 		$explosion.emitting = true
+		$delete_timer.start()
+
+
+func _on_delete_timer_timeout():
+	queue_free()
+
+func disable_collision():
+	$CollisionShape2D.disabled = true

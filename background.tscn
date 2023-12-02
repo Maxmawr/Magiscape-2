@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://cmwiaweywngp7"]
+
+[node name="background" type="TileMap"]
+format = 2

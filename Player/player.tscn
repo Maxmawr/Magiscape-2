@@ -685,7 +685,9 @@ libraries = {
 position = Vector2(10, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+position = Vector2(0, 25)
+offset = Vector2(0, -50)
+zoom = Vector2(3, 3)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_lxbhr")
@@ -707,10 +709,10 @@ script = ExtResource("7_q10ft")
 script = ExtResource("9_b4lrf")
 
 [node name="healthbar" type="TextureProgressBar" parent="."]
-offset_left = -138.0
-offset_top = -74.0
-offset_right = -90.0
-offset_bottom = -64.0
+offset_left = -183.0
+offset_top = -124.0
+offset_right = -135.0
+offset_bottom = -114.0
 max_value = 10.0
 value = 10.0
 texture_over = ExtResource("9_v3eek")
@@ -718,10 +720,10 @@ texture_progress = ExtResource("10_p0a6t")
 script = ExtResource("11_28avy")
 
 [node name="manabar" type="TextureProgressBar" parent="."]
-offset_left = -138.0
-offset_top = -60.0
-offset_right = -90.0
-offset_bottom = -50.0
+offset_left = -183.0
+offset_top = -110.0
+offset_right = -135.0
+offset_bottom = -100.0
 value = 100.0
 texture_over = ExtResource("13_psnnn")
 texture_progress = ExtResource("14_cc34i")

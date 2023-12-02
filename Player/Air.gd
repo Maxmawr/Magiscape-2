@@ -41,3 +41,5 @@ func physics_update(delta: float) -> void:
 func update(_delta: float) -> void:
 	if Permavariables.health == 0:
 		state_machine.transition_to("Dead")
+	elif Input.is_action_pressed("fireball") and Permavariables.mana >= 50:
+		state_machine.transition_to("Casting", {fireball = true})

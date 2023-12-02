@@ -1,12 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://dhplvlnmkohun"]
+[gd_scene load_steps=25 format=3 uid="uid://dhplvlnmkohun"]
 
 [ext_resource type="Texture2D" uid="uid://n5yvmanbmw7p" path="res://enemies/ghost/ghost.png" id="1_3tkra"]
 [ext_resource type="Script" path="res://enemies/ghost/ghost.gd" id="1_fgp5q"]
 [ext_resource type="Script" path="res://enemies/ghost/Ghost_StateMachine.gd" id="2_6kewg"]
 [ext_resource type="Script" path="res://enemies/ghost/Patrolling.gd" id="3_lrtn3"]
+[ext_resource type="Script" path="res://enemies/ghost/Hostile.gd" id="5_v1esh"]
+[ext_resource type="Script" path="res://enemies/ghost/Knockback.gd" id="6_1w2xa"]
+[ext_resource type="Script" path="res://enemies/ghost/Attacking.gd" id="7_h3lqr"]
+[ext_resource type="Script" path="res://enemies/ghost/Dead.gd" id="7_phu1t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bylx"]
 size = Vector2(14, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wb865"]
+size = Vector2(16, 4)
 
 [sub_resource type="Animation" id="Animation_5odh8"]
 length = 0.001
@@ -21,6 +28,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:speed")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_mpf40"]
@@ -38,11 +69,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [3, 4]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ghost_StateMachine/Attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_gpjd5"]
 resource_name = "dead"
-length = 0.1
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -54,6 +97,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ecs0v"]
@@ -90,14 +145,56 @@ size = Vector2(98, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g271j"]
 size = Vector2(94, 20)
 
-[node name="Ghost" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88dik"]
+size = Vector2(15.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_836mx"]
+size = Vector2(15.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsxby"]
+size = Vector2(14, 16)
+
+[sub_resource type="Animation" id="Animation_suubo"]
+resource_name = "Knockback"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-400.0, -200.0, -100.0]
+}
+
+[sub_resource type="Animation" id="Animation_154yl"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ua5l"]
+_data = {
+"Knockback": SubResource("Animation_suubo"),
+"RESET": SubResource("Animation_154yl")
+}
+
+[node name="Ghost" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_fgp5q")
+metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="alive_collision" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_4bylx")
+
+[node name="dead_collision_area" type="Area2D" parent="."]
+
+[node name="dead_collision" type="CollisionShape2D" parent="dead_collision_area"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_wb865")
+disabled = true
+debug_color = Color(0.772549, 0.0784314, 0.247059, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3tkra")
@@ -110,11 +207,13 @@ libraries = {
 }
 
 [node name="sight_area" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sight_area"]
 shape = SubResource("CircleShape2D_3ir84")
 
 [node name="patrol_left" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="patrol_left"]
 position = Vector2(-55, 0)
@@ -122,11 +221,33 @@ shape = SubResource("RectangleShape2D_y4lsg")
 debug_color = Color(0.87451, 0.317647, 0.360784, 0.419608)
 
 [node name="patrol_right" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="patrol_right"]
 position = Vector2(55, 0)
 shape = SubResource("RectangleShape2D_g271j")
 debug_color = Color(0.87451, 0.317647, 0.360784, 0.419608)
+
+[node name="attackbox_right" type="Area2D" parent="."]
+position = Vector2(11, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackbox_right"]
+position = Vector2(-3.25, 0)
+shape = SubResource("RectangleShape2D_88dik")
+
+[node name="attackbox_left" type="Area2D" parent="."]
+position = Vector2(-11, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackbox_left"]
+position = Vector2(3.25, 0)
+shape = SubResource("RectangleShape2D_836mx")
+
+[node name="collision_detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_detector"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_vsxby")
+debug_color = Color(0.341176, 0.498039, 0.964706, 0.419608)
 
 [node name="Ghost_StateMachine" type="Node" parent="."]
 script = ExtResource("2_6kewg")
@@ -135,5 +256,36 @@ initial_state = NodePath("Patrolling")
 [node name="Patrolling" type="Node" parent="Ghost_StateMachine"]
 script = ExtResource("3_lrtn3")
 
+[node name="Hostile" type="Node" parent="Ghost_StateMachine"]
+script = ExtResource("5_v1esh")
+
+[node name="Knockback" type="Node" parent="Ghost_StateMachine"]
+script = ExtResource("6_1w2xa")
+
+[node name="Attacking" type="Node" parent="Ghost_StateMachine"]
+script = ExtResource("7_h3lqr")
+
+[node name="Dead" type="Node" parent="Ghost_StateMachine"]
+script = ExtResource("7_phu1t")
+
+[node name="Knockback" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ua5l")
+}
+
+[connection signal="change_to_dead" from="." to="Ghost_StateMachine/Patrolling" method="_on_ghost_change_to_dead"]
+[connection signal="change_to_dead" from="." to="Ghost_StateMachine/Hostile" method="_on_ghost_change_to_dead"]
+[connection signal="change_to_dead" from="." to="Ghost_StateMachine/Knockback" method="_on_ghost_change_to_dead"]
+[connection signal="change_to_knockback" from="." to="Ghost_StateMachine/Patrolling" method="_on_ghost_change_to_knockback"]
+[connection signal="change_to_knockback" from="." to="Ghost_StateMachine/Hostile" method="_on_ghost_change_to_knockback"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Ghost_StateMachine/Attacking" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="sight_area" to="Ghost_StateMachine/Patrolling" method="_on_sight_area_body_entered"]
 [connection signal="body_entered" from="patrol_left" to="Ghost_StateMachine/Patrolling" method="_on_patrol_left_body_entered"]
 [connection signal="body_entered" from="patrol_right" to="Ghost_StateMachine/Patrolling" method="_on_patrol_right_body_entered"]
+[connection signal="body_entered" from="attackbox_right" to="Ghost_StateMachine/Hostile" method="_on_attackbox_right_body_entered"]
+[connection signal="body_entered" from="attackbox_right" to="Ghost_StateMachine/Attacking" method="_on_attackbox_right_body_entered"]
+[connection signal="body_exited" from="attackbox_right" to="Ghost_StateMachine/Attacking" method="_on_attackbox_right_body_exited"]
+[connection signal="body_entered" from="attackbox_left" to="Ghost_StateMachine/Hostile" method="_on_attackbox_left_body_entered"]
+[connection signal="body_entered" from="attackbox_left" to="Ghost_StateMachine/Attacking" method="_on_attackbox_left_body_entered"]
+[connection signal="body_exited" from="attackbox_left" to="Ghost_StateMachine/Attacking" method="_on_attackbox_left_body_exited"]
+[connection signal="animation_finished" from="Knockback" to="Ghost_StateMachine/Knockback" method="_on_knockback_animation_finished"]
