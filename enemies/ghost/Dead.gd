@@ -16,3 +16,8 @@ func update(_delta: float) -> void:
 func physics_update(delta: float) -> void:
 	if dead_collision_area.has_overlapping_bodies() == false:
 		owner.position.y += + gravity * delta
+
+
+#func _on_animation_player_animation_finished(anim_name):
+	#if anim_name == "dead":
+		#queue_free()

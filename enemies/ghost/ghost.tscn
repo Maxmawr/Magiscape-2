@@ -279,6 +279,7 @@ libraries = {
 [connection signal="change_to_knockback" from="." to="Ghost_StateMachine/Patrolling" method="_on_ghost_change_to_knockback"]
 [connection signal="change_to_knockback" from="." to="Ghost_StateMachine/Hostile" method="_on_ghost_change_to_knockback"]
 [connection signal="animation_finished" from="AnimationPlayer" to="Ghost_StateMachine/Attacking" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Ghost_StateMachine/Dead" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="sight_area" to="Ghost_StateMachine/Patrolling" method="_on_sight_area_body_entered"]
 [connection signal="body_entered" from="patrol_left" to="Ghost_StateMachine/Patrolling" method="_on_patrol_left_body_entered"]
 [connection signal="body_entered" from="patrol_right" to="Ghost_StateMachine/Patrolling" method="_on_patrol_right_body_entered"]
