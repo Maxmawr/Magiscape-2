@@ -45,6 +45,14 @@ func fireball():
 	owner.owner.add_child(b)
 	b.transform = spell_spawn.global_transform
 
+func vinespell():
+	Permavariables.mana -= 25
+	var b = owner.vinespell.instantiate()
+	owner.owner.add_child(b)
+	b.transform = spell_spawn.global_transform
+
 func handle_spell():
 	if current_spell.has("fireball"):
 		fireball()
+	elif current_spell.has("vinespell"):
+		vinespell()

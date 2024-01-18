@@ -1,8 +1,9 @@
-[gd_scene load_steps=51 format=3 uid="uid://dpjxfjttxa3gm"]
+[gd_scene load_steps=52 format=3 uid="uid://dpjxfjttxa3gm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8tbuo"]
 [ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
 [ext_resource type="PackedScene" uid="uid://cmsd32g1ra52q" path="res://spells/fireball.tscn" id="2_svchr"]
+[ext_resource type="PackedScene" uid="uid://dlap44dthbsi6" path="res://spells/vinespell.tscn" id="3_gumi8"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_lxbhr"]
 [ext_resource type="Script" path="res://Player/Run.gd" id="4_6dl0g"]
 [ext_resource type="Script" path="res://Player/Idle.gd" id="4_yum8l"]
@@ -663,8 +664,10 @@ size = Vector2(10, 16)
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(60, -22)
+collision_mask = 3
 script = ExtResource("1_8tbuo")
 fireball = ExtResource("2_svchr")
+vinespell = ExtResource("3_gumi8")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

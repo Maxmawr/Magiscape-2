@@ -27,3 +27,7 @@ func update(_delta: float) -> void:
 #	lastpos = thispos
 	if area.dead == true:
 		state_machine.transition_to("Dead")
+
+
+func _on_bat_bind():
+	state_machine.transition_to("Bind")

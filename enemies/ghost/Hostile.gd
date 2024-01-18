@@ -8,8 +8,7 @@ extends State
 @onready var attack_area_right = owner.get_node("attackbox_right/CollisionShape2D")
 
 
-func enter(_msg := {}) -> void:
-	print("hostile")
+func enter(msg := {}) -> void:
 	owner.hostile_speed = 3000
 	owner.get_node("AnimationPlayer").play("moving")
 
@@ -32,19 +31,13 @@ func physics_update(delta: float) -> void:
 		owner.direction_facing = "left"
 	owner.move_and_slide()
 
-
-func _on_ghost_change_to_knockback():
-	state_machine.transition_to("Knockback")
-
-
-func _on_ghost_change_to_dead():
-	state_machine.transition_to("Dead")
-
 func _on_attackbox_right_body_entered(body):
-	if body.name == "player":
-		state_machine.transition_to("Attacking")
+	if state_machine.state == self:
+		if body.name == "player":
+			state_machine.transition_to("Attacking")
 
 
 func _on_attackbox_left_body_entered(body):
-	if body.name == "player":
-		state_machine.transition_to("Attacking")
+	if state_machine.state == self:
+		if body.name == "player":
+			state_machine.transition_to("Attacking")

@@ -25,24 +25,10 @@ func physics_update(_delta: float) -> void:
 	owner.move_and_slide()
 
 
-func _on_patrol_left_body_entered(body):
-	if body.is_in_group("wall"):
-		owner.direction_facing = "right"
-
-
 func _on_patrol_right_body_entered(body):
-	if body.is_in_group("wall"):
-		owner.direction_facing = "left"
+	if state_machine.state == self:
+		if body.is_in_group("wall"):
+			owner.direction_facing = "left"
 
 
-func _on_sight_area_body_entered(body):
-	if body.name == "player":
-		state_machine.transition_to("Hostile")
 
-
-func _on_ghost_change_to_knockback():
-	state_machine.transition_to("Knockback")
-
-
-func _on_ghost_change_to_dead():
-	state_machine.transition_to("Dead")

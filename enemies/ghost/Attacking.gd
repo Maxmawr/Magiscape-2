@@ -33,34 +33,40 @@ func physics_update(delta: float) -> void:
 
 func attack():
 	if canhit == true:
-		player.take_damage(5)
+		player.take_damage(2)
 	else:
 		return
 
 
 func _on_attackbox_right_body_entered(body):
-	if body.name == "player":
-		canhit = true
+	if state_machine.state == self:
+		if body.name == "player":
+			canhit = true
 
 
 func _on_attackbox_right_body_exited(body):
-	if body.name == "player":
-		canhit = false
+	if state_machine.state == self:
+		if body.name == "player":
+			canhit = false
 
 
 func _on_attackbox_left_body_entered(body):
-	if body.name == "player":
-		canhit = true
+	if state_machine.state == self:
+		if body.name == "player":
+			canhit = true
 
 
 func _on_attackbox_left_body_exited(body):
-	if body.name == "player":
-		canhit = false
+	if state_machine.state == self:
+		if body.name == "player":
+			canhit = false
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if anim_name == "Attack":
-		state_machine.transition_to("Hostile")
+	if state_machine.state == self:
+		if anim_name == "attack":
+			state_machine.transition_to("Hostile")
+			print("weagag")
 
 func disable_left():
 	attack_area_left.disabled = true

@@ -43,3 +43,5 @@ func update(_delta: float) -> void:
 		state_machine.transition_to("Dead")
 	elif Input.is_action_pressed("fireball") and Permavariables.mana >= 50:
 		state_machine.transition_to("Casting", {fireball = true})
+	elif Input.is_action_pressed("vinespell") and Permavariables.mana >= 25:
+		state_machine.transition_to("Casting", {vinespell = true})

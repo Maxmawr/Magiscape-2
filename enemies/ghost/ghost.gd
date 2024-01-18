@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal change_to_knockback
 signal change_to_dead
+signal bind
 
 @export var health = 10
 @export var direction_facing = "right"
@@ -18,3 +19,6 @@ func handle_hit(damage):
 	if dead == false:
 		health -= damage
 		emit_signal("change_to_knockback")
+
+func vine_bind():
+	emit_signal("bind")

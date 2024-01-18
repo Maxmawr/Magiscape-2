@@ -4,6 +4,7 @@ extends State
 
 func enter(_msg := {}) -> void:
 	if owner.get_node("Knockback").current_animation not in "Knockback":
+		owner.get_node("AnimationPlayer").play("RESET")
 		owner.get_node("Knockback").play("Knockback")
 
 func update(_delta: float) -> void:

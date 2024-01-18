@@ -48,3 +48,28 @@ func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	state = get_node(target_state_name)
 	state.enter(msg)
 	emit_signal("transitioned", state.name)
+
+
+func _on_ghost_bind():
+	if state == get_node("Bind"):
+		get_node("Bind").restart()
+	else:
+		transition_to("Bind")
+
+
+func _on_ghost_change_to_dead():
+	transition_to("Dead")
+
+
+func _on_ghost_change_to_knockback():
+	transition_to("Knockback")
+
+
+func _on_sight_area_body_entered(body):
+	if body.name == "player" and state == get_node("Patrolling"):
+		transition_to("Hostile")
+
+
+func _on_patrol_left_body_entered(body):
+	if body.is_in_group("wall") and state == get_node("Patrolling"):
+		owner.direction_facing = "right"

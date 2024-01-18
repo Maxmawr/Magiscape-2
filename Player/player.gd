@@ -7,6 +7,7 @@ var speed := 200.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var colour = Permavariables.colour
 @export var fireball : PackedScene
+@export var vinespell : PackedScene
 
 func take_damage(damage):
 	Permavariables.health -= damage
