@@ -6,11 +6,15 @@ extends State
 @onready var collision_detector = owner.get_node("collision_detector")
 @onready var attack_area_left = owner.get_node("attackbox_left/CollisionShape2D")
 @onready var attack_area_right = owner.get_node("attackbox_right/CollisionShape2D")
+@onready var dead = owner.get_node("Ghost_StateMachine/Dead")
 
 
 func enter(msg := {}) -> void:
-	owner.hostile_speed = 3000
-	owner.get_node("AnimationPlayer").play("moving")
+	if owner.dead == false:
+		owner.hostile_speed = 3000
+		owner.get_node("AnimationPlayer").play("moving")
+	else:
+		state_machine.transition_to("dead")
 
 func update(_delta: float) -> void:
 	if owner.direction_facing == "right":

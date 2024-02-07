@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvo2aud1mhg8n"]
+[gd_scene load_steps=12 format=3 uid="uid://bvo2aud1mhg8n"]
 
 [ext_resource type="Texture2D" uid="uid://2ur4n133jquv" path="res://Assets/simples_pimples.png" id="1_444kj"]
 [ext_resource type="PackedScene" uid="uid://dpjxfjttxa3gm" path="res://Player/player.tscn" id="1_x6eib"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dikixif346vf6" path="res://enemies/bat/bat.tscn" id="5_28u6f"]
 [ext_resource type="PackedScene" uid="uid://cmwiaweywngp7" path="res://background.tscn" id="6_mcmwc"]
 [ext_resource type="PackedScene" uid="uid://dhplvlnmkohun" path="res://enemies/ghost/ghost.tscn" id="7_8sur5"]
+[ext_resource type="PackedScene" uid="uid://paywmxjb53r3" path="res://GUI/gui.tscn" id="8_04k02"]
 
 [sub_resource type="Curve2D" id="Curve2D_foxpt"]
 _data = {
@@ -1478,3 +1479,5 @@ layer_0/tile_data = PackedInt32Array(-131071, 458752, 2, -65535, 458752, 2, -131
 
 [node name="one_way_platform2" parent="." instance=ExtResource("3_8hufn")]
 position = Vector2(344, -27)
+
+[node name="GUI" parent="." instance=ExtResource("8_04k02")]

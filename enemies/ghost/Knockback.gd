@@ -22,7 +22,7 @@ func physics_update(delta: float) -> void:
 
 
 func _on_knockback_animation_finished(anim_name):
-	if anim_name == "Knockback":
+	if anim_name == "Knockback" and state_machine.state == self:
 		state_machine.transition_to("Hostile")
 
 

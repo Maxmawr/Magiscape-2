@@ -23,7 +23,7 @@ func _process(_delta):
 
 
 func _on_body_entered(body):
-	if body.is_in_group("enemies") and body.has_method("vine_bind"):
+	if body.is_in_group("enemies") and body.has_method("vine_bind") and body.dead == false:
 		body.vine_bind()
 		speed = 0
 		$Sprite2D.visible = false
@@ -33,7 +33,7 @@ func _on_body_entered(body):
 
 
 func _on_area_entered(area):
-	if area.is_in_group("enemies") and area.has_method("vine_bind"):
+	if area.is_in_group("enemies") and area.has_method("vine_bind") and area.dead == false:
 		area.vine_bind()
 		speed = 0
 		$Sprite2D.visible = false

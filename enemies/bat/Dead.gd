@@ -12,6 +12,7 @@ func enter(_msg := {}) -> void:
 	dead_collision.disabled = false
 	alive_collision.disabled = true
 	animationplayer.play("dead")
+	owner.get_node("bat/TextureProgressBar").visible = false
 
 
 

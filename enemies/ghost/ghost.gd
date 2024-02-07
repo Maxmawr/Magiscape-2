@@ -21,4 +21,5 @@ func handle_hit(damage):
 		emit_signal("change_to_knockback")
 
 func vine_bind():
-	emit_signal("bind")
+	if dead == false:
+		emit_signal("bind")
