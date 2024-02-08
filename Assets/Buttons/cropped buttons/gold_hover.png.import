@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y5idec3pa6p7"
-path="res://.godot/imported/somebuttonsvariation2.png-f075f59793a7f0faab3df71f8bc9cdbb.ctex"
+uid="uid://dkntlox336m8j"
+path="res://.godot/imported/gold_hover.png-a2328f7e119d696119c3f372fbd8b93e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buttons/somebuttonsvariation2.png"
-dest_files=["res://.godot/imported/somebuttonsvariation2.png-f075f59793a7f0faab3df71f8bc9cdbb.ctex"]
+source_file="res://Assets/Buttons/cropped buttons/gold_hover.png"
+dest_files=["res://.godot/imported/gold_hover.png-a2328f7e119d696119c3f372fbd8b93e.ctex"]
 
 [params]
 

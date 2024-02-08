@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q4aa5ga4a4t3"
-path="res://.godot/imported/somebuttonsvariation1.png-91202fe82e5ce18f038afb55294d8547.ctex"
+uid="uid://cyg8afuqnpwyx"
+path="res://.godot/imported/red-grey_pressed.png-d8b7798c847b4cb6fdebe4b00338a667.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Buttons/somebuttonsvariation1.png"
-dest_files=["res://.godot/imported/somebuttonsvariation1.png-91202fe82e5ce18f038afb55294d8547.ctex"]
+source_file="res://Assets/Buttons/cropped buttons/red-grey_pressed.png"
+dest_files=["res://.godot/imported/red-grey_pressed.png-d8b7798c847b4cb6fdebe4b00338a667.ctex"]
 
 [params]
 
