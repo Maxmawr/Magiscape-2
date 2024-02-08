@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dpjxfjttxa3gm"]
+[gd_scene load_steps=53 format=3 uid="uid://dpjxfjttxa3gm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8tbuo"]
 [ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Player/manabar.gd" id="13_wyer3"]
 [ext_resource type="Texture2D" uid="uid://cy47txxtjajab" path="res://Player/manabar/top.png" id="14_cc34i"]
 [ext_resource type="Script" path="res://Player/mana_timer.gd" id="16_oimxa"]
+[ext_resource type="FontFile" uid="uid://doyr4x7sqpheo" path="res://Assets/Fonts/joystix monospace.otf" id="18_ngnwa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a7m"]
 size = Vector2(10, 16)
@@ -664,7 +665,6 @@ size = Vector2(10, 16)
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(60, -22)
-collision_mask = 3
 script = ExtResource("1_8tbuo")
 fireball = ExtResource("2_svchr")
 vinespell = ExtResource("3_gumi8")
@@ -742,6 +742,17 @@ debug_color = Color(0.956863, 0, 0.533333, 0.419608)
 [node name="mana_timer" type="Timer" parent="."]
 autostart = true
 script = ExtResource("16_oimxa")
+
+[node name="death_text" type="Label" parent="."]
+visible = false
+offset_left = -116.0
+offset_top = -61.0
+offset_right = 121.0
+offset_bottom = -12.0
+theme_override_fonts/font = ExtResource("18_ngnwa")
+text = "You're Dead!
+Press R to restart"
+horizontal_alignment = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Casting" method="_on_animation_player_animation_finished"]
 [connection signal="mana_changed" from="StateMachine/Casting" to="manabar" method="_on_casting_mana_changed"]

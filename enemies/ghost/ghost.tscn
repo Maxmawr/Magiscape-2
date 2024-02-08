@@ -274,7 +274,7 @@ _data = {
 
 [node name="Ghost" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_fgp5q")
 metadata/_edit_group_ = true
 

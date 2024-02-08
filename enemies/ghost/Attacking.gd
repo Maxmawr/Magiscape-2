@@ -9,7 +9,7 @@ extends State
 @onready var attack_area_right = owner.get_node("attackbox_right/CollisionShape2D")
 
 func enter(_msg := {}) -> void:
-	owner.hostile_speed = 3000
+	owner.hostile_speed = 0
 	owner.get_node("AnimationPlayer").play("attack")
 	if owner.direction_facing == "right":
 		call_deferred("disable_left")
@@ -63,10 +63,11 @@ func _on_attackbox_left_body_exited(body):
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if state_machine.state == self:
-		if anim_name == "attack":
+	if state_machine.state == self and anim_name == "attack":
+		if canhit == true:
+			enter()
+		elif canhit == false:
 			state_machine.transition_to("Hostile")
-			print("weagag")
 
 func disable_left():
 	attack_area_left.disabled = true
