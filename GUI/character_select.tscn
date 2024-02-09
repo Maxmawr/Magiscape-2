@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bpww2np4khaf7"]
+[gd_scene load_steps=37 format=3 uid="uid://b5i7sfhe8qg2p"]
 
 [ext_resource type="Texture2D" uid="uid://c5fes3gl11lir" path="res://Assets/mages/blue_select.png" id="1_ua1kf"]
 [ext_resource type="Script" path="res://blue_select.gd" id="2_hxwwh"]

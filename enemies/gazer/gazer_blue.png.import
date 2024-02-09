@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cciib66h20a8s"
-path="res://.godot/imported/gazers.png-66ee571379ef8b1669d54094fcfd99fb.ctex"
+uid="uid://ctxah187j2wrs"
+path="res://.godot/imported/gazer_blue.png-afaeda5df5a2a9ec7778b68a08f0349c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gazers.png"
-dest_files=["res://.godot/imported/gazers.png-66ee571379ef8b1669d54094fcfd99fb.ctex"]
+source_file="res://enemies/gazer/gazer_blue.png"
+dest_files=["res://.godot/imported/gazer_blue.png-afaeda5df5a2a9ec7778b68a08f0349c.ctex"]
 
 [params]
 

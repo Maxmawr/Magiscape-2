@@ -20,11 +20,11 @@ func enter(_msg := {}) -> void:
 
 func update(_delta: float) -> void:
 	thispos = owner.progress
-#	if thispos > lastpos:
-#		owner.get_node("sprite").flip_h = false
-#	else:
-#		owner.get_node("sprite").flip_h = true
-#	lastpos = thispos
+	if thispos > lastpos:
+		owner.get_node("bat/sprite").flip_h = false
+	else:
+		owner.get_node("bat/sprite").flip_h = true
+	lastpos = thispos
 	if area.dead == true:
 		state_machine.transition_to("Dead")
 

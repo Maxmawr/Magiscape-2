@@ -9,7 +9,7 @@ extends State
 @onready var dead = owner.get_node("Ghost_StateMachine/Dead")
 
 
-func enter(msg := {}) -> void:
+func enter(_msg := {}) -> void:
 	if owner.dead == false:
 		owner.hostile_speed = 3000
 		owner.get_node("AnimationPlayer").play("moving")

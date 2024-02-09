@@ -2,7 +2,7 @@ extends Control
 
 var is_paused = false
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		pause_unpause()
 

@@ -1,0 +1,77 @@
+[gd_scene load_steps=9 format=3 uid="uid://h5p36kvc37hk"]
+
+[ext_resource type="Texture2D" uid="uid://ctxah187j2wrs" path="res://enemies/gazer/gazer_blue.png" id="1_383q0"]
+[ext_resource type="Script" path="res://enemies/gazer/Gazer_StateMachine.gd" id="2_ww6rc"]
+[ext_resource type="Script" path="res://enemies/gazer/Idle.gd" id="3_ybaik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_djm7q"]
+size = Vector2(12, 12)
+
+[sub_resource type="Animation" id="Animation_c5xoc"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_tabrv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pjhb5"]
+_data = {
+"RESET": SubResource("Animation_tabrv"),
+"idle": SubResource("Animation_c5xoc")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xi0vc"]
+radius = 81.2527
+
+[node name="gazer" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_djm7q")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_383q0")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pjhb5")
+}
+
+[node name="sight_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sight_area"]
+shape = SubResource("CircleShape2D_xi0vc")
+debug_color = Color(1, 0, 0, 0.529412)
+
+[node name="Gazer_StateMachine" type="Node" parent="."]
+script = ExtResource("2_ww6rc")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="Gazer_StateMachine"]
+script = ExtResource("3_ybaik")

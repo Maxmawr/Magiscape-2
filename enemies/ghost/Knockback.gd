@@ -10,8 +10,8 @@ func enter(_msg := {}) -> void:
 func update(_delta: float) -> void:
 	pass
 
-func physics_update(delta: float) -> void:
-	var dir = (player.global_position - owner.global_position).normalized()
+func physics_update(_delta: float) -> void:
+	var _dir = (player.global_position - owner.global_position).normalized()
 #	owner.velocity = owner.speed * dir * delta
 	if player.global_position > owner.global_position:
 		owner.velocity.x = owner.speed
