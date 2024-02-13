@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvo2aud1mhg8n"]
+[gd_scene load_steps=13 format=3 uid="uid://bvo2aud1mhg8n"]
 
 [ext_resource type="Texture2D" uid="uid://2ur4n133jquv" path="res://Assets/simples_pimples.png" id="1_444kj"]
 [ext_resource type="PackedScene" uid="uid://dpjxfjttxa3gm" path="res://Player/player.tscn" id="1_x6eib"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cmwiaweywngp7" path="res://background.tscn" id="6_mcmwc"]
 [ext_resource type="PackedScene" uid="uid://dhplvlnmkohun" path="res://enemies/ghost/ghost.tscn" id="7_8sur5"]
 [ext_resource type="PackedScene" uid="uid://paywmxjb53r3" path="res://GUI/gui.tscn" id="8_04k02"]
+[ext_resource type="PackedScene" uid="uid://h5p36kvc37hk" path="res://enemies/gazer/gazer.tscn" id="9_s7nfn"]
 
 [sub_resource type="Curve2D" id="Curve2D_foxpt"]
 _data = {
@@ -1481,3 +1482,6 @@ layer_0/tile_data = PackedInt32Array(-131071, 458752, 2, -65535, 458752, 2, -131
 position = Vector2(344, -27)
 
 [node name="GUI" parent="." instance=ExtResource("8_04k02")]
+
+[node name="gazer" parent="." instance=ExtResource("9_s7nfn")]
+position = Vector2(12, -35)
