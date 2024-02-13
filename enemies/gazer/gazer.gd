@@ -9,3 +9,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	emit_signal("draw")
+
+
+func _on_draw():
+	pass # Replace with function body.
