@@ -37,3 +37,8 @@ func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 	state = get_node(target_state_name)
 	state.enter(msg)
 	emit_signal("transitioned", state.name)
+
+
+func _on_sight_area_body_entered(body):
+	if body.name == "player" and state == get_node("Idle"):
+		transition_to("Hostile")

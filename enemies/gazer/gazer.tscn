@@ -1,11 +1,39 @@
-[gd_scene load_steps=9 format=3 uid="uid://h5p36kvc37hk"]
+[gd_scene load_steps=11 format=3 uid="uid://h5p36kvc37hk"]
 
 [ext_resource type="Texture2D" uid="uid://ctxah187j2wrs" path="res://enemies/gazer/gazer_blue.png" id="1_383q0"]
 [ext_resource type="Script" path="res://enemies/gazer/Gazer_StateMachine.gd" id="2_ww6rc"]
 [ext_resource type="Script" path="res://enemies/gazer/Idle.gd" id="3_ybaik"]
+[ext_resource type="Script" path="res://enemies/gazer/Hostile.gd" id="4_c0oyg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djm7q"]
 size = Vector2(12, 12)
+
+[sub_resource type="Animation" id="Animation_tabrv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_c5xoc"]
 resource_name = "idle"
@@ -23,8 +51,9 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_tabrv"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_bmso3"]
+resource_name = "Shooting"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -32,15 +61,28 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0]
+"values": [2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(-3, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pjhb5"]
 _data = {
 "RESET": SubResource("Animation_tabrv"),
+"Shooting": SubResource("Animation_bmso3"),
 "idle": SubResource("Animation_c5xoc")
 }
 
@@ -56,7 +98,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_383q0")
-hframes = 4
+hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -67,7 +109,7 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sight_area"]
 shape = SubResource("CircleShape2D_xi0vc")
-debug_color = Color(1, 0, 0, 0.529412)
+debug_color = Color(1, 0, 0, 0.2)
 
 [node name="Gazer_StateMachine" type="Node" parent="."]
 script = ExtResource("2_ww6rc")
@@ -75,3 +117,10 @@ initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="Gazer_StateMachine"]
 script = ExtResource("3_ybaik")
+
+[node name="Hostile" type="Node" parent="Gazer_StateMachine"]
+script = ExtResource("4_c0oyg")
+
+[node name="Dead" type="Node" parent="Gazer_StateMachine"]
+
+[connection signal="body_entered" from="sight_area" to="Gazer_StateMachine" method="_on_sight_area_body_entered"]
