@@ -5,16 +5,18 @@ extends State
 @onready var animationplayer = owner.get_node("AnimationPlayer")
 @onready var player_position = player.position
 
+
 var line_color = Color(1, 0, 0) # Red color for the line
-var inside
+var canshoot
+var laser_moving = true
 
 func enter(_msg := {}) -> void:
-	inside = true
+	var canshoot = true
 	animationplayer.play("shooting")
 	line_color = Color(1, 0, 0)
 
 func update(_delta: float) -> void:
-	if inside == true:
+	if canshoot == true and laser_moving == true:
 		owner.queue_redraw()
 
 func physics_update(_delta: float) -> void:
@@ -22,18 +24,25 @@ func physics_update(_delta: float) -> void:
 
 
 func _on_gazer_draw():
-	if inside == true:
+	if canshoot == true:
 		player_position = player.position
 		laser_point = owner.get_global_position()
 		owner.draw_line(Vector2.ZERO, player_position - laser_point, line_color)
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if state_machine.state == self:
-		inside = false
-		state_machine.transition_to("Idle")
+	if anim_name == "shooting":
+		if state_machine.state == self:
+			canshoot = false
+			state_machine.transition_to("Idle")
 
 func shoot():
-	player.take_damage(5)
+	#player.take_damage(5)
 	line_color = Color(00000000)
 	owner.queue_redraw()
+	var l = owner.laser.instantiate()
+	owner.owner.add_child(l)
+	l.rotation_degrees = rad_to_deg(owner.angle_to_point(player_position))
+	print(l.rotation_degrees)
+func stop_laser():
+	laser_moving = false

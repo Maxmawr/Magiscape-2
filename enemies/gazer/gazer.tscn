@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://h5p36kvc37hk"]
+[gd_scene load_steps=14 format=3 uid="uid://h5p36kvc37hk"]
 
 [ext_resource type="Texture2D" uid="uid://ctxah187j2wrs" path="res://enemies/gazer/gazer_blue.png" id="1_383q0"]
+[ext_resource type="Script" path="res://enemies/gazer/gazer.gd" id="1_ork8k"]
+[ext_resource type="PackedScene" uid="uid://xs8ngkjq2ekh" path="res://enemies/gazer/gazer_laser.tscn" id="2_mk0rk"]
 [ext_resource type="Script" path="res://enemies/gazer/Gazer_StateMachine.gd" id="2_ww6rc"]
 [ext_resource type="Script" path="res://enemies/gazer/Idle.gd" id="3_ybaik"]
 [ext_resource type="Script" path="res://enemies/gazer/Hostile.gd" id="4_c0oyg"]
@@ -86,9 +88,12 @@ tracks/2/path = NodePath("Gazer_StateMachine/Hostile")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.2, 1.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"stop_laser"
+}, {
 "args": [],
 "method": &"shoot"
 }]
@@ -105,9 +110,11 @@ _data = {
 radius = 81.2527
 
 [node name="gazer" type="Area2D"]
+script = ExtResource("1_ork8k")
+laser = ExtResource("2_mk0rk")
 
 [node name="laser_point" type="Marker2D" parent="."]
-position = Vector2(0.09375, -0.421875)
+position = Vector2(4.03906, -1.39063)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
