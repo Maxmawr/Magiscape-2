@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://tbkq8yk26ha0"]
+
+[ext_resource type="Script" path="res://enemy drops/money/money.gd" id="1_g30ki"]
+[ext_resource type="Texture2D" uid="uid://i5rnyfqd0qom" path="res://enemy drops/money/money.png" id="1_stlcp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ol6ih"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8pu6"]
+size = Vector2(16.1068, 11.2629)
+
+[node name="money" type="RigidBody2D"]
+position = Vector2(245.206, 147.212)
+physics_material_override = SubResource("PhysicsMaterial_ol6ih")
+script = ExtResource("1_g30ki")
+metadata/_edit_group_ = true
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_stlcp")
+hframes = 5
+vframes = 4
+frame = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.0115466, 1.63143)
+shape = SubResource("RectangleShape2D_h8pu6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
