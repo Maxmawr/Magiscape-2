@@ -9,7 +9,6 @@
 size = Vector2(16.1068, 11.2629)
 
 [node name="money" type="RigidBody2D"]
-position = Vector2(245.206, 147.212)
 physics_material_override = SubResource("PhysicsMaterial_ol6ih")
 script = ExtResource("1_g30ki")
 metadata/_edit_group_ = true
@@ -18,7 +17,6 @@ metadata/_edit_group_ = true
 texture = ExtResource("1_stlcp")
 hframes = 5
 vframes = 4
-frame = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.0115466, 1.63143)

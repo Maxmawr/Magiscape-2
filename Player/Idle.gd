@@ -28,7 +28,3 @@ func update(_delta: float) -> void:
 		state_machine.transition_to("Casting", {fireball = true})
 	elif Input.is_action_pressed("vinespell") and Permavariables.mana >= 25:
 		state_machine.transition_to("Casting", {vinespell = true})
-	
-	
-	if Permavariables.health == 0:
-		state_machine.transition_to("Dead")

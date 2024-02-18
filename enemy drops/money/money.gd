@@ -7,9 +7,9 @@ var nugget = range(11, 21)
 var bar = 21  # And anything above
 
 func _ready():
-	set_sprite(6)
+	set_sprite(randi_range(1,22))
 	# Applies a random force to make the coin move a little different every time
-	var vector = Vector2(randi_range(-400, 400), randi_range(-1000, -650))
+	var vector = Vector2(randi_range(-100, 100), randi_range(-100, -65))
 	apply_central_impulse(vector)
 
 

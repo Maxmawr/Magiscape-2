@@ -663,7 +663,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vi045"]
 size = Vector2(10, 16)
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(60, -22)
 script = ExtResource("1_8tbuo")
 fireball = ExtResource("2_svchr")

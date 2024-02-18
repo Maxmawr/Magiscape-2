@@ -6,7 +6,7 @@ func health_changed():
 
 
 func _on_collision_detector_area_entered(area):
-	if area.is_in_group("enemies"):
+	if area.is_in_group("enemies") and area.name == "bat":
 		if area.dead == true:
 			return
 		else:

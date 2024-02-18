@@ -114,7 +114,7 @@ script = ExtResource("1_ork8k")
 laser = ExtResource("2_mk0rk")
 
 [node name="laser_point" type="Marker2D" parent="."]
-position = Vector2(4.03906, -1.39063)
+position = Vector2(-0.03, -0.4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)

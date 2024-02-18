@@ -13,6 +13,9 @@ func enter(_msg := {}) -> void:
 	alive_collision.disabled = true
 	animationplayer.play("dead")
 	owner.get_node("bat/TextureProgressBar").visible = false
+	var m = area.money.instantiate()
+	get_tree().get_root().add_child(m)
+	m.transform = owner.global_transform
 
 
 

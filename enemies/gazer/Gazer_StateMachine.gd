@@ -42,3 +42,7 @@ func transition_to(target_state_name: String, msg: Dictionary = {}) -> void:
 func _on_sight_area_body_entered(body):
 	if body.name == "player" and state == get_node("Idle"):
 		transition_to("Hostile")
+
+
+func _on_gazer_change_to_dead():
+	transition_to("dead")

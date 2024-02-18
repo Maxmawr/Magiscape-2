@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dikixif346vf6"]
+[gd_scene load_steps=17 format=3 uid="uid://dikixif346vf6"]
 
 [ext_resource type="Texture2D" uid="uid://d1pg1h2ip1eu5" path="res://enemies/bat/bat.png" id="1_0yd68"]
 [ext_resource type="Script" path="res://enemies/bat/bat_area.gd" id="1_b07sf"]
+[ext_resource type="PackedScene" uid="uid://tbkq8yk26ha0" path="res://enemy drops/money/money.tscn" id="2_ic2bc"]
 [ext_resource type="Script" path="res://enemies/bat/Flying.gd" id="2_ldkfn"]
 [ext_resource type="Script" path="res://enemies/bat/Bat_StateMachine.gd" id="3_plofm"]
 [ext_resource type="Texture2D" uid="uid://dealtcai7dujr" path="res://Assets/vine_timer_outline.png" id="3_yqrhl"]
@@ -165,6 +166,7 @@ _data = {
 [node name="bat" type="Area2D" parent="." groups=["enemies"]]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_b07sf")
+money = ExtResource("2_ic2bc")
 
 [node name="alive_collision" type="CollisionShape2D" parent="bat"]
 position = Vector2(0, -14)
