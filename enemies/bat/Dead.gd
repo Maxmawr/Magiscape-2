@@ -21,4 +21,4 @@ func enter(_msg := {}) -> void:
 
 func update(delta: float) -> void:
 	if area.has_overlapping_bodies() == false:
-		area.position.y += + gravity * delta
+		area.position.y += gravity * delta

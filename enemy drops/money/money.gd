@@ -13,7 +13,7 @@ func _ready():
 	apply_central_impulse(vector)
 
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func set_sprite(amount):
@@ -28,6 +28,7 @@ func set_sprite(amount):
 		$sprite.frame = 15
 
 
-func _on_body_entered(body):
+
+func _on_area_2d_body_entered(body):
 	if body.name == "player":
 		queue_free()

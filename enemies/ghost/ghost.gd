@@ -4,6 +4,7 @@ signal change_to_knockback
 signal change_to_dead
 signal bind
 
+@export var money : PackedScene
 @export var health = 10
 @export var direction_facing = "right"
 @export var speed = 100.0

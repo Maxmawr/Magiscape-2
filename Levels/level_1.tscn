@@ -1485,4 +1485,3 @@ position = Vector2(344, -27)
 
 [node name="gazer" parent="." instance=ExtResource("9_s7nfn")]
 position = Vector2(96, -49)
-laser = null

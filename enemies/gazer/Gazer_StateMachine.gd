@@ -45,4 +45,4 @@ func _on_sight_area_body_entered(body):
 
 
 func _on_gazer_change_to_dead():
-	transition_to("dead")
+	transition_to("Dead")

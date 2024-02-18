@@ -43,6 +43,7 @@ func shoot():
 	#player.take_damage(5)
 	line_color = Color(00000000)
 	owner.queue_redraw()
+	print(owner)
 	var l = owner.laser.instantiate()
 	l.player_pos = player_position
 	l.transform = owner.global_transform
@@ -54,3 +55,9 @@ func stop_laser():
 	line_color = Color("ffffff")
 	player_position = player.global_position
 	line_length = 2
+
+
+func _on_gazer_change_to_dead():
+	canshoot = false
+	line_color = Color(00000000)
+	owner.queue_redraw()

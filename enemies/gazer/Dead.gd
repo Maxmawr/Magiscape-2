@@ -1,15 +1,16 @@
 extends State
 
-var gravity = 10
+var gravity = 100
 
 @onready var animationplayer = get_parent().get_parent().get_node("AnimationPlayer")
-#@onready var alive_collision = get_parent().get_parent().get_node("alive_collision")
-#@onready var dead_collision = get_parent().get_parent().get_node("dead_collision")
+@onready var alive_collision = get_parent().get_parent().get_node("alive_collision")
+@onready var dead_collision = get_parent().get_parent().get_node("dead_collision")
 
 func enter(_msg := {}) -> void:
+	print("ljwahkuta")
 	owner.dead = true
-	#dead_collision.disabled = false
-	#alive_collision.disabled = true
+	dead_collision.disabled = false
+	alive_collision.disabled = true
 	animationplayer.play("dead")
 	var m = owner.money.instantiate()
 	get_tree().get_root().add_child(m)

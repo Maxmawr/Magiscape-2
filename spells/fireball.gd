@@ -24,7 +24,7 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies") or body.is_in_group("wall"):
-		if body.name == "Ghost":
+		if body.has_method("handle_hit"):
 			body.handle_hit(5)
 		speed = 0
 		$Sprite2D.visible = false
@@ -35,6 +35,8 @@ func _on_body_entered(body):
 
 func _on_area_entered(area):
 	if area.is_in_group("enemies"):
+		if area.has_method("handle_hit"):
+			area.handle_hit(5)
 		if area.name == "bat":
 			if area.dead == false:
 				area.dead = true

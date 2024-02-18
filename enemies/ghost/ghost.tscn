@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://dhplvlnmkohun"]
+[gd_scene load_steps=30 format=3 uid="uid://dhplvlnmkohun"]
 
 [ext_resource type="Texture2D" uid="uid://n5yvmanbmw7p" path="res://enemies/ghost/ghost.png" id="1_3tkra"]
 [ext_resource type="Script" path="res://enemies/ghost/ghost.gd" id="1_fgp5q"]
 [ext_resource type="Script" path="res://enemies/ghost/Ghost_StateMachine.gd" id="2_6kewg"]
+[ext_resource type="PackedScene" uid="uid://tbkq8yk26ha0" path="res://enemy drops/money/money.tscn" id="2_73p4n"]
 [ext_resource type="Texture2D" uid="uid://dealtcai7dujr" path="res://Assets/vine_timer_outline.png" id="3_fnwob"]
 [ext_resource type="Script" path="res://enemies/ghost/Patrolling.gd" id="3_lrtn3"]
 [ext_resource type="Texture2D" uid="uid://ckrs63p8xh7or" path="res://Assets/vine_timer_bar.png" id="4_35gjg"]
@@ -276,6 +277,7 @@ _data = {
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_fgp5q")
+money = ExtResource("2_73p4n")
 metadata/_edit_group_ = true
 
 [node name="alive_collision" type="CollisionShape2D" parent="."]
