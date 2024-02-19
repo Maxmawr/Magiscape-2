@@ -30,7 +30,12 @@ func _on_body_entered(body):
 		call_deferred("disable_collision")
 		$explosion.emitting = true
 		$delete_timer.start()
-
+	if body.is_in_group("wall"):
+		speed = 0
+		$Sprite2D.visible = false
+		call_deferred("disable_collision")
+		$explosion.emitting = true
+		$delete_timer.start()
 
 func _on_area_entered(area):
 	if area.is_in_group("enemies") and area.has_method("vine_bind") and area.dead == false:

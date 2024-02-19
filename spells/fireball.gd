@@ -23,9 +23,15 @@ func _process(_delta):
 
 
 func _on_body_entered(body):
-	if body.is_in_group("enemies") or body.is_in_group("wall"):
-		if body.has_method("handle_hit"):
+	if body.is_in_group("enemies"):
+		if body.has_method("handle_hit") and body.dead == false:
 			body.handle_hit(5)
+			speed = 0
+			$Sprite2D.visible = false
+			call_deferred("disable_collision")
+			$explosion.emitting = true
+			$delete_timer.start()
+	if body.is_in_group("wall"):
 		speed = 0
 		$Sprite2D.visible = false
 		call_deferred("disable_collision")
@@ -35,18 +41,13 @@ func _on_body_entered(body):
 
 func _on_area_entered(area):
 	if area.is_in_group("enemies"):
-		if area.has_method("handle_hit"):
+		if area.has_method("handle_hit") and area.dead == false:
 			area.handle_hit(5)
-		if area.name == "bat":
-			if area.dead == false:
-				area.dead = true
-			elif area.dead == true:
-				return
-		speed = 0
-		$Sprite2D.visible = false
-		call_deferred("disable_collision")
-		$explosion.emitting = true
-		$delete_timer.start()
+			speed = 0
+			$Sprite2D.visible = false
+			call_deferred("disable_collision")
+			$explosion.emitting = true
+			$delete_timer.start()
 
 
 func _on_delete_timer_timeout():

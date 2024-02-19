@@ -46,3 +46,10 @@ func _on_sight_area_body_entered(body):
 
 func _on_gazer_change_to_dead():
 	transition_to("Dead")
+
+
+func _on_gazer_bind():
+	if state == get_node("Bind"):
+		get_node("Bind").restart()
+	else:
+		transition_to("Bind")

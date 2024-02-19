@@ -8,3 +8,7 @@ signal bind
 
 func vine_bind():
 	emit_signal("bind")
+
+func handle_hit(damage):
+	if dead == false:
+		dead = true

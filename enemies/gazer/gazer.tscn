@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://h5p36kvc37hk"]
+[gd_scene load_steps=21 format=3 uid="uid://h5p36kvc37hk"]
 
 [ext_resource type="Texture2D" uid="uid://ctxah187j2wrs" path="res://enemies/gazer/gazer_blue.png" id="1_383q0"]
 [ext_resource type="Script" path="res://enemies/gazer/gazer.gd" id="1_ork8k"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://enemies/gazer/Idle.gd" id="3_ybaik"]
 [ext_resource type="Script" path="res://enemies/gazer/Hostile.gd" id="4_c0oyg"]
 [ext_resource type="Script" path="res://enemies/gazer/Dead.gd" id="5_injqa"]
+[ext_resource type="Texture2D" uid="uid://dealtcai7dujr" path="res://Assets/vine_timer_outline.png" id="9_qgsjb"]
+[ext_resource type="Texture2D" uid="uid://ckrs63p8xh7or" path="res://Assets/vine_timer_bar.png" id="10_85ej8"]
+[ext_resource type="Script" path="res://enemies/gazer/Bind.gd" id="11_otcsl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djm7q"]
 size = Vector2(12, 12)
@@ -37,6 +40,46 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureProgressBar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureProgressBar:value")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_agxbq"]
+resource_name = "dead"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_c5xoc"]
@@ -100,9 +143,10 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_agxbq"]
-resource_name = "dead"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_82ibj"]
+resource_name = "bound"
+length = 5.0
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -113,12 +157,49 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureProgressBar:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureProgressBar:value")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4, 4.01, 4.02, 4.03, 4.04, 4.05, 4.06, 4.07, 4.08, 4.09, 4.1, 4.11, 4.12, 4.13, 4.14, 4.15, 4.16, 4.17, 4.18, 4.19, 4.2, 4.21, 4.22, 4.23, 4.24, 4.25, 4.26, 4.27, 4.28, 4.29, 4.3, 4.31, 4.32, 4.33, 4.34, 4.35, 4.36, 4.37, 4.38, 4.39, 4.4, 4.41, 4.42, 4.43, 4.44, 4.45, 4.46, 4.47, 4.48, 4.49, 4.5, 4.51, 4.52, 4.53, 4.54, 4.55, 4.56, 4.57, 4.58, 4.59, 4.6, 4.61, 4.62, 4.63, 4.64, 4.65, 4.66, 4.67, 4.68, 4.69, 4.7, 4.71, 4.72, 4.73, 4.74, 4.75, 4.76, 4.77, 4.78, 4.79, 4.8, 4.81, 4.82, 4.83, 4.84, 4.85, 4.86, 4.87, 4.88, 4.89, 4.9, 4.91, 4.92, 4.93, 4.94, 4.95, 4.96, 4.97, 4.98, 4.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pjhb5"]
 _data = {
 "RESET": SubResource("Animation_tabrv"),
+"bound": SubResource("Animation_82ibj"),
 "dead": SubResource("Animation_agxbq"),
 "idle": SubResource("Animation_c5xoc"),
 "shooting": SubResource("Animation_bmso3")
@@ -145,7 +226,7 @@ shape = SubResource("RectangleShape2D_djm7q")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 texture = ExtResource("1_383q0")
-hframes = 5
+hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -159,9 +240,20 @@ shape = SubResource("CircleShape2D_xi0vc")
 debug_color = Color(1, 0, 0, 0.2)
 
 [node name="dead_collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.913005, 2.95379)
 shape = SubResource("RectangleShape2D_a7w5e")
 debug_color = Color(0, 0.639216, 0.34902, 0.419608)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
+offset_left = -9.0
+offset_top = -12.0
+offset_right = 5.0
+offset_bottom = -8.0
+texture_over = ExtResource("9_qgsjb")
+texture_progress = ExtResource("10_85ej8")
+texture_progress_offset = Vector2(1, 1)
 
 [node name="Gazer_StateMachine" type="Node" parent="."]
 script = ExtResource("2_ww6rc")
@@ -176,8 +268,14 @@ script = ExtResource("4_c0oyg")
 [node name="Dead" type="Node" parent="Gazer_StateMachine"]
 script = ExtResource("5_injqa")
 
+[node name="Bind" type="Node" parent="Gazer_StateMachine"]
+script = ExtResource("11_otcsl")
+
+[connection signal="bind" from="." to="Gazer_StateMachine" method="_on_gazer_bind"]
+[connection signal="bind" from="." to="Gazer_StateMachine/Hostile" method="_on_gazer_bind"]
 [connection signal="change_to_dead" from="." to="Gazer_StateMachine" method="_on_gazer_change_to_dead"]
 [connection signal="change_to_dead" from="." to="Gazer_StateMachine/Hostile" method="_on_gazer_change_to_dead"]
 [connection signal="draw" from="." to="Gazer_StateMachine/Hostile" method="_on_gazer_draw"]
 [connection signal="animation_finished" from="AnimationPlayer" to="Gazer_StateMachine/Hostile" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Gazer_StateMachine/Bind" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="sight_area" to="Gazer_StateMachine" method="_on_sight_area_body_entered"]

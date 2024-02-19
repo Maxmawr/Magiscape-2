@@ -7,8 +7,8 @@ var gravity = 100
 @onready var dead_collision = get_parent().get_parent().get_node("dead_collision")
 
 func enter(_msg := {}) -> void:
-	print("ljwahkuta")
 	owner.dead = true
+	owner.get_node("TextureProgressBar").visible = false
 	dead_collision.disabled = false
 	alive_collision.disabled = true
 	animationplayer.play("dead")
