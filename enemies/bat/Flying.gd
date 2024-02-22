@@ -1,7 +1,7 @@
 extends State
 
 var thispos
-@onready var lastpos = owner.progress
+@onready var lastpos = owner.global_position
 
 @onready var animationplayer = get_parent().get_parent().get_node("AnimationPlayer")
 @onready var area = get_parent().get_parent()
@@ -19,12 +19,13 @@ func enter(_msg := {}) -> void:
 	animationplayer.play("flying")
 
 func update(_delta: float) -> void:
-	thispos = owner.progress
+	thispos = owner.global_position
 	if thispos > lastpos:
 		owner.get_node("bat/sprite").flip_h = false
-	else:
+	elif thispos < lastpos:
 		owner.get_node("bat/sprite").flip_h = true
 	lastpos = thispos
+	
 	if area.dead == true:
 		state_machine.transition_to("Dead")
 

@@ -712,6 +712,7 @@ script = ExtResource("7_q10ft")
 script = ExtResource("9_b4lrf")
 
 [node name="healthbar" type="TextureProgressBar" parent="."]
+z_index = 3
 offset_left = -183.0
 offset_top = -124.0
 offset_right = -135.0
@@ -723,6 +724,7 @@ texture_progress = ExtResource("10_p0a6t")
 script = ExtResource("11_28avy")
 
 [node name="manabar" type="TextureProgressBar" parent="."]
+z_index = 3
 offset_left = -183.0
 offset_top = -110.0
 offset_right = -135.0
