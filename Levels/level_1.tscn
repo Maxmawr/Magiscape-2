@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvo2aud1mhg8n"]
+[gd_scene load_steps=14 format=3 uid="uid://bvo2aud1mhg8n"]
 
 [ext_resource type="Texture2D" uid="uid://2ur4n133jquv" path="res://Assets/simples_pimples.png" id="1_444kj"]
 [ext_resource type="PackedScene" uid="uid://dpjxfjttxa3gm" path="res://Player/player.tscn" id="1_x6eib"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dhplvlnmkohun" path="res://enemies/ghost/ghost.tscn" id="7_8sur5"]
 [ext_resource type="PackedScene" uid="uid://paywmxjb53r3" path="res://GUI/gui.tscn" id="8_04k02"]
 [ext_resource type="PackedScene" uid="uid://h5p36kvc37hk" path="res://enemies/gazer/gazer.tscn" id="9_s7nfn"]
+[ext_resource type="PackedScene" uid="uid://cmoy24tgge4qa" path="res://Assets/signs/sign.tscn" id="10_w8g1y"]
 
 [sub_resource type="Curve2D" id="Curve2D_foxpt"]
 _data = {
@@ -1462,7 +1463,7 @@ layer_0/tile_data = PackedInt32Array(0, 0, 6, 1, 0, 6, 2, 0, 6, 3, 0, 6, 4, 0, 6
 position = Vector2(135.978, -28.5054)
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2(185, 25)
+position = Vector2(-3.10699, 25.9868)
 curve = SubResource("Curve2D_foxpt")
 metadata/_edit_group_ = true
 
@@ -1485,3 +1486,7 @@ position = Vector2(344, -27)
 
 [node name="gazer" parent="." instance=ExtResource("9_s7nfn")]
 position = Vector2(96, -49)
+
+[node name="sign" parent="." instance=ExtResource("10_w8g1y")]
+position = Vector2(-446.29, -8.05561)
+message = "The Bat. Weak but can be found in groups."

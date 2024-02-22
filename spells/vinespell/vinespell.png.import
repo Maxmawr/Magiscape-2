@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2b4u3i74xnjp"
-path="res://.godot/imported/fireball.png-ad1f97c43ad5359f81ce1a0e8b356f11.ctex"
+uid="uid://bt26am14kxq36"
+path="res://.godot/imported/vinespell.png-40a079a52e9bac969240ca4caa9503f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spells/fireball.png"
-dest_files=["res://.godot/imported/fireball.png-ad1f97c43ad5359f81ce1a0e8b356f11.ctex"]
+source_file="res://spells/vinespell/vinespell.png"
+dest_files=["res://.godot/imported/vinespell.png-40a079a52e9bac969240ca4caa9503f9.ctex"]
 
 [params]
 

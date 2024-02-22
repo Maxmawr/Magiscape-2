@@ -7,4 +7,4 @@ var direction_facing = "right"
 
 func reset():
 	health = 10
-	mana = 10
+	mana = 100

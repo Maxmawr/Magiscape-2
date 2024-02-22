@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmsd32g1ra52q"]
+[gd_scene load_steps=14 format=3 uid="uid://cmsd32g1ra52q"]
 
-[ext_resource type="Texture2D" uid="uid://c2b4u3i74xnjp" path="res://spells/fireball.png" id="1_5sd7j"]
-[ext_resource type="Script" path="res://spells/fireball.gd" id="1_jwo2r"]
+[ext_resource type="Script" path="res://spells/fireball/fireball.gd" id="1_hiag6"]
+[ext_resource type="Texture2D" uid="uid://c2b4u3i74xnjp" path="res://spells/fireball/fireball.png" id="2_t8uaj"]
+[ext_resource type="AudioStream" uid="uid://bnd6nvibq1f0a" path="res://spells/fireball/fireball_explosion.wav" id="3_ws7lv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jenhc"]
 size = Vector2(18, 8)
@@ -68,6 +69,13 @@ colors = PackedColorArray(0.745098, 0.14902, 0.2, 1, 0.921569, 0.537255, 0.19215
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_y0ym5"]
 gradient = SubResource("Gradient_sa3pl")
 
+[sub_resource type="Curve" id="Curve_pym7y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7, 0.736264), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_brrr8"]
+curve = SubResource("Curve_pym7y")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_punue"]
 particle_flag_disable_z = true
 direction = Vector3(0, 0, 0)
@@ -75,19 +83,20 @@ spread = 180.0
 initial_velocity_min = -100.0
 initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_brrr8")
 color_ramp = SubResource("GradientTexture1D_y0ym5")
 
 [node name="fireball" type="Area2D"]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_jwo2r")
+script = ExtResource("1_hiag6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_jenhc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_5sd7j")
+texture = ExtResource("2_t8uaj")
 hframes = 4
 frame = 1
 
@@ -106,6 +115,9 @@ explosiveness = 1.0
 fixed_fps = 60
 
 [node name="delete_timer" type="Timer" parent="."]
+
+[node name="explosion_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ws7lv")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

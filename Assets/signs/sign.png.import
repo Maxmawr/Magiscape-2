@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt26am14kxq36"
-path="res://.godot/imported/vinespell.png-a8aade3a170757974089cbde718fe2e5.ctex"
+uid="uid://bgna6nc7oj3rh"
+path="res://.godot/imported/sign.png-f8847dce793856f10d9b1e8c0c2f3e6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spells/vinespell.png"
-dest_files=["res://.godot/imported/vinespell.png-a8aade3a170757974089cbde718fe2e5.ctex"]
+source_file="res://Assets/signs/sign.png"
+dest_files=["res://.godot/imported/sign.png-f8847dce793856f10d9b1e8c0c2f3e6e.ctex"]
 
 [params]
 

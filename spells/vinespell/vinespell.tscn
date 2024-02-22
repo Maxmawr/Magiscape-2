@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dlap44dthbsi6"]
 
-[ext_resource type="Script" path="res://spells/vinespell.gd" id="1_g7hxm"]
-[ext_resource type="Texture2D" uid="uid://bt26am14kxq36" path="res://spells/vinespell.png" id="1_ych2h"]
+[ext_resource type="Script" path="res://spells/vinespell/vinespell.gd" id="1_oakvx"]
+[ext_resource type="Texture2D" uid="uid://bt26am14kxq36" path="res://spells/vinespell/vinespell.png" id="2_715yn"]
 
 [sub_resource type="Animation" id="Animation_usdtm"]
 length = 0.001
@@ -59,10 +59,10 @@ color = Color(0.266667, 0.537255, 0.101961, 1)
 [node name="vinespell" type="Area2D"]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_g7hxm")
+script = ExtResource("1_oakvx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ych2h")
+texture = ExtResource("2_715yn")
 hframes = 4
 frame = 2
 

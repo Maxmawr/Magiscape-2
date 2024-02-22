@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmoy24tgge4qa"]
+
+[ext_resource type="Script" path="res://sign.gd" id="1_4swt1"]
+[ext_resource type="Texture2D" uid="uid://bgna6nc7oj3rh" path="res://Assets/signs/sign.png" id="2_vao6l"]
+[ext_resource type="FontFile" uid="uid://doyr4x7sqpheo" path="res://Assets/Fonts/joystix monospace.otf" id="3_d03ua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nuya"]
+
+[node name="sign" type="Area2D"]
+script = ExtResource("1_4swt1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7nuya")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vao6l")
+
+[node name="text" type="Label" parent="."]
+visible = false
+offset_left = -20.4737
+offset_top = -33.2304
+offset_right = -19.4737
+offset_bottom = -13.2304
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_d03ua")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -97,4 +97,15 @@ theme_override_fonts/font = ExtResource("1_n150g")
 text = "Quit"
 horizontal_alignment = 1
 
+[node name="music" type="AudioStreamPlayer" parent="."]
+
+[node name="Message to players - DELETE LATER" type="Label" parent="."]
+layout_mode = 0
+offset_left = 634.0
+offset_top = 325.0
+offset_right = 912.0
+offset_bottom = 348.0
+theme_override_fonts/font = ExtResource("1_n150g")
+text = "(Not Operational Yet)"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start_Btn" to="." method="_on_start_btn_pressed"]
