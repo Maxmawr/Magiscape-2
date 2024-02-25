@@ -212,5 +212,5 @@ script = ExtResource("4_ixxii")
 script = ExtResource("6_hko5w")
 
 [connection signal="bind" from="bat" to="bat/Bat_StateMachine/Flying" method="_on_bat_bind"]
-[connection signal="body_entered" from="bat" to="bat/Bat_StateMachine" method="_on_bat_body_entered"]
+[connection signal="body_entered" from="bat" to="bat/Bat_StateMachine/Flying" method="_on_bat_body_entered"]
 [connection signal="animation_finished" from="bat/AnimationPlayer" to="bat/Bat_StateMachine/Bind" method="_on_animation_player_animation_finished"]

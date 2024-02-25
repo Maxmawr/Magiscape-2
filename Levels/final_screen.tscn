@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx22ycsv4jk7q"]
+
+[ext_resource type="FontFile" uid="uid://doyr4x7sqpheo" path="res://Assets/Fonts/joystix monospace.otf" id="1_c0gi0"]
+[ext_resource type="Script" path="res://Levels/final_screen.gd" id="1_pia6t"]
+[ext_resource type="Texture2D" uid="uid://dm2jeiifjicom" path="res://Assets/Buttons/cropped buttons/red-gold_unpressed.png" id="2_ek8pq"]
+[ext_resource type="Texture2D" uid="uid://5wd4gha72p17" path="res://Assets/Buttons/cropped buttons/red-gold_pressed.png" id="3_y723a"]
+[ext_resource type="Texture2D" uid="uid://bmhx1uchhufmh" path="res://Assets/Buttons/cropped buttons/red-gold_hover.png" id="4_gqa8t"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pia6t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 320.0
+offset_top = 230.0
+offset_right = 836.0
+offset_bottom = 253.0
+theme_override_fonts/font = ExtResource("1_c0gi0")
+text = "Thanks for playing, that's all for now!"
+
+[node name="Button" type="TextureButton" parent="."]
+offset_left = 520.0
+offset_top = 290.0
+offset_right = 640.0
+offset_bottom = 314.0
+texture_normal = ExtResource("2_ek8pq")
+texture_pressed = ExtResource("3_y723a")
+texture_hover = ExtResource("4_gqa8t")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 131.0
+offset_bottom = 24.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("1_c0gi0")
+text = "Main Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

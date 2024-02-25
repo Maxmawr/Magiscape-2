@@ -21,7 +21,7 @@ func update(_delta: float) -> void:
 	if canshoot == true and laser_moving == true:
 		owner.queue_redraw()
 	
-	var dir = (player.global_position - owner.global_position).normalized()
+	#var dir = (player.global_position - owner.global_position).normalized()
 	if player.global_position > owner.global_position:
 		owner.get_node("Sprite2D").flip_h = false
 	else:

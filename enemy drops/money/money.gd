@@ -6,6 +6,8 @@ var coin_stack = range(6,11)
 var nugget = range(11, 21)
 var bar = 21  # And anything above
 
+@export var picked_up = false
+
 func _ready():
 	set_sprite(randi_range(1,22))
 	# Applies a random force to make the coin move a little different every time
@@ -31,4 +33,12 @@ func set_sprite(amount):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "player":
-		queue_free()
+		if picked_up == false:
+			$pickupsound.play()
+			$Area2D/CollisionShape2D.disabled == true
+			$sprite.visible = false
+			picked_up = true
+
+
+func _on_pickupsound_finished():
+	queue_free()

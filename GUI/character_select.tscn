@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://b5i7sfhe8qg2p"]
+[gd_scene load_steps=38 format=3 uid="uid://b5i7sfhe8qg2p"]
 
 [ext_resource type="Texture2D" uid="uid://c5fes3gl11lir" path="res://Assets/mages/blue_select.png" id="1_ua1kf"]
 [ext_resource type="Script" path="res://blue_select.gd" id="2_hxwwh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://green_select.gd" id="10_qgwmb"]
 [ext_resource type="Texture2D" uid="uid://drle2eb8rr4w0" path="res://Assets/mages/yellow_select.png" id="11_2rgup"]
 [ext_resource type="Script" path="res://yellow_select.gd" id="12_e1bld"]
+[ext_resource type="FontFile" uid="uid://doyr4x7sqpheo" path="res://Assets/Fonts/joystix monospace.otf" id="13_a1pij"]
 
 [sub_resource type="Animation" id="Animation_oljqn"]
 length = 0.001
@@ -427,6 +428,14 @@ script = ExtResource("12_e1bld")
 libraries = {
 "": SubResource("AnimationLibrary_g3ew0")
 }
+
+[node name="Label" type="Label" parent="."]
+offset_left = 450.0
+offset_top = 280.0
+offset_right = 636.0
+offset_bottom = 303.0
+theme_override_fonts/font = ExtResource("13_a1pij")
+text = "Select a color"
 
 [connection signal="mouse_entered" from="blue_select" to="blue_select" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="blue_select" to="blue_select" method="_on_mouse_exited"]

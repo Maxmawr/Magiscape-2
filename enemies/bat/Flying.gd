@@ -32,3 +32,8 @@ func update(_delta: float) -> void:
 
 func _on_bat_bind():
 	state_machine.transition_to("Bind")
+
+
+func _on_bat_body_entered(body):
+	if body.name == "player" and state_machine.state == self:
+		body.take_damage(area.damage)
