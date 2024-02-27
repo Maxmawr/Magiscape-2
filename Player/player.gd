@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var statemachine = $StateMachine
+
 var ground_speed := 500.0
 var air_speed := 300.0
 var jump_height := 275.0
@@ -15,3 +17,7 @@ func take_damage(damage):
 	$hurt.play()
 	if Permavariables.health <= 0:
 		$StateMachine.transition_to("Dead")
+
+func change_state(state):
+	if state == "Get_Item":
+		statemachine.transition_to("Get_Item")

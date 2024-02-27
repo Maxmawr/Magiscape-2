@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dpjxfjttxa3gm"]
+[gd_scene load_steps=56 format=3 uid="uid://dpjxfjttxa3gm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8tbuo"]
 [ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Player/Dead.gd" id="9_b4lrf"]
 [ext_resource type="Texture2D" uid="uid://3i5sm6g5ccl0" path="res://Player/healthbar/outline.png" id="9_v3eek"]
 [ext_resource type="Texture2D" uid="uid://d2nbm4pk38cjn" path="res://Player/healthbar/top.png" id="10_p0a6t"]
+[ext_resource type="Script" path="res://Player/Get_Item.gd" id="11_8lwd5"]
 [ext_resource type="Script" path="res://Player/healthbar.gd" id="11_28avy"]
 [ext_resource type="Texture2D" uid="uid://chdj4ul3rainr" path="res://Player/manabar/outline.png" id="13_psnnn"]
 [ext_resource type="Script" path="res://Player/manabar.gd" id="13_wyer3"]
@@ -626,11 +627,29 @@ tracks/0/keys = {
 "values": [72, 71]
 }
 
+[sub_resource type="Animation" id="Animation_q5l87"]
+resource_name = "blue_get_item"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kis8h"]
 _data = {
 "RESET": SubResource("Animation_awjpk"),
 "blue_cast": SubResource("Animation_0qhit"),
 "blue_dead": SubResource("Animation_cqkd7"),
+"blue_get_item": SubResource("Animation_q5l87"),
 "blue_idle": SubResource("Animation_isv1u"),
 "blue_jump": SubResource("Animation_be0fr"),
 "blue_walk": SubResource("Animation_1lcxi"),
@@ -676,7 +695,7 @@ shape = SubResource("RectangleShape2D_q5a7m")
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_p0tff")
-hframes = 7
+hframes = 8
 vframes = 12
 frame = 1
 
@@ -711,6 +730,9 @@ script = ExtResource("7_q10ft")
 
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("9_b4lrf")
+
+[node name="Get_Item" type="Node" parent="StateMachine"]
+script = ExtResource("11_8lwd5")
 
 [node name="healthbar" type="TextureProgressBar" parent="."]
 z_index = 3
