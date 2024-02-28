@@ -42,14 +42,15 @@ func _on_animation_player_animation_finished(anim_name):
 func fireball():
 	Permavariables.mana -= 50
 	var b = owner.fireball.instantiate()
-	owner.owner.add_child(b)
 	b.transform = spell_spawn.global_transform
+	owner.owner.add_child(b)
+
 
 func vinespell():
 	Permavariables.mana -= 25
 	var b = owner.vinespell.instantiate()
-	owner.owner.add_child(b)
 	b.transform = spell_spawn.global_transform
+	owner.owner.add_child(b)
 
 func handle_spell():
 	if current_spell.has("fireball"):

@@ -1,9 +1,11 @@
 extends Area2D
 
+@export var inside : PackedScene
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$Sprite2D.frame = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,3 +16,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == "player":
 		body.change_state("Get_Item")
+		$Sprite2D.frame = 1
+		var i = inside.instantiate()
+		i.position = $spawn_point.position
+		add_child(i)

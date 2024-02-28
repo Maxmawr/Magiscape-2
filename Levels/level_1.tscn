@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://paywmxjb53r3" path="res://GUI/gui.tscn" id="8_04k02"]
 [ext_resource type="PackedScene" uid="uid://h5p36kvc37hk" path="res://enemies/gazer/gazer.tscn" id="9_s7nfn"]
 [ext_resource type="PackedScene" uid="uid://cmoy24tgge4qa" path="res://Assets/signs/sign.tscn" id="10_w8g1y"]
-[ext_resource type="PackedScene" uid="uid://cb4vdvlt0ctl4" path="res://Levels/chest.tscn" id="12_wptx0"]
+[ext_resource type="PackedScene" uid="uid://cb4vdvlt0ctl4" path="res://Levels/chest/chest.tscn" id="12_wptx0"]
 
 [sub_resource type="Curve2D" id="Curve2D_foxpt"]
 _data = {
