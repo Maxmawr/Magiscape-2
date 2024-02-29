@@ -4,6 +4,7 @@ extends State
 @onready var player = owner.get_parent().get_node("player")
 @onready var animationplayer = owner.get_node("AnimationPlayer")
 @onready var player_position = player.position
+@onready var sight_area = owner.get_node("sight_area")
 
 var line_length = 1
 var line_color = Color(1, 0, 0) # Red color for the line
@@ -36,17 +37,20 @@ func _on_gazer_draw():
 		player_position = player.position
 		laser_point = owner.get_global_position()
 		owner.draw_line(Vector2.ZERO, player_position - laser_point, line_color, line_length)
+		print("JUIWHAGIW")
 
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "shooting":
-		line_color = Color(1, 0, 0)
 		if state_machine.state == self:
+			for body in sight_area.get_overlapping_bodies():
+				if body.is_in_group("player"):
+					enter()
+					return
 			canshoot = false
 			state_machine.transition_to("Idle")
 
 func shoot():
-	#player.take_damage(5)
 	line_color = Color(00000000)
 	owner.queue_redraw()
 	var l = owner.laser.instantiate()
