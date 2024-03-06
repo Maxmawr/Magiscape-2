@@ -37,7 +37,6 @@ func _on_gazer_draw():
 		player_position = player.position
 		laser_point = owner.get_global_position()
 		owner.draw_line(Vector2.ZERO, player_position - laser_point, line_color, line_length)
-		print("JUIWHAGIW")
 
 
 func _on_animation_player_animation_finished(anim_name):
