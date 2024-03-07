@@ -6,7 +6,7 @@ signal mana_changed
 @onready var spell_spawn = owner.get_node("spell_spawn")
 @onready var mana = owner.get_node("manabar")
 
-func enter(msg := {}) -> void:
+func enter(_msg := {}) -> void:
 	#current_spell = msg
 	animationplayer.play(owner.colour + "_cast")
 

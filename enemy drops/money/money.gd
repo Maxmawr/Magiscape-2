@@ -35,7 +35,6 @@ func _on_area_2d_body_entered(body):
 	if body.name == "player":
 		if picked_up == false:
 			$pickupsound.play()
-			$Area2D/CollisionShape2D.disabled == true
 			$sprite.visible = false
 			picked_up = true
 

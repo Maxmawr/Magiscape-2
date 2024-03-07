@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0g6qr5rd8soa"]
+[gd_scene load_steps=5 format=3 uid="uid://b0g6qr5rd8soa"]
 
 [ext_resource type="Script" path="res://GUI/Spell Select/spell_select.gd" id="1_tqceb"]
 [ext_resource type="Texture2D" uid="uid://b1cahjcd2scfo" path="res://GUI/Spell Select/fireball_icon.png" id="2_o3t8f"]
 [ext_resource type="Texture2D" uid="uid://cfw5lr8f56emg" path="res://GUI/Spell Select/vinespell_icon.png" id="3_tl0oe"]
+[ext_resource type="Texture2D" uid="uid://batle1yju4vc1" path="res://GUI/Spell Select/select_background.png" id="4_rp5pb"]
 
 [node name="Spell_Select" type="Control"]
 layout_mode = 3
@@ -20,3 +21,8 @@ metadata/_edit_group_ = true
 [node name="icon" type="Sprite2D" parent="."]
 texture = ExtResource("2_o3t8f")
 offset = Vector2(-25, 25)
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-24, 24)
+texture = ExtResource("4_rp5pb")
