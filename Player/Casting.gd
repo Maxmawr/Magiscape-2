@@ -7,7 +7,7 @@ signal mana_changed
 @onready var mana = owner.get_node("manabar")
 
 func enter(msg := {}) -> void:
-	current_spell = msg
+	#current_spell = msg
 	animationplayer.play(owner.colour + "_cast")
 
 func physics_update(delta: float) -> void:
@@ -53,7 +53,7 @@ func vinespell():
 	owner.owner.add_child(b)
 
 func handle_spell():
-	if current_spell.has("fireball"):
+	if Permavariables.current_spell == 0:
 		fireball()
-	elif current_spell.has("vinespell"):
+	elif Permavariables.current_spell == 1:
 		vinespell()
