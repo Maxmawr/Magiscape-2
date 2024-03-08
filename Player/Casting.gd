@@ -48,12 +48,20 @@ func fireball():
 
 func vinespell():
 	Permavariables.mana -= 25
-	var b = owner.vinespell.instantiate()
-	b.transform = spell_spawn.global_transform
-	owner.owner.add_child(b)
+	var v = owner.vinespell.instantiate()
+	v.transform = spell_spawn.global_transform
+	owner.owner.add_child(v)
+
+func lightning_bolt():
+	Permavariables.mana -= 25
+	var l = owner.lightning_bolt.instantiate()
+	l.transform = spell_spawn.global_transform
+	owner.owner.add_child(l)
 
 func handle_spell():
 	if Permavariables.current_spell == 0:
 		fireball()
 	elif Permavariables.current_spell == 1:
 		vinespell()
+	elif Permavariables.current_spell == 2:
+		lightning_bolt()

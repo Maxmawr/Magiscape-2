@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dpjxfjttxa3gm"]
+[gd_scene load_steps=62 format=3 uid="uid://dpjxfjttxa3gm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8tbuo"]
 [ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dlap44dthbsi6" path="res://spells/vinespell/vinespell.tscn" id="3_gumi8"]
 [ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="3_lxbhr"]
 [ext_resource type="Script" path="res://Player/Run.gd" id="4_6dl0g"]
+[ext_resource type="PackedScene" uid="uid://cro3pbayjyuux" path="res://spells/Lightning/lightning_bolt.tscn" id="4_153b5"]
 [ext_resource type="Script" path="res://Player/Idle.gd" id="4_yum8l"]
 [ext_resource type="Script" path="res://Player/Air.gd" id="5_rkjk8"]
 [ext_resource type="Script" path="res://Player/Casting.gd" id="7_q10ft"]
@@ -772,6 +773,7 @@ position = Vector2(60, -22)
 script = ExtResource("1_8tbuo")
 fireball = ExtResource("2_svchr")
 vinespell = ExtResource("3_gumi8")
+lightning_bolt = ExtResource("4_153b5")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

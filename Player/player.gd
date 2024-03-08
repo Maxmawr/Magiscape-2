@@ -10,6 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var colour = Permavariables.colour
 @export var fireball : PackedScene
 @export var vinespell : PackedScene
+@export var lightning_bolt : PackedScene
 
 func take_damage(damage):
 	Permavariables.health -= damage
