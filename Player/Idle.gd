@@ -24,7 +24,6 @@ func update(_delta: float) -> void:
 		state_machine.transition_to("Air", {do_jump = true})
 	elif Input.is_action_pressed("moveleft") or Input.is_action_pressed("moveright"):
 		state_machine.transition_to("Run")
-	elif Input.is_action_pressed("fireball") and Permavariables.mana >= 50:
-		state_machine.transition_to("Casting", {fireball = true})
-	elif Input.is_action_pressed("vinespell") and Permavariables.mana >= 25:
-		state_machine.transition_to("Casting", {vinespell = true})
+
+	elif Input.is_action_pressed("cast") and Permavariables.mana >= Permavariables.current_spell_cost:
+		state_machine.transition_to("Casting")

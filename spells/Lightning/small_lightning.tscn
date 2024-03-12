@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgjarc5p6vwqg"]
+
+[ext_resource type="Texture2D" uid="uid://dxgov2kuej7v6" path="res://spells/Lightning/lightning.png" id="1_n0kye"]
+[ext_resource type="Script" path="res://spells/Lightning/small_lightning.gd" id="1_wwftq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ochyk"]
+size = Vector2(6, 2)
+
+[node name="small_lightning" type="Area2D"]
+script = ExtResource("1_wwftq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ochyk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_n0kye")
+hframes = 2

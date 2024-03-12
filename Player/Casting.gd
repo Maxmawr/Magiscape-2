@@ -47,13 +47,13 @@ func fireball():
 
 
 func vinespell():
-	Permavariables.mana -= 25
+	Permavariables.mana -= 20
 	var v = owner.vinespell.instantiate()
 	v.transform = spell_spawn.global_transform
 	owner.owner.add_child(v)
 
 func lightning_bolt():
-	Permavariables.mana -= 25
+	Permavariables.mana -= 20
 	var l = owner.lightning_bolt.instantiate()
 	l.transform = spell_spawn.global_transform
 	owner.owner.add_child(l)

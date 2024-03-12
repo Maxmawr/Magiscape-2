@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cro3pbayjyuux"]
+[gd_scene load_steps=9 format=3 uid="uid://cro3pbayjyuux"]
 
 [ext_resource type="Texture2D" uid="uid://dxgov2kuej7v6" path="res://spells/Lightning/lightning.png" id="1_8pqla"]
+[ext_resource type="Script" path="res://spells/Lightning/lightning_bolt.gd" id="1_oqosl"]
+[ext_resource type="PackedScene" uid="uid://cgjarc5p6vwqg" path="res://spells/Lightning/small_lightning.tscn" id="2_mjlnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75kgg"]
 size = Vector2(26, 10)
@@ -8,15 +10,64 @@ size = Vector2(26, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_l57xu"]
 radius = 90.1998
 
+[sub_resource type="Animation" id="Animation_dyjr4"]
+resource_name = "flying"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_bmxkn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4k73v"]
+_data = {
+"RESET": SubResource("Animation_bmxkn"),
+"flying": SubResource("Animation_dyjr4")
+}
+
 [node name="lightning_bolt" type="Area2D"]
+script = ExtResource("1_oqosl")
+small_lightning = ExtResource("2_mjlnj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_75kgg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_8pqla")
+hframes = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="detection_area" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_l57xu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4k73v")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
