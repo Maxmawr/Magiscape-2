@@ -11,7 +11,8 @@ var thispos
 @export var speed = 0.5
 
 func physics_update(delta: float) -> void:
-	owner.progress_ratio += delta * speed
+	pass
+	#owner.progress_ratio += delta * speed
 
 func enter(_msg := {}) -> void:
 	dead_collision.disabled = true

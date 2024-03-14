@@ -49,6 +49,8 @@ _data = {
 }
 
 [node name="lightning_bolt" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_oqosl")
 small_lightning = ExtResource("2_mjlnj")
 
@@ -60,9 +62,9 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_8pqla")
 hframes = 2
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="detection_area" type="Area2D" parent="."]
 
-[node name="detection_area" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
 shape = SubResource("CircleShape2D_l57xu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -71,3 +73,4 @@ libraries = {
 }
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
