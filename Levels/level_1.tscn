@@ -1534,3 +1534,6 @@ curve = SubResource("Curve2D_pey50")
 
 [node name="gazer2" parent="." instance=ExtResource("9_s7nfn")]
 position = Vector2(87, -9)
+
+[node name="Ghost2" parent="." instance=ExtResource("7_8sur5")]
+position = Vector2(-254, -9)
