@@ -34,6 +34,7 @@ func _on_area_entered(area):
 			first_hit = area
 			split()
 			area.handle_hit(3)
+			$hitsound.play()
 			queue_free()
 
 func _on_body_entered(body):
@@ -42,6 +43,9 @@ func _on_body_entered(body):
 			first_hit = body
 			split()
 			body.handle_hit(3)
+			$hitsound.play()
+			if $hitsound.playing == true:
+				print("RAGHHH")
 			queue_free()
 
 func split():

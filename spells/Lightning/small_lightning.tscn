@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgjarc5p6vwqg"]
+[gd_scene load_steps=5 format=3 uid="uid://cgjarc5p6vwqg"]
 
 [ext_resource type="Texture2D" uid="uid://dxgov2kuej7v6" path="res://spells/Lightning/lightning.png" id="1_n0kye"]
 [ext_resource type="Script" path="res://spells/Lightning/small_lightning.gd" id="1_wwftq"]
+[ext_resource type="AudioStream" uid="uid://ce3r2lie21klh" path="res://spells/Lightning/lightning_hit.wav" id="3_qyxxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ochyk"]
 size = Vector2(6, 2)
@@ -18,6 +19,9 @@ shape = SubResource("RectangleShape2D_ochyk")
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_n0kye")
 hframes = 2
+
+[node name="hitsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qyxxj")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
