@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgjarc5p6vwqg"]
+[gd_scene load_steps=6 format=3 uid="uid://cgjarc5p6vwqg"]
 
 [ext_resource type="Texture2D" uid="uid://dxgov2kuej7v6" path="res://spells/Lightning/lightning.png" id="1_n0kye"]
 [ext_resource type="Script" path="res://spells/Lightning/small_lightning.gd" id="1_wwftq"]
@@ -6,6 +6,15 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ochyk"]
 size = Vector2(6, 2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7fryc"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.25
+scale_max = 0.25
+color = Color(0.968627, 0.886275, 0.419608, 1)
 
 [node name="small_lightning" type="Area2D"]
 collision_layer = 3
@@ -23,5 +32,11 @@ hframes = 2
 [node name="hitsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qyxxj")
 
+[node name="delete_timer" type="Timer" parent="."]
+
+[node name="trail" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_7fryc")
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="delete_timer" to="." method="_on_delete_timer_timeout"]

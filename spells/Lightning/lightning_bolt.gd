@@ -24,8 +24,10 @@ func _ready():
 func _process(_delta):
 	if direction == "right":
 		$Sprite2D.set_flip_h(false)
+		$explosion.process_material.direction = Vector3(1, 0, 0)
 	elif direction == "left":
 		$Sprite2D.set_flip_h(true)
+		$explosion.process_material.direction = Vector3(-1, 0, 0)
 
 
 func _on_area_entered(area):
@@ -34,8 +36,11 @@ func _on_area_entered(area):
 			first_hit = area
 			split()
 			area.handle_hit(3)
+			$Sprite2D.visible = false
+			call_deferred("disable_collision")
+			$explosion.emitting = true
 			$hitsound.play()
-			queue_free()
+			$delete_timer.start()
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
@@ -43,10 +48,11 @@ func _on_body_entered(body):
 			first_hit = body
 			split()
 			body.handle_hit(3)
+			$Sprite2D.visible = false
+			call_deferred("disable_collision")
+			$explosion.emitting = true
 			$hitsound.play()
-			if $hitsound.playing == true:
-				print("RAGHHH")
-			queue_free()
+			$delete_timer.start()
 
 func split():
 	for enemy in $detection_area.get_overlapping_bodies():
@@ -56,7 +62,7 @@ func split():
 			var l = small_lightning.instantiate()
 			l.transform = self.global_transform
 			l.target = enemy
-			root.add_child(l)
+			call_deferred("spawn", l)
 	for enemy in $detection_area.get_overlapping_areas():
 		if enemy.is_in_group("enemies") == false or enemy == first_hit:
 			pass
@@ -64,7 +70,15 @@ func split():
 			var l = small_lightning.instantiate()
 			l.transform = self.global_transform
 			l.target = enemy
-			root.add_child(l)
+			call_deferred("spawn", l)
 
 
+func disable_collision():
+	$CollisionShape2D.disabled = true
 
+
+func _on_delete_timer_timeout():
+	queue_free()
+
+func spawn(l):
+	root.add_child(l)

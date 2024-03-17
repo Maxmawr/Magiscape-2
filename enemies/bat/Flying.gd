@@ -10,7 +10,7 @@ var thispos
 
 @export var speed = 0.5
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass
 	#owner.progress_ratio += delta * speed
 

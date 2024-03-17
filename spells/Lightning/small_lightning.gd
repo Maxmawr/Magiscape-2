@@ -14,13 +14,27 @@ func _on_area_entered(area):
 	if area.is_in_group("enemies") and area == target:
 		if area.has_method("handle_hit") and area.dead == false:
 			area.handle_hit(2)
+			$Sprite2D.visible = false
+			call_deferred("disable_collision")
+			#$explosion.emitting = true  (Particles)
 			$hitsound.play()
-			queue_free()
+			$delete_timer.start()
 
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies") and body == target:
 		if body.has_method("handle_hit") and body.dead == false:
 			body.handle_hit(2)
+			speed = 0
+			$Sprite2D.visible = false
+			call_deferred("disable_collision")
+			#$explosion.emitting = true  (Particles)
 			$hitsound.play()
-			queue_free()
+			$delete_timer.start()
+
+
+func _on_delete_timer_timeout():
+	queue_free()
+
+func disable_collision():
+	$CollisionShape2D.disabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cro3pbayjyuux"]
+[gd_scene load_steps=11 format=3 uid="uid://cro3pbayjyuux"]
 
 [ext_resource type="Texture2D" uid="uid://dxgov2kuej7v6" path="res://spells/Lightning/lightning.png" id="1_8pqla"]
 [ext_resource type="Script" path="res://spells/Lightning/lightning_bolt.gd" id="1_oqosl"]
@@ -49,6 +49,13 @@ _data = {
 "flying": SubResource("Animation_dyjr4")
 }
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5l13f"]
+particle_flag_disable_z = true
+initial_velocity_min = 25.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+color = Color(0.968627, 0.886275, 0.419608, 1)
+
 [node name="lightning_bolt" type="Area2D"]
 collision_layer = 3
 collision_mask = 3
@@ -56,6 +63,7 @@ script = ExtResource("1_oqosl")
 small_lightning = ExtResource("2_mjlnj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_75kgg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -66,6 +74,7 @@ hframes = 2
 [node name="detection_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+visible = false
 shape = SubResource("CircleShape2D_l57xu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -76,5 +85,15 @@ libraries = {
 [node name="hitsound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ikdht")
 
+[node name="delete_timer" type="Timer" parent="."]
+
+[node name="explosion" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_5l13f")
+one_shot = true
+explosiveness = 1.0
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="delete_timer" to="." method="_on_delete_timer_timeout"]
