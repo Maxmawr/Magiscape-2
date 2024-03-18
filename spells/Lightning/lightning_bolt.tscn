@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cro3pbayjyuux"]
+[gd_scene load_steps=13 format=3 uid="uid://cro3pbayjyuux"]
 
 [ext_resource type="Texture2D" uid="uid://dxgov2kuej7v6" path="res://spells/Lightning/lightning.png" id="1_8pqla"]
 [ext_resource type="Script" path="res://spells/Lightning/lightning_bolt.gd" id="1_oqosl"]
@@ -49,11 +49,19 @@ _data = {
 "flying": SubResource("Animation_dyjr4")
 }
 
+[sub_resource type="Curve" id="Curve_hdwyx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.659091, 0.683019), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m260x"]
+curve = SubResource("Curve_hdwyx")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5l13f"]
 particle_flag_disable_z = true
 initial_velocity_min = 25.0
 initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_m260x")
 color = Color(0.968627, 0.886275, 0.419608, 1)
 
 [node name="lightning_bolt" type="Area2D"]

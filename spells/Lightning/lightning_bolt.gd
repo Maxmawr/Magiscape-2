@@ -53,6 +53,12 @@ func _on_body_entered(body):
 			$explosion.emitting = true
 			$hitsound.play()
 			$delete_timer.start()
+	if body.is_in_group("wall"):
+			$Sprite2D.visible = false
+			call_deferred("disable_collision")
+			$explosion.emitting = true
+			$hitsound.play()
+			$delete_timer.start()
 
 func split():
 	for enemy in $detection_area.get_overlapping_bodies():
