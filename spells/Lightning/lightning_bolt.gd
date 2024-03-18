@@ -56,7 +56,7 @@ func _on_body_entered(body):
 
 func split():
 	for enemy in $detection_area.get_overlapping_bodies():
-		if not enemy.is_in_group("enemies") or enemy == first_hit:
+		if not enemy.is_in_group("enemies") or enemy == first_hit or enemy.dead == true:
 			pass
 		else:
 			var l = small_lightning.instantiate()
@@ -64,7 +64,7 @@ func split():
 			l.target = enemy
 			call_deferred("spawn", l)
 	for enemy in $detection_area.get_overlapping_areas():
-		if enemy.is_in_group("enemies") == false or enemy == first_hit:
+		if enemy.is_in_group("enemies") == false or enemy == first_hit or enemy.dead == true:
 			pass
 		else:
 			var l = small_lightning.instantiate()
