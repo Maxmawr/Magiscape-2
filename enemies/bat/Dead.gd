@@ -6,6 +6,7 @@ var gravity = 10
 @onready var area = get_parent().get_parent()
 @onready var alive_collision = get_parent().get_parent().get_node("alive_collision")
 @onready var dead_collision = get_parent().get_parent().get_node("dead_collision")
+@onready var coins = $"../../..".get_node("%coins")
 
 func enter(_msg := {}) -> void:
 	area.dead = true
@@ -14,7 +15,7 @@ func enter(_msg := {}) -> void:
 	animationplayer.play("dead")
 	owner.get_node("bat/TextureProgressBar").visible = false
 	var m = area.money.instantiate()
-	get_tree().get_root().add_child(m)
+	coins.add_child(m)
 	m.transform = owner.global_transform
 
 

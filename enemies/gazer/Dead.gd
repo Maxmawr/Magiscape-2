@@ -5,6 +5,7 @@ var gravity = 100
 @onready var animationplayer = get_parent().get_parent().get_node("AnimationPlayer")
 @onready var alive_collision = get_parent().get_parent().get_node("alive_collision")
 @onready var dead_collision = get_parent().get_parent().get_node("dead_collision")
+@onready var coins = owner.get_parent().get_node("coins")
 
 func enter(_msg := {}) -> void:
 	owner.dead = true
@@ -13,7 +14,7 @@ func enter(_msg := {}) -> void:
 	alive_collision.disabled = true
 	animationplayer.play("dead")
 	var m = owner.money.instantiate()
-	get_tree().get_root().add_child(m)
+	coins.add_child(m)
 	m.transform = owner.global_transform
 
 

@@ -8,10 +8,10 @@ var thispos
 @onready var alive_collision = get_parent().get_parent().get_node("alive_collision")
 @onready var dead_collision = get_parent().get_parent().get_node("dead_collision")
 
-@export var speed = 0.5
+@export var speed = 180
 
 func physics_update(delta: float) -> void:
-	owner.progress_ratio += delta * speed
+	owner.progress += delta * speed
 
 func enter(_msg := {}) -> void:
 	dead_collision.disabled = true

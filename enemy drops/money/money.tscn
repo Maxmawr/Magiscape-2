@@ -15,6 +15,7 @@ size = Vector2(16.1068, 11.2629)
 [node name="money" type="RigidBody2D"]
 collision_layer = 0
 physics_material_override = SubResource("PhysicsMaterial_ol6ih")
+lock_rotation = true
 script = ExtResource("1_g30ki")
 metadata/_edit_group_ = true
 

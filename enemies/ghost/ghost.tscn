@@ -278,7 +278,6 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_fgp5q")
 money = ExtResource("2_73p4n")
-metadata/_edit_group_ = true
 
 [node name="alive_collision" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
@@ -319,7 +318,6 @@ visible = false
 shape = SubResource("CircleShape2D_3ir84")
 
 [node name="patrol_left" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="patrol_left"]
 position = Vector2(-55, 0)
@@ -327,7 +325,6 @@ shape = SubResource("RectangleShape2D_y4lsg")
 debug_color = Color(0.87451, 0.317647, 0.360784, 0.419608)
 
 [node name="patrol_right" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="patrol_right"]
 position = Vector2(55, 0)
