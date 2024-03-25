@@ -10,6 +10,7 @@ var current_spell = 0
 var current_spell_cost = 50
 
 func reset():
+	current_spell = 0
 	health = maxhealth
 	mana = maxmana
 
