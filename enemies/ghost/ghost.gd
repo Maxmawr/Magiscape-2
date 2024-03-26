@@ -16,6 +16,13 @@ func _process(_delta):
 		emit_signal("change_to_dead")
 		dead = true
 
+	for body in $collision_detector.get_overlapping_bodies():
+		if body.is_in_group("wall"):
+			print("Raghhhh")
+			modulate = Color("ffffffaf")
+		else:
+			modulate = Color("ffffff")
+
 func handle_hit(damage):
 	if dead == false:
 		health -= damage
