@@ -8,6 +8,7 @@ var colour = "blue" #  Default for debug purposes; eg starting a scene without d
 var direction_facing = "right"
 var current_spell = 0
 var current_spell_cost = 50
+var has_lightning = false
 
 func reset():
 	current_spell = 0

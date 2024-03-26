@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bdbqm5khl6r67" path="res://Assets/brown_chest.png" id="1_7ixod"]
 [ext_resource type="Script" path="res://Levels/chest/chest.gd" id="1_ltumt"]
-[ext_resource type="PackedScene" uid="uid://c7nve542aaero" path="res://Levels/chest/chest_placeholder.tscn" id="2_2k4tc"]
+[ext_resource type="PackedScene" uid="uid://c7nve542aaero" path="res://Levels/chest/chest_lightning.tscn" id="2_2k4tc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8j1u"]
 size = Vector2(16, 11)

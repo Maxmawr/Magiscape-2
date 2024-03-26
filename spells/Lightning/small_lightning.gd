@@ -16,7 +16,7 @@ func _on_area_entered(area):
 			area.handle_hit(2)
 			$Sprite2D.visible = false
 			call_deferred("disable_collision")
-			#$explosion.emitting = true  (Particles)
+			$explosion.emitting = true
 			$hitsound.play()
 			$delete_timer.start()
 
@@ -28,7 +28,7 @@ func _on_body_entered(body):
 			speed = 0
 			$Sprite2D.visible = false
 			call_deferred("disable_collision")
-			#$explosion.emitting = true  (Particles)
+			$explosion.emitting = true
 			$hitsound.play()
 			$delete_timer.start()
 

@@ -1,9 +1,9 @@
 extends AudioStreamPlayer
 
-var current_playing
+var current_playing = null
 
 func _process(_delta):
-	if playing == false:
+	if playing == false and current_playing != null:
 		play_file(current_playing)
 
 func play_file(path):

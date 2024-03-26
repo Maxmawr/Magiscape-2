@@ -21,7 +21,14 @@ func _process(_delta):
 
 func num_loop():
 	# Update with highest number on list when adding new spell
-	if Permavariables.current_spell < 0:
-		Permavariables.current_spell = 2
-	elif Permavariables.current_spell > 2:
-		Permavariables.current_spell = 0
+	if Permavariables.has_lightning == true:
+		if Permavariables.current_spell < 0:
+			Permavariables.current_spell = 2
+		elif Permavariables.current_spell > 2:
+			Permavariables.current_spell = 0
+
+	elif Permavariables.has_lightning == false:
+		if Permavariables.current_spell < 0:
+			Permavariables.current_spell = 1
+		elif Permavariables.current_spell > 1:
+			Permavariables.current_spell = 0

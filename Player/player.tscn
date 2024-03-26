@@ -203,7 +203,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_yq7eo"]
 resource_name = "brown_get_item"
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

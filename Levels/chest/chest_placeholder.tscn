@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7nve542aaero"]
-
-[ext_resource type="Texture2D" uid="uid://c6q5vu0e4ixb0" path="res://GUI/Spell Select/lightning_icon.png" id="1_pbxnv"]
-
-[node name="chest_placeholder" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_pbxnv")

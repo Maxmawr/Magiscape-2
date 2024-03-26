@@ -20,3 +20,9 @@ func _on_body_entered(body):
 		var i = inside.instantiate()
 		i.position = $spawn_point.position
 		add_child(i)
+		Permavariables.has_lightning = true
+		call_deferred("disable_collision")
+
+
+func disable_collision():
+	$CollisionShape2D.disabled = true
