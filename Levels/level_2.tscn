@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dwae2jyi2m11"]
+[gd_scene load_steps=20 format=3 uid="uid://dwae2jyi2m11"]
 
 [ext_resource type="TileSet" uid="uid://8cjek7slqfr5" path="res://tileset.tres" id="1_baiju"]
 [ext_resource type="PackedScene" uid="uid://paywmxjb53r3" path="res://GUI/gui.tscn" id="1_fjs0c"]
+[ext_resource type="Script" path="res://Levels/level_2.gd" id="1_ufg2h"]
 [ext_resource type="PackedScene" uid="uid://dpjxfjttxa3gm" path="res://Player/player.tscn" id="2_umdf3"]
 [ext_resource type="PackedScene" uid="uid://d24qgl1scxnho" path="res://Levels/death_area.tscn" id="5_clh4f"]
 [ext_resource type="PackedScene" uid="uid://dhplvlnmkohun" path="res://enemies/ghost/ghost.tscn" id="6_a7qo1"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://h5p36kvc37hk" path="res://enemies/gazer/gazer.tscn" id="8_8wipc"]
 [ext_resource type="PackedScene" uid="uid://dl4c8ul8glvpn" path="res://Levels/door.tscn" id="9_kljai"]
 [ext_resource type="TileSet" uid="uid://cgepgupykmxtv" path="res://Levels/background.tres" id="9_w12ob"]
+[ext_resource type="PackedScene" uid="uid://cob1tn4m3kifj" path="res://Levels/fade_in.tscn" id="11_kmtqv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7hax"]
 size = Vector2(320.727, 7.67317)
@@ -47,6 +49,7 @@ _data = {
 point_count = 3
 
 [node name="Level 2" type="Node2D"]
+script = ExtResource("1_ufg2h")
 
 [node name="coins" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -130,6 +133,12 @@ curve = SubResource("Curve2D_m53id")
 
 [node name="bat" parent="Path2D4" instance=ExtResource("7_kckc2")]
 position = Vector2(1629.66, 496.325)
+
+[node name="fade_in" parent="." instance=ExtResource("11_kmtqv")]
+offset_left = -328.0
+offset_top = -156.0
+offset_right = 2796.0
+offset_bottom = 856.0
 
 [connection signal="body_entered" from="death_area" to="death_area" method="_on_body_entered"]
 [connection signal="body_entered" from="death_area2" to="death_area2" method="_on_body_entered"]

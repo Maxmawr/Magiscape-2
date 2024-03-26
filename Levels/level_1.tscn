@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvo2aud1mhg8n"]
+[gd_scene load_steps=16 format=3 uid="uid://bvo2aud1mhg8n"]
 
 [ext_resource type="Script" path="res://Levels/level_1.gd" id="1_3tor4"]
 [ext_resource type="PackedScene" uid="uid://dpjxfjttxa3gm" path="res://Player/player.tscn" id="1_x6eib"]
@@ -11,7 +11,9 @@
 [ext_resource type="TileSet" uid="uid://cgepgupykmxtv" path="res://Levels/background.tres" id="8_w7ch6"]
 [ext_resource type="PackedScene" uid="uid://h5p36kvc37hk" path="res://enemies/gazer/gazer.tscn" id="9_s7nfn"]
 [ext_resource type="PackedScene" uid="uid://cmoy24tgge4qa" path="res://Assets/signs/sign.tscn" id="10_w8g1y"]
+[ext_resource type="PackedScene" uid="uid://cob1tn4m3kifj" path="res://Levels/fade_in.tscn" id="13_6nc3h"]
 [ext_resource type="PackedScene" uid="uid://dl4c8ul8glvpn" path="res://Levels/door.tscn" id="13_cqa1q"]
+[ext_resource type="PackedScene" uid="uid://cekxqfnkap8f6" path="res://Levels/fade_out.tscn" id="14_w6654"]
 
 [sub_resource type="Curve2D" id="Curve2D_foxpt"]
 _data = {
@@ -86,3 +88,18 @@ Space to jump"
 
 [node name="Door" parent="." instance=ExtResource("13_cqa1q")]
 position = Vector2(691, -8)
+
+[node name="fade_in" parent="." instance=ExtResource("13_6nc3h")]
+offset_left = -1212.0
+offset_top = -445.0
+offset_right = 1654.0
+offset_bottom = 578.0
+
+[node name="fade_out" parent="." instance=ExtResource("14_w6654")]
+visible = true
+offset_left = -1199.0
+offset_top = -413.0
+offset_right = 1576.0
+offset_bottom = 557.0
+
+[connection signal="change_level" from="fade_out" to="Door" method="_on_fade_out_change_level"]
