@@ -7,6 +7,7 @@ signal change_level
 	#visible = true
 
 func start():
+	visible = true
 	$AnimationPlayer.play("fade_out")
 
 

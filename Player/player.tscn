@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dpjxfjttxa3gm"]
+[gd_scene load_steps=64 format=3 uid="uid://dpjxfjttxa3gm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8tbuo"]
 [ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
@@ -21,6 +21,8 @@
 [ext_resource type="Script" path="res://Player/mana_timer.gd" id="16_oimxa"]
 [ext_resource type="FontFile" uid="uid://doyr4x7sqpheo" path="res://Assets/Fonts/joystix monospace.otf" id="18_ngnwa"]
 [ext_resource type="AudioStream" uid="uid://bc2ccnbu0rrpf" path="res://Player/sfx/hit.wav" id="19_l5mqv"]
+[ext_resource type="PackedScene" uid="uid://bmn1i28nb0jyq" path="res://Player/crosshair.tscn" id="22_aktej"]
+[ext_resource type="Script" path="res://Player/arm.gd" id="23_kmuxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a7m"]
 size = Vector2(10, 16)
@@ -869,7 +871,14 @@ horizontal_alignment = 1
 [node name="hurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_l5mqv")
 
+[node name="crosshair" parent="." instance=ExtResource("22_aktej")]
+
+[node name="arm" type="Sprite2D" parent="."]
+z_index = 1
+script = ExtResource("23_kmuxf")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Casting" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Get_Item" method="_on_animation_player_animation_finished"]
 [connection signal="mana_changed" from="StateMachine/Casting" to="manabar" method="_on_casting_mana_changed"]
 [connection signal="timeout" from="mana_timer" to="mana_timer" method="_on_timeout"]
+[connection signal="draw" from="arm" to="arm" method="_on_draw"]

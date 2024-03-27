@@ -148,12 +148,13 @@ offset_bottom = 856.0
 position = Vector2(76.0117, 366.503)
 
 [node name="fade_out" parent="." instance=ExtResource("13_5hpg6")]
-offset_left = 642.393
-offset_top = 385.441
-offset_right = 642.393
-offset_bottom = 385.441
+offset_left = -289.0
+offset_top = -102.0
+offset_right = 2786.0
+offset_bottom = 826.0
 
 [connection signal="body_entered" from="death_area" to="death_area" method="_on_body_entered"]
 [connection signal="body_entered" from="death_area2" to="death_area2" method="_on_body_entered"]
 [connection signal="body_entered" from="death_area3" to="death_area3" method="_on_body_entered"]
 [connection signal="body_entered" from="death_area4" to="death_area4" method="_on_body_entered"]
+[connection signal="change_level" from="fade_out" to="Door" method="_on_fade_out_change_level"]

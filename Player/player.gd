@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var fireball : PackedScene
 @export var vinespell : PackedScene
 @export var lightning_bolt : PackedScene
+@onready var crosshair_angle
 
 func take_damage(damage):
 	Permavariables.health -= damage
