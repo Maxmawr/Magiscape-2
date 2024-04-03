@@ -2,6 +2,7 @@
 extends State
 
 @onready var animationplayer = owner.get_node("AnimationPlayer")
+@onready var spell_spawn = owner.get_node("spell_spawn")
 
 # If we get a message asking us to jump, we jump.
 func enter(msg := {}) -> void:
@@ -22,12 +23,13 @@ func physics_update(delta: float) -> void:
 	owner.velocity.y += owner.gravity * delta
 	
 
-	if input_direction_x < 0:
+	if Permavariables.direction_facing == "left":
 		owner.get_node("sprite").flip_h = true
-		Permavariables.direction_facing = "left"
-	if input_direction_x > 0:
+		spell_spawn.position.x = -10
+
+	elif Permavariables.direction_facing == "right":
 		owner.get_node("sprite").flip_h = false
-		Permavariables.direction_facing = "right"
+		spell_spawn.position.x = 10
 
 	owner.move_and_slide()
 

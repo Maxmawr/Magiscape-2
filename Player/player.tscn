@@ -875,6 +875,7 @@ stream = ExtResource("19_l5mqv")
 
 [node name="arm" type="Sprite2D" parent="."]
 z_index = 1
+position = Vector2(6, 0)
 script = ExtResource("23_kmuxf")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Casting" method="_on_animation_player_animation_finished"]
