@@ -22,12 +22,13 @@ func physics_update(delta: float) -> void:
 	owner.velocity.y += owner.gravity * delta
 	owner.move_and_slide()
 	
-	if input_direction_x < 0:
+	if Permavariables.direction_facing == "left":
 		owner.get_node("sprite").flip_h = true
-		Permavariables.direction_facing = "left"
-	if input_direction_x > 0:
+		spell_spawn.position.x = -10
+
+	elif Permavariables.direction_facing == "right":
 		owner.get_node("sprite").flip_h = false
-		Permavariables.direction_facing = "right"
+		spell_spawn.position.x = 10
 
 func update(_delta: float) -> void:
 	if Permavariables.health == 0:

@@ -1,0 +1,24 @@
+extends Node2D
+
+
+@onready var crosshair = owner.get_node("crosshair")
+@onready var start_point = owner.get_node("spell_spawn")
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+
+	Permavariables.crosshair_position = crosshair.global_position
+	
+	if crosshair.position.x - position.x >= 0:
+		Permavariables.direction_facing = "right"
+	else:
+		Permavariables.direction_facing = "left"
+
+
+
+
