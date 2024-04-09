@@ -896,10 +896,12 @@ position = Vector2(-4.99545, 0.02725)
 rotation = -1.5708
 texture = ExtResource("23_6gstw")
 offset = Vector2(0.0274639, 2.51459)
+hframes = 6
 script = ExtResource("23_kmuxf")
 
-[node name="arm_point" type="Marker2D" parent="arm"]
-position = Vector2(0.5, 0.5)
+[node name="arm_point" type="Marker2D" parent="arm/arm_sprite"]
+position = Vector2(-0.472771, 5.49545)
+rotation = 1.5708
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_lxbhr")

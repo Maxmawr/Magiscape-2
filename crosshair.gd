@@ -16,4 +16,4 @@ func _process(_delta):
 	queue_redraw()
 
 func _on_draw():
-	draw_line(Vector2.ZERO, arm.global_position - global_position, line_color, line_width)
+	draw_line(Vector2.ZERO, arm.line_position - global_position, line_color, line_width)

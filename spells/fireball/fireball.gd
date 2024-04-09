@@ -3,18 +3,18 @@ extends Area2D
 var speed = 300
 @onready var direction = Permavariables.direction_facing
 @onready var angle = (Permavariables.crosshair_position - global_position).normalized()
+@onready var sprite = $Sprite2D
 
 func _physics_process(delta):
 	global_position += angle * speed * delta
-	#For sprite flipping soon
-	if direction == "right":
-		pass
-	elif direction == "left":
-		pass
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("flying")
+	sprite.look_at(Permavariables.crosshair_position)
+	if direction == "left":
+		rotation_degrees -= 180
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
