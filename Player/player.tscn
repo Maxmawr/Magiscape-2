@@ -474,7 +474,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [29]
+"values": [109]
 }
 
 [sub_resource type="Animation" id="Animation_w6qln"]
@@ -588,7 +588,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [43]
+"values": [116]
 }
 
 [sub_resource type="Animation" id="Animation_6tnyc"]
@@ -702,7 +702,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [57]
+"values": [123]
 }
 
 [sub_resource type="Animation" id="Animation_rlmrc"]
@@ -816,7 +816,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [71]
+"values": [130]
 }
 
 [sub_resource type="Animation" id="Animation_tg6qw"]
