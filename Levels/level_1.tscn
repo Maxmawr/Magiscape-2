@@ -83,7 +83,7 @@ z_index = -1
 position = Vector2(-612, -8)
 message = "WASD or arrow keys to move
 Q and E to switch spells
-F to cast
+F Or Left Click to cast
 Space to jump"
 
 [node name="Door" parent="." instance=ExtResource("13_cqa1q")]

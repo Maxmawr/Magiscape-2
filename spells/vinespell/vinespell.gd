@@ -32,12 +32,14 @@ func _on_body_entered(body):
 		$Sprite2D.visible = false
 		call_deferred("disable_collision")
 		$explosion.emitting = true
+		$bindsound.play()
 		$delete_timer.start()
 	if body.is_in_group("wall"):
 		speed = 0
 		$Sprite2D.visible = false
 		call_deferred("disable_collision")
 		$explosion.emitting = true
+		$bindsound.play()
 		$delete_timer.start()
 
 func _on_area_entered(area):
@@ -47,6 +49,7 @@ func _on_area_entered(area):
 		$Sprite2D.visible = false
 		call_deferred("disable_collision")
 		$explosion.emitting = true
+		$bindsound.play()
 		$delete_timer.start()
 
 
