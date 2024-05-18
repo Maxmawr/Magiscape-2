@@ -11,10 +11,12 @@ func pause_unpause():
 		is_paused = true
 		self.visible = true
 		get_tree().paused = true
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	elif is_paused == true:
 		is_paused = false
 		self.visible = false
 		get_tree().paused = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _on_resume_btn_pressed():
