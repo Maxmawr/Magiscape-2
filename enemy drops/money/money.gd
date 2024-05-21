@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+var value
+
 # To change sprite depending on money amount
 var single_coin = range(1,6)
 var coin_stack = range(6,11)
@@ -28,12 +30,15 @@ func set_sprite(amount):
 		$sprite.frame = randi_range(10,14)
 	elif amount >= bar:
 		$sprite.frame = 15
+	
+	value = amount
 
 
 
 func _on_area_2d_body_entered(body):
 	if body.name == "player":
 		if picked_up == false:
+			Permavariables.gold_amount += value
 			$pickupsound.play()
 			$sprite.visible = false
 			picked_up = true

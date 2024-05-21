@@ -1,7 +1,7 @@
 extends State
 
 @onready var animationplayer = owner.get_node("AnimationPlayer")
-@onready var arm_sprite = owner.get_node("arm/arm_sprite")
+@onready var arm_sprite = owner.get_node("Marker2D/arm/arm_sprite")
 
 func enter(_msg := {}) -> void:
 	owner.velocity.x = 0

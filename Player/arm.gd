@@ -16,3 +16,9 @@ func _ready():
 func _process(_delta):
 	look_at(get_global_mouse_position())
 	rotation_degrees -= 90
+	
+	if Permavariables.direction_facing == "left":
+		flip_h = true
+	elif Permavariables.direction_facing == "right":
+		flip_h = false
+		

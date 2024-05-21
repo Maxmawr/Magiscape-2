@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dpjxfjttxa3gm"]
+[gd_scene load_steps=67 format=3 uid="uid://dpjxfjttxa3gm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8tbuo"]
 [ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dq46wxqpbm6uf" path="res://Assets/mages/arm.png" id="23_6gstw"]
 [ext_resource type="Script" path="res://Player/arm_control.gd" id="23_ejdgu"]
 [ext_resource type="Script" path="res://Player/arm.gd" id="23_kmuxf"]
+[ext_resource type="Script" path="res://Player/Marker2D.gd" id="23_sql18"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5a7m"]
 size = Vector2(10, 16)
@@ -46,8 +47,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -88,8 +89,8 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("arm:position")
-tracks/2/interp = 1
+tracks/2/path = NodePath("Marker2D/arm:position")
+tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2),
@@ -150,8 +151,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.2, 0.6),
@@ -179,8 +180,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -208,8 +209,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -250,7 +251,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("arm:position")
+tracks/2/path = NodePath("Marker2D/arm:position")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -312,7 +313,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
+tracks/1/path = NodePath("Marker2D/arm:position")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -341,8 +342,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -370,7 +371,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
+tracks/1/path = NodePath("Marker2D/arm:position")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -412,7 +413,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("arm:position")
+tracks/2/path = NodePath("Marker2D/arm:position")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -474,7 +475,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
+tracks/1/path = NodePath("Marker2D/arm:position")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -503,8 +504,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -532,8 +533,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -574,7 +575,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("arm:position")
+tracks/2/path = NodePath("Marker2D/arm:position")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -636,7 +637,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
+tracks/1/path = NodePath("Marker2D/arm:position")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -665,8 +666,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -694,8 +695,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -736,7 +737,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("arm:position")
+tracks/2/path = NodePath("Marker2D/arm:position")
 tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -798,8 +799,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.2, 0.6),
@@ -827,8 +828,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -856,8 +857,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -898,8 +899,8 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("arm:position")
-tracks/2/interp = 1
+tracks/2/path = NodePath("Marker2D/arm:position")
+tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2),
@@ -960,7 +961,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
+tracks/1/path = NodePath("Marker2D/arm:position")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -989,8 +990,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -1018,8 +1019,8 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("arm:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath("Marker2D/arm:position")
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
@@ -1102,23 +1103,6 @@ position = Vector2(0, 25)
 offset = Vector2(0, -50)
 zoom = Vector2(3, 3)
 
-[node name="arm" type="Node2D" parent="."]
-position = Vector2(9.48231, -1.49985)
-script = ExtResource("23_ejdgu")
-
-[node name="arm_sprite" type="Sprite2D" parent="arm"]
-z_index = 1
-position = Vector2(-4.99545, 0.02725)
-rotation = -1.5708
-texture = ExtResource("23_6gstw")
-offset = Vector2(0.0274639, 2.51459)
-hframes = 6
-script = ExtResource("23_kmuxf")
-
-[node name="arm_point" type="Marker2D" parent="arm/arm_sprite"]
-position = Vector2(-0.472771, 5.49545)
-rotation = 1.5708
-
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_lxbhr")
 initial_state = NodePath("Idle")
@@ -1192,9 +1176,29 @@ stream = ExtResource("19_l5mqv")
 
 [node name="crosshair" parent="." instance=ExtResource("22_aktej")]
 
+[node name="Marker2D" type="Marker2D" parent="."]
+script = ExtResource("23_sql18")
+
+[node name="arm" type="Node2D" parent="Marker2D"]
+position = Vector2(9.48231, -1.49985)
+script = ExtResource("23_ejdgu")
+
+[node name="arm_sprite" type="Sprite2D" parent="Marker2D/arm"]
+z_index = 1
+position = Vector2(-4.99545, 0.02725)
+rotation = -1.5708
+texture = ExtResource("23_6gstw")
+offset = Vector2(0, 3.46)
+hframes = 6
+script = ExtResource("23_kmuxf")
+
+[node name="arm_point" type="Marker2D" parent="Marker2D/arm/arm_sprite"]
+position = Vector2(-0.472771, 5.49545)
+rotation = 1.5708
+
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Casting" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Get_Item" method="_on_animation_player_animation_finished"]
-[connection signal="draw" from="arm/arm_sprite" to="arm/arm_sprite" method="_on_draw"]
 [connection signal="mana_changed" from="StateMachine/Casting" to="manabar" method="_on_casting_mana_changed"]
 [connection signal="timeout" from="mana_timer" to="mana_timer" method="_on_timeout"]
 [connection signal="draw" from="crosshair" to="crosshair" method="_on_draw"]
+[connection signal="draw" from="Marker2D/arm/arm_sprite" to="Marker2D/arm/arm_sprite" method="_on_draw"]

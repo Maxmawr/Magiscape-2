@@ -2,8 +2,8 @@ extends Area2D
 
 var line_color = Color("9d9d9ddc")
 var line_width = 0.5
-@onready var arm = get_parent().get_node("arm")
-@onready var arm_sprite = get_parent().get_node("arm/arm_sprite")
+@onready var arm = get_parent().get_node("Marker2D/arm")
+@onready var arm_sprite = get_parent().get_node("Marker2D/arm/arm_sprite")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
