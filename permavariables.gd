@@ -10,7 +10,7 @@ var current_spell = 0
 var current_spell_cost = 50
 var has_lightning = false
 var crosshair_position
-var gold_amount
+var gold_amount = 0
 
 func reset():
 	current_spell = 0
