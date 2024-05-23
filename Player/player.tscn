@@ -1175,6 +1175,7 @@ horizontal_alignment = 1
 stream = ExtResource("19_l5mqv")
 
 [node name="crosshair" parent="." instance=ExtResource("22_aktej")]
+z_index = 5
 
 [node name="Marker2D" type="Marker2D" parent="."]
 script = ExtResource("23_sql18")
