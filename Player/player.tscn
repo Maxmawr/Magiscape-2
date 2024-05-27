@@ -1074,7 +1074,6 @@ _data = {
 size = Vector2(10, 16)
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
-position = Vector2(60, -22)
 script = ExtResource("1_8tbuo")
 fireball = ExtResource("2_svchr")
 vinespell = ExtResource("3_gumi8")

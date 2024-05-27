@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://bbxo384a8eehh"]
+
+[ext_resource type="Script" path="res://Levels/cauldron/cauldron.gd" id="1_7yfnq"]
+[ext_resource type="Texture2D" uid="uid://dr8bx6k4mxb44" path="res://Assets/cauldron.png" id="1_jx2e5"]
+[ext_resource type="Texture2D" uid="uid://djvup27mxndbs" path="res://Levels/cauldron/bubble.png" id="3_e27ya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amm2h"]
+size = Vector2(12, 9)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c5cww"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 5.0
+angular_velocity_min = -40.0
+angular_velocity_max = 40.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.2
+scale_max = 0.5
+
+[sub_resource type="Curve" id="Curve_lev3e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.813333, 0.538462), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_hc2mp"]
+curve = SubResource("Curve_lev3e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vvd3d"]
+emission_shape = 3
+emission_box_extents = Vector3(4, 2, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+gravity = Vector3(0, -98, 0)
+scale_curve = SubResource("CurveTexture_hc2mp")
+
+[node name="cauldron" type="Area2D"]
+script = ExtResource("1_7yfnq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jx2e5")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_amm2h")
+
+[node name="bubbles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -2)
+process_material = SubResource("ParticleProcessMaterial_c5cww")
+texture = ExtResource("3_e27ya")
+lifetime = 0.2
+
+[node name="steam" type="GPUParticles2D" parent="."]
+position = Vector2(0, -2)
+process_material = SubResource("ParticleProcessMaterial_vvd3d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
