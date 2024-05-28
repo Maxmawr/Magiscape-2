@@ -2,7 +2,9 @@ extends Area2D
 
 @export var launch_height = -500
 
+func _ready():
+	$Sprite2D.frame = randi_range(0,1)
+
 func _on_body_entered(body):
 	if body.name == "player":
-		print("ihawuthoawt")
-		body.velocity.y = -500
+		body.velocity.y = launch_height

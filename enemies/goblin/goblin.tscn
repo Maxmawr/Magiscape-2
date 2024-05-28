@@ -1,0 +1,48 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhnrb5paxm12y"]
+
+[ext_resource type="Script" path="res://enemies/goblin/goblin.gd" id="1_5vbfn"]
+[ext_resource type="Texture2D" uid="uid://bd3hyoqr5gk0d" path="res://enemies/goblin/goblin.png" id="1_bwexh"]
+[ext_resource type="Script" path="res://enemies/goblin/Goblin_StateMachine.gd" id="3_7rpta"]
+[ext_resource type="Script" path="res://enemies/goblin/Idle.gd" id="4_hb65e"]
+[ext_resource type="Script" path="res://enemies/goblin/Hostile.gd" id="5_j2qdu"]
+[ext_resource type="Script" path="res://enemies/goblin/Knockback.gd" id="6_6vako"]
+[ext_resource type="Script" path="res://enemies/goblin/Dead.gd" id="7_0o5d4"]
+[ext_resource type="Script" path="res://enemies/goblin/Bind.gd" id="8_84e7l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr2b5"]
+size = Vector2(12, 16)
+
+[node name="goblin" type="CharacterBody2D"]
+script = ExtResource("1_5vbfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yr2b5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bwexh")
+hframes = 7
+
+[node name="Goblin_StateMachine" type="Node" parent="."]
+script = ExtResource("3_7rpta")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="Goblin_StateMachine"]
+script = ExtResource("4_hb65e")
+
+[node name="Hostile" type="Node" parent="Goblin_StateMachine"]
+script = ExtResource("5_j2qdu")
+
+[node name="Knockback" type="Node" parent="Goblin_StateMachine"]
+script = ExtResource("6_6vako")
+
+[node name="Dead" type="Node" parent="Goblin_StateMachine"]
+script = ExtResource("7_0o5d4")
+
+[node name="Bind" type="Node" parent="Goblin_StateMachine"]
+script = ExtResource("8_84e7l")
+
+[node name="idle_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="idle_timer" to="Goblin_StateMachine/Idle" method="_on_idle_timer_timeout"]
