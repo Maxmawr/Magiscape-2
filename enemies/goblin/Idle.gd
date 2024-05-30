@@ -13,7 +13,13 @@ func _process(_delta):
 
 
 func _on_idle_timer_timeout():
-	if owner.scale.x == 1:
-		owner.scale.x = -1
-	elif owner.scale.x == -1:
-		owner.scale.x = 1
+	if state_machine.state == self:
+		if owner.scale.x == 1:
+			owner.scale.x = -1
+		elif owner.scale.x == -1:
+			owner.scale.x = 1
+
+
+func _on_area_2d_body_entered(body):
+	if body.name == "player":
+		state_machine.transition_to("Hostile")
