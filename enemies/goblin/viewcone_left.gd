@@ -1,7 +1,9 @@
 extends Area2D
 
+@onready var cone = $cone
+
 func _process(_delta):
 	if get_parent().direction_facing == "right":
-		$cone.disabled = true
+		cone.disabled = true
 	elif get_parent().direction_facing == "left":
-		$cone.disabled = false
+		cone.disabled = false
