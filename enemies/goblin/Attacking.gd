@@ -15,5 +15,5 @@ func physics_update(_delta: float) -> void:
 
 
 func _on_attack_area_body_exited(body):
-	if state_machine.state == self:
+	if state_machine.state == self and body.name == "player":
 		state_machine.transition_to("Hostile")

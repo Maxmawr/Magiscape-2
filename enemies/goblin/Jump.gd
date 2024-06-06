@@ -2,11 +2,9 @@ extends State
 
 @onready var player = owner.get_parent().get_node("player")
 @onready var sprite = owner.get_node("Sprite2D")
-@onready var attack_area = owner.get_node("attack_area")
-
 
 func enter(_msg := {}) -> void:
-	pass
+	owner.velocity.y = -owner.jump_height
 
 
 func update(_delta: float) -> void:
@@ -17,10 +15,6 @@ func update(_delta: float) -> void:
 		sprite.flip_h = true
 		owner.direction_facing = "left"
 
-	for body in attack_area.get_overlapping_bodies():
-		if body.name == "player":
-			state_machine.transition_to("Attacking")
-
 func physics_update(delta: float) -> void:
 	if player.global_position > owner.global_position:
 		owner.velocity.x = owner.hostile_speed * delta
@@ -28,17 +22,5 @@ func physics_update(delta: float) -> void:
 		owner.velocity.x = -owner.hostile_speed * delta
 	
 	owner.velocity.y += owner.gravity * delta
-	
-	owner.move_and_slide()
 
 
-func _on_jump_detector_left_body_entered(body):
-	if state_machine.state == self and body.is_in_group("wall"):
-		print("left")
-		state_machine.transition_to("Jump")
-
-
-func _on_jump_detector_right_body_entered(body):
-	if state_machine.state == self and body.is_in_group("wall"):
-		print("right")
-		state_machine.transition_to("Jump")
