@@ -22,5 +22,9 @@ func physics_update(delta: float) -> void:
 		owner.velocity.x = -owner.hostile_speed * delta
 	
 	owner.velocity.y += owner.gravity * delta
+	
+	owner.move_and_slide()
 
+	if owner.is_on_floor():
+		state_machine.transition_to("Hostile")
 

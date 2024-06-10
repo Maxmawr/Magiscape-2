@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dhnrb5paxm12y"]
+[gd_scene load_steps=24 format=3 uid="uid://dhnrb5paxm12y"]
 
 [ext_resource type="Script" path="res://enemies/goblin/goblin.gd" id="1_5vbfn"]
 [ext_resource type="Texture2D" uid="uid://bd3hyoqr5gk0d" path="res://enemies/goblin/goblin.png" id="1_bwexh"]
@@ -19,7 +19,7 @@
 size = Vector2(12, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0y3j7"]
-radius = 149.013
+radius = 85.0941
 
 [sub_resource type="Animation" id="Animation_kusfi"]
 length = 0.001
@@ -70,11 +70,29 @@ tracks/0/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_hqudu"]
+resource_name = "move"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kft4x"]
 _data = {
 "RESET": SubResource("Animation_kusfi"),
 "attack": SubResource("Animation_ymkk2"),
-"idle": SubResource("Animation_ry4hw")
+"idle": SubResource("Animation_ry4hw"),
+"move": SubResource("Animation_hqudu")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmc7o"]
@@ -171,5 +189,3 @@ script = ExtResource("8_84e7l")
 [connection signal="body_entered" from="viewcone_right" to="Goblin_StateMachine/Idle" method="_on_viewcone_right_body_entered"]
 [connection signal="body_entered" from="viewcone_left" to="Goblin_StateMachine/Idle" method="_on_viewcone_left_body_entered"]
 [connection signal="body_exited" from="attack_area" to="Goblin_StateMachine/Attacking" method="_on_attack_area_body_exited"]
-[connection signal="body_entered" from="jump_detector_left" to="Goblin_StateMachine/Hostile" method="_on_jump_detector_left_body_entered"]
-[connection signal="body_entered" from="jump_detector_right" to="Goblin_StateMachine/Hostile" method="_on_jump_detector_right_body_entered"]
