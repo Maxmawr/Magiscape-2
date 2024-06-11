@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgfxp6vukmbsu"]
+
+[ext_resource type="Script" path="res://enemies/goblin/goblin_spear.gd" id="1_wsw4s"]
+[ext_resource type="Texture2D" uid="uid://c8me70qa6rc4i" path="res://enemies/goblin/spear.png" id="2_6i4it"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oblxt"]
+size = Vector2(4, 6)
+
+[node name="goblin_spear" type="CharacterBody2D"]
+script = ExtResource("1_wsw4s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6i4it")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -8)
+shape = SubResource("RectangleShape2D_oblxt")
