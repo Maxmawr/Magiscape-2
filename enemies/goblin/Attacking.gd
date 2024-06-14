@@ -2,7 +2,6 @@ extends State
 
 @onready var player = owner.get_parent().get_node("player")
 @onready var animationplayer = owner.get_node("AnimationPlayer")
-@onready var player_position = player.position
 
 func enter(_msg := {}) -> void:
 	animationplayer.play("attack")
@@ -24,5 +23,5 @@ func attack_arc():
 	s.transform = owner.global_transform
 	owner.owner.add_child(s)
 	
-	s.launch(player_position)
+	s.launch(player.global_position)
 	
