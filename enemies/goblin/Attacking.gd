@@ -19,9 +19,9 @@ func _on_attack_area_body_exited(body):
 		state_machine.transition_to("Hostile")
 
 func attack_arc():
-	var s = owner.spear.instantiate()
-	s.transform = owner.global_transform
-	owner.owner.add_child(s)
+	var a = owner.axe.instantiate()
+	a.transform = owner.global_transform
+	owner.owner.add_child(a)
 	
-	s.launch(player.global_position)
+	a.launch(player.global_position)
 	

@@ -1,24 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgfxp6vukmbsu"]
 
-[ext_resource type="Script" path="res://enemies/goblin/goblin_spear.gd" id="1_wsw4s"]
-[ext_resource type="Texture2D" uid="uid://c8me70qa6rc4i" path="res://enemies/goblin/spear.png" id="2_6i4it"]
+[ext_resource type="Script" path="res://enemies/goblin/goblin_axe.gd" id="1_ifuil"]
+[ext_resource type="Texture2D" uid="uid://ia63uw4crywy" path="res://enemies/goblin/axe.png" id="2_hyex7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oblxt"]
-size = Vector2(4, 6)
+size = Vector2(6, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxkvg"]
 size = Vector2(4, 6)
 
-[node name="goblin_spear" type="CharacterBody2D"]
+[node name="goblin_axe" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 5
-script = ExtResource("1_wsw4s")
+script = ExtResource("1_ifuil")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_6i4it")
+texture = ExtResource("2_hyex7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -8)
+position = Vector2(4, -3.5)
 shape = SubResource("RectangleShape2D_oblxt")
 
 [node name="despawn_box" type="Area2D" parent="."]

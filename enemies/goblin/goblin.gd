@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var hostile_speed = 3000.0
-@export var spear : PackedScene
+@export var axe : PackedScene
 
 var ground_speed := 300.0
 var air_speed := 300.0

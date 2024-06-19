@@ -1,22 +1,23 @@
 extends CharacterBody2D
 
+
 @onready var goblin = get_parent().get_node("goblin")
 
 @export var speed = 500
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+
 func _physics_process(delta):
 	velocity.y += gravity * delta
 	
 	move_and_collide(velocity * delta)
-	rotation = velocity.angle() + 90
+	rotation = velocity.angle()
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 func calculate_arc_velocity(source_position, target_position, arc_height, gravity):
-	print(target_position)
 	var velocity = Vector2()
 	var displacement = target_position - source_position
 	
@@ -27,6 +28,7 @@ func calculate_arc_velocity(source_position, target_position, arc_height, gravit
 		if goblin.direction_facing == "left":
 			velocity.y = -sqrt(-2 * gravity * arc_height)
 			velocity.x = displacement.x / (time_up + time_down)
+			scale.y = -1
 		else:
 			velocity.y = -sqrt(-2 * gravity * arc_height)
 			velocity.x = displacement.x / (time_up + time_down)
