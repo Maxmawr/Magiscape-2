@@ -116,7 +116,7 @@ size = Vector2(4, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1gvg"]
 size = Vector2(4, 12)
 
-[node name="goblin" type="CharacterBody2D"]
+[node name="goblin" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_5vbfn")
 axe = ExtResource("2_m6fbm")
 

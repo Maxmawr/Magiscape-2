@@ -2,13 +2,19 @@ extends State
 
 @onready var player = owner.get_parent().get_node("player")
 @onready var animationplayer = owner.get_node("AnimationPlayer")
+@onready var sprite = owner.get_node("Sprite2D")
 
 func enter(_msg := {}) -> void:
 	animationplayer.play("attack")
 
 
 func update(_delta: float) -> void:
-	pass
+	if player.global_position.x > owner.global_position.x:
+		sprite.flip_h = false
+		owner.direction_facing = "right"
+	else:
+		sprite.flip_h = true
+		owner.direction_facing = "left"
 
 func physics_update(_delta: float) -> void:
 	pass

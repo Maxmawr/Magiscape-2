@@ -7,6 +7,9 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	if goblin.direction_facing == "left":
+		position.x += -10
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
@@ -41,6 +44,9 @@ func launch(target_position):
 	velocity = calculate_arc_velocity(global_position, target_position, arc_height, gravity)
 
 
-func _on_despawn_box_body_entered(body):
-	if body.is_in_group("wall"):
+func _on_hitbox_body_entered(body):
+	if body.name == "player":
+		body.take_damage(5)
+		queue_free()
+	elif body.is_in_group("wall"):
 		queue_free()
