@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://dhnrb5paxm12y"]
+[gd_scene load_steps=31 format=3 uid="uid://dhnrb5paxm12y"]
 
 [ext_resource type="Script" path="res://enemies/goblin/goblin.gd" id="1_5vbfn"]
 [ext_resource type="Texture2D" uid="uid://bd3hyoqr5gk0d" path="res://enemies/goblin/goblin.png" id="1_bwexh"]
 [ext_resource type="PackedScene" uid="uid://dgfxp6vukmbsu" path="res://enemies/goblin/goblin_axe.tscn" id="2_m6fbm"]
 [ext_resource type="Script" path="res://enemies/goblin/Goblin_StateMachine.gd" id="3_7rpta"]
+[ext_resource type="PackedScene" uid="uid://tbkq8yk26ha0" path="res://enemy drops/money/money.tscn" id="3_t7lhg"]
 [ext_resource type="Script" path="res://enemies/goblin/Idle.gd" id="4_hb65e"]
 [ext_resource type="Script" path="res://enemies/goblin/Hostile.gd" id="5_j2qdu"]
 [ext_resource type="Script" path="res://enemies/goblin/jump_detector_left.gd" id="5_svofb"]
@@ -13,7 +14,9 @@
 [ext_resource type="Script" path="res://enemies/goblin/Jump.gd" id="7_kw340"]
 [ext_resource type="Script" path="res://enemies/goblin/Attacking.gd" id="8_2he4y"]
 [ext_resource type="Script" path="res://enemies/goblin/Bind.gd" id="8_84e7l"]
+[ext_resource type="Texture2D" uid="uid://dealtcai7dujr" path="res://Assets/vine_timer_outline.png" id="8_l0sq7"]
 [ext_resource type="Script" path="res://enemies/goblin/viewcone.gd" id="9_5qj35"]
+[ext_resource type="Texture2D" uid="uid://ckrs63p8xh7or" path="res://Assets/vine_timer_bar.png" id="9_uxrt8"]
 [ext_resource type="Script" path="res://enemies/goblin/viewcone_left.gd" id="10_or17h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yr2b5"]
@@ -35,6 +38,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureProgressBar:value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureProgressBar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ymkk2"]
@@ -102,10 +129,69 @@ tracks/0/keys = {
 "values": [2, 1]
 }
 
+[sub_resource type="Animation" id="Animation_fxr5t"]
+resource_name = "dead"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_swao2"]
+resource_name = "bound"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureProgressBar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kft4x"]
 _data = {
 "RESET": SubResource("Animation_kusfi"),
 "attack": SubResource("Animation_ymkk2"),
+"bound": SubResource("Animation_swao2"),
+"dead": SubResource("Animation_fxr5t"),
 "idle": SubResource("Animation_ry4hw"),
 "move": SubResource("Animation_hqudu")
 }
@@ -116,11 +202,15 @@ size = Vector2(4, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u1gvg"]
 size = Vector2(4, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrp8u"]
+size = Vector2(16, 6)
+
 [node name="goblin" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_5vbfn")
 axe = ExtResource("2_m6fbm")
+money = ExtResource("3_t7lhg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="alive_collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_yr2b5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -176,6 +266,23 @@ position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_u1gvg")
 debug_color = Color(0, 0.647059, 0.203922, 0.419608)
 
+[node name="dead_collision_area" type="Area2D" parent="."]
+
+[node name="dead_collision" type="CollisionShape2D" parent="dead_collision_area"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_vrp8u")
+debug_color = Color(0.9797, 0.0601232, 0.330698, 0.42)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
+offset_left = -7.0
+offset_top = -15.0
+offset_right = 7.0
+offset_bottom = -11.0
+texture_over = ExtResource("8_l0sq7")
+texture_progress = ExtResource("9_uxrt8")
+texture_progress_offset = Vector2(1, 1)
+
 [node name="Goblin_StateMachine" type="Node" parent="."]
 script = ExtResource("3_7rpta")
 initial_state = NodePath("Idle")
@@ -195,13 +302,14 @@ script = ExtResource("8_2he4y")
 [node name="Knockback" type="Node" parent="Goblin_StateMachine"]
 script = ExtResource("6_6vako")
 
-[node name="Dead" type="Node" parent="Goblin_StateMachine"]
-script = ExtResource("7_0o5d4")
-
 [node name="Bind" type="Node" parent="Goblin_StateMachine"]
 script = ExtResource("8_84e7l")
+
+[node name="Dead" type="Node" parent="Goblin_StateMachine"]
+script = ExtResource("7_0o5d4")
 
 [connection signal="timeout" from="idle_timer" to="Goblin_StateMachine/Idle" method="_on_idle_timer_timeout"]
 [connection signal="body_entered" from="viewcone_right" to="Goblin_StateMachine/Idle" method="_on_viewcone_right_body_entered"]
 [connection signal="body_entered" from="viewcone_left" to="Goblin_StateMachine/Idle" method="_on_viewcone_left_body_entered"]
 [connection signal="body_exited" from="attack_area" to="Goblin_StateMachine/Attacking" method="_on_attack_area_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Goblin_StateMachine/Bind" method="_on_animation_player_animation_finished"]

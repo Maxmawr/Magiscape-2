@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 @export var hostile_speed = 3000.0
 @export var axe : PackedScene
+@export var money : PackedScene
 
-var health = 20
+var health = 1
 var ground_speed := 300.0
 var air_speed := 300.0
 var jump_height := 275.0
@@ -21,3 +22,10 @@ func handle_hit(damage):
 	if dead == false:
 		health -= damage
 		$Goblin_StateMachine.transition_to("Knockback")
+
+func vine_bind():
+	if dead == false:
+		if $Goblin_StateMachine.state == get_node("Bind"):
+			get_node("Bind").restart()
+		else:
+			$Goblin_StateMachine.transition_to("Bind")
