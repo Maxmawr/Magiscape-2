@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var axe : PackedScene
 @export var money : PackedScene
 
+@onready var bindnode = get_node("Goblin_StateMachine/Bind")
+
 var health = 1
 var ground_speed := 300.0
 var air_speed := 300.0
@@ -25,7 +27,7 @@ func handle_hit(damage):
 
 func vine_bind():
 	if dead == false:
-		if $Goblin_StateMachine.state == get_node("Bind"):
-			get_node("Bind").restart()
+		if $Goblin_StateMachine.state == bindnode:
+			bindnode.restart()
 		else:
 			$Goblin_StateMachine.transition_to("Bind")
