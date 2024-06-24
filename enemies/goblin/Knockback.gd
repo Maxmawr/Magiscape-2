@@ -1,8 +1,9 @@
 extends State
 
+
 func enter(_msg := {}) -> void:
 	owner.velocity.y = -200
-	if owner.direction_facing == "right":
+	if Permavariables.direction_facing == "left":
 		owner.velocity.x = -50
 	else:
 		owner.velocity.x = 50

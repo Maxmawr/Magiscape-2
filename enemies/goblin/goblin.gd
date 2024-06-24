@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @onready var bindnode = get_node("Goblin_StateMachine/Bind")
 
-var health = 1
+var health = 10
 var ground_speed := 300.0
 var air_speed := 300.0
 var jump_height := 275.0
