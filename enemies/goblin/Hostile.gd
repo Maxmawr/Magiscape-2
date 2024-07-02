@@ -6,6 +6,7 @@ extends State
 @onready var animationplayer = owner.get_node("AnimationPlayer")
 @onready var jump_left = owner.get_node("jump_detector_left")
 @onready var jump_right = owner.get_node("jump_detector_right")
+@onready var throw_cooldown = owner.get_node("throw_cooldown")
 
 
 func enter(_msg := {}) -> void:
@@ -21,7 +22,7 @@ func update(_delta: float) -> void:
 		owner.direction_facing = "left"
 
 	for body in attack_area.get_overlapping_bodies():
-		if body.name == "player":
+		if body.name == "player" and throw_cooldown.time_left == 0:
 			state_machine.transition_to("Attacking")
 
 

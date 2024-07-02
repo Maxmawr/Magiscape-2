@@ -283,6 +283,9 @@ texture_over = ExtResource("8_l0sq7")
 texture_progress = ExtResource("9_uxrt8")
 texture_progress_offset = Vector2(1, 1)
 
+[node name="throw_cooldown" type="Timer" parent="."]
+wait_time = 4.0
+
 [node name="Goblin_StateMachine" type="Node" parent="."]
 script = ExtResource("3_7rpta")
 initial_state = NodePath("Idle")
@@ -311,5 +314,5 @@ script = ExtResource("7_0o5d4")
 [connection signal="timeout" from="idle_timer" to="Goblin_StateMachine/Idle" method="_on_idle_timer_timeout"]
 [connection signal="body_entered" from="viewcone_right" to="Goblin_StateMachine/Idle" method="_on_viewcone_right_body_entered"]
 [connection signal="body_entered" from="viewcone_left" to="Goblin_StateMachine/Idle" method="_on_viewcone_left_body_entered"]
-[connection signal="body_exited" from="attack_area" to="Goblin_StateMachine/Attacking" method="_on_attack_area_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Goblin_StateMachine/Attacking" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="Goblin_StateMachine/Bind" method="_on_animation_player_animation_finished"]

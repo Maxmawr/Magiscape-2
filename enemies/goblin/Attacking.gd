@@ -3,6 +3,7 @@ extends State
 @onready var player = owner.get_parent().get_node("player")
 @onready var animationplayer = owner.get_node("AnimationPlayer")
 @onready var sprite = owner.get_node("Sprite2D")
+@onready var throw_cooldown = owner.get_node("throw_cooldown")
 
 func enter(_msg := {}) -> void:
 	animationplayer.play("attack")
@@ -19,15 +20,16 @@ func update(_delta: float) -> void:
 func physics_update(_delta: float) -> void:
 	pass
 
-
-func _on_attack_area_body_exited(body):
-	if state_machine.state == self and body.name == "player":
-		state_machine.transition_to("Hostile")
-
 func attack_arc():
 	var a = owner.axe.instantiate()
 	a.transform = owner.global_transform
 	owner.owner.add_child(a)
 	
 	a.launch(player.global_position)
+	throw_cooldown.start()
 	
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "attack":
+		state_machine.transition_to("Hostile")
