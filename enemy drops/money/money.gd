@@ -30,7 +30,6 @@ func set_sprite(amount):
 		$sprite.frame = randi_range(10,14)
 	elif amount >= bar:
 		$sprite.frame = randi_range(15,19)
-	print(amount)
 	value = amount
 
 
@@ -38,8 +37,7 @@ func set_sprite(amount):
 func _on_area_2d_body_entered(body):
 	if body.name == "player":
 		if picked_up == false:
-			Permavariables.gold_amount += value
-			print(Permavariables.gold_amount)
+			Permavariables.temp_gold_amount += value
 			$pickupsound.play()
 			$sprite.visible = false
 			picked_up = true

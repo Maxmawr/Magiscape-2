@@ -7,6 +7,7 @@ extends State
 @onready var jump_left = owner.get_node("jump_detector_left")
 @onready var jump_right = owner.get_node("jump_detector_right")
 @onready var throw_cooldown = owner.get_node("throw_cooldown")
+@onready var stopped = false
 
 
 func enter(_msg := {}) -> void:
@@ -14,6 +15,7 @@ func enter(_msg := {}) -> void:
 
 
 func update(_delta: float) -> void:
+	print(throw_cooldown.time_left)
 	if player.global_position.x > owner.global_position.x:
 		sprite.flip_h = false
 		owner.direction_facing = "right"
@@ -24,24 +26,30 @@ func update(_delta: float) -> void:
 	for body in attack_area.get_overlapping_bodies():
 		if body.name == "player" and throw_cooldown.time_left == 0:
 			state_machine.transition_to("Attacking")
+			stopped = false
+		elif body.name == "player" and throw_cooldown.time_left != 0:
+			stopped = true
 
 
 	for body in jump_left.get_overlapping_bodies():
 		if body.is_in_group("wall"):
 			state_machine.transition_to("Jump")
+			stopped = false
 	
 	for body in jump_right.get_overlapping_bodies():
 		if body.is_in_group("wall"):
 			state_machine.transition_to("Jump")
+			stopped = false
 
 
 func physics_update(delta: float) -> void:
-	if player.global_position > owner.global_position:
-		owner.velocity.x = owner.hostile_speed * delta
-	else:
-		owner.velocity.x = -owner.hostile_speed * delta
-	
-	owner.velocity.y += owner.gravity * delta
+	if stopped == false:
+		if player.global_position > owner.global_position:
+			owner.velocity.x = owner.hostile_speed * delta
+		else:
+			owner.velocity.x = -owner.hostile_speed * delta
+		
+		owner.velocity.y += owner.gravity * delta
 	
 	owner.move_and_slide()
 
@@ -50,9 +58,11 @@ func _on_jump_detector_left_body_entered(body):
 	if state_machine.state == self and body.is_in_group("wall"):
 		print("left")
 		state_machine.transition_to("Jump")
+		stopped = false
 
 
 func _on_jump_detector_right_body_entered(body):
 	if state_machine.state == self and body.is_in_group("wall"):
 		print("right")
 		state_machine.transition_to("Jump")
+		stopped = false

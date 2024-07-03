@@ -67,7 +67,6 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_ymkk2"]
 resource_name = "attack"
 length = 0.4
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -285,6 +284,7 @@ texture_progress_offset = Vector2(1, 1)
 
 [node name="throw_cooldown" type="Timer" parent="."]
 wait_time = 4.0
+one_shot = true
 
 [node name="Goblin_StateMachine" type="Node" parent="."]
 script = ExtResource("3_7rpta")

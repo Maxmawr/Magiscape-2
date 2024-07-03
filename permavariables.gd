@@ -10,12 +10,14 @@ var current_spell = 0
 var current_spell_cost = 50
 var has_lightning = false
 var crosshair_position
+var temp_gold_amount = 0
 var gold_amount = 0
 
 func reset():
 	current_spell = 0
 	health = maxhealth
 	mana = maxmana
+	temp_gold_amount = 0
 
 func _process(_delta):
 	if current_spell == 0:
