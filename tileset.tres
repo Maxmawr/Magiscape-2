@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://8cjek7slqfr5"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://8cjek7slqfr5"]
 
 [ext_resource type="Texture2D" uid="uid://2ur4n133jquv" path="res://Assets/simples_pimples.png" id="1_f7uwx"]
 [ext_resource type="Texture2D" uid="uid://1e4s0ygcdnkf" path="res://Assets/onewayplatform.png" id="2_dg0rv"]
+[ext_resource type="Texture2D" uid="uid://e8yu51suqudj" path="res://Assets/barrels-and-boxes.png" id="3_dwvpq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5uctd"]
 texture = ExtResource("1_f7uwx")
@@ -785,6 +786,7 @@ texture = ExtResource("1_f7uwx")
 9:5/0 = 0
 9:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:5/0/physics_layer_0/angular_velocity = 0.0
+9:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:5/0 = 0
 10:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:5/0/physics_layer_0/angular_velocity = 0.0
@@ -12015,7 +12017,23 @@ texture = ExtResource("1_f7uwx")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eao6v"]
 texture = ExtResource("2_dg0rv")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mc37d"]
+texture = ExtResource("3_dwvpq")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_5uctd")
 sources/1 = SubResource("TileSetAtlasSource_eao6v")
+sources/2 = SubResource("TileSetAtlasSource_mc37d")
