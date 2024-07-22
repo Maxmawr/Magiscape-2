@@ -54,3 +54,5 @@ position = Vector2(5303, -120)
 
 [node name="max_health_up" parent="." instance=ExtResource("10_5k0xy")]
 position = Vector2(5258, -136)
+
+[connection signal="show_text" from="max_health_up" to="GUI" method="_on_max_health_up_show_text"]

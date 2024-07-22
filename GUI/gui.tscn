@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://paywmxjb53r3"]
+[gd_scene load_steps=6 format=3 uid="uid://paywmxjb53r3"]
 
+[ext_resource type="Script" path="res://GUI/gui.gd" id="1_ny74i"]
 [ext_resource type="PackedScene" uid="uid://dgw87aufva7o4" path="res://GUI/pause_menu.tscn" id="1_rbu8a"]
 [ext_resource type="PackedScene" uid="uid://b0g6qr5rd8soa" path="res://GUI/Spell Select/spell_select.tscn" id="2_7b8o7"]
 [ext_resource type="Script" path="res://GUI/Gold_Amount.gd" id="3_pa6mf"]
 [ext_resource type="FontFile" uid="uid://doyr4x7sqpheo" path="res://Assets/Fonts/joystix monospace.otf" id="3_yi387"]
 
 [node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_ny74i")
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_rbu8a")]
 visible = false

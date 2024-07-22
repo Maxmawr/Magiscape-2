@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrm8n"]
 
-[node name="max_health_up" type="Area2D"]
+[node name="max_health_up" type="Area2D" groups=["shop_item"]]
 script = ExtResource("1_85ymv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -13,3 +13,5 @@ shape = SubResource("RectangleShape2D_rrm8n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_nveej")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
