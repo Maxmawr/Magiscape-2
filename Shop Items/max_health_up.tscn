@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0ayog55p4bdx"]
+
+[ext_resource type="Script" path="res://Shop Items/max_health_up.gd" id="1_85ymv"]
+[ext_resource type="Texture2D" uid="uid://ciwe6d53076hr" path="res://Shop Items/potion.png" id="1_nveej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rrm8n"]
+
+[node name="max_health_up" type="Area2D"]
+script = ExtResource("1_85ymv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rrm8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nveej")
