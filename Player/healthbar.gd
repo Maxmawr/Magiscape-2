@@ -1,7 +1,8 @@
 extends TextureProgressBar
 
 
-func health_changed():
+func _process(delta):
+	max_value = Permavariables.maxhealth
 	self.value = Permavariables.health
 
 
