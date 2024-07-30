@@ -5,7 +5,7 @@ signal show_text
 var cantake = false
 
 @onready var message = """Health Potion: +25 Max Health
-Press E to purchase"""
+Press F to collect"""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +20,7 @@ func _process(delta):
 			$Sprite2D.visible = false
 			$CollisionShape2D.disabled = true
 			$GPUParticles2D.emitting = true
+			cantake = false
 
 
 func _on_body_entered(body):

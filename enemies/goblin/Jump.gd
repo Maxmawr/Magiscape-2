@@ -2,6 +2,7 @@ extends State
 
 @onready var player = owner.get_parent().get_node("player")
 @onready var sprite = owner.get_node("Sprite2D")
+@onready var prog_bar = owner.get_node("TextureProgressBar")
 
 func enter(_msg := {}) -> void:
 	owner.velocity.y = -owner.jump_height

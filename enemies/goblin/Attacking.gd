@@ -4,9 +4,11 @@ extends State
 @onready var animationplayer = owner.get_node("AnimationPlayer")
 @onready var sprite = owner.get_node("Sprite2D")
 @onready var throw_cooldown = owner.get_node("throw_cooldown")
+@onready var prog_bar = owner.get_node("TextureProgressBar")
 
 func enter(_msg := {}) -> void:
 	animationplayer.play("attack")
+	prog_bar.visible = false
 
 
 func update(_delta: float) -> void:

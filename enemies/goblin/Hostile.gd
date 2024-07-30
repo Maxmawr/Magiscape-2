@@ -8,11 +8,13 @@ extends State
 @onready var jump_right = owner.get_node("jump_detector_right")
 @onready var throw_cooldown = owner.get_node("throw_cooldown")
 @onready var stopped = false
+@onready var prog_bar = owner.get_node("TextureProgressBar")
 
 
 func enter(_msg := {}) -> void:
 	animationplayer.play("move")
-
+	prog_bar.visible = false
+	
 
 func update(_delta: float) -> void:
 	if player.global_position.x > owner.global_position.x:

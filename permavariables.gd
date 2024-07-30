@@ -8,7 +8,7 @@ var colour = "blue" #  Default for debug purposes; eg starting a scene without d
 var direction_facing = "right"
 var current_spell = 0
 var current_spell_cost = 50
-var has_lightning = false
+var has_lightning = true
 var crosshair_position
 var temp_gold_amount = 0
 var gold_amount = 0
