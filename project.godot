@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Permavariables="*res://permavariables.gd"
 Music="*res://music.gd"
+ParticlesCache="*res://ParticlesCache.gd"
 
 [display]
 
@@ -78,3 +79,4 @@ interact={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+shader_compiler/shader_cache/enabled=false

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://paywmxjb53r3" path="res://GUI/gui.tscn" id="5_ceny0"]
 [ext_resource type="PackedScene" uid="uid://bbxo384a8eehh" path="res://Levels/cauldron/cauldron.tscn" id="6_tmrey"]
 [ext_resource type="PackedScene" uid="uid://dhnrb5paxm12y" path="res://enemies/goblin/goblin.tscn" id="7_hau3m"]
-[ext_resource type="PackedScene" path="res://environment.tscn" id="8_8h4lv"]
+[ext_resource type="PackedScene" uid="uid://bcm32afv7s67h" path="res://environment.tscn" id="8_8h4lv"]
 [ext_resource type="PackedScene" uid="uid://h5p36kvc37hk" path="res://enemies/gazer/gazer.tscn" id="10_5cfar"]
 [ext_resource type="PackedScene" uid="uid://b0ayog55p4bdx" path="res://Shop Items/max_health_up.tscn" id="10_5k0xy"]
 [ext_resource type="PackedScene" uid="uid://dhplvlnmkohun" path="res://enemies/ghost/ghost.tscn" id="11_4c05h"]

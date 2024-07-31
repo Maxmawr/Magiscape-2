@@ -1,0 +1,16 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://11xfiq5wtqpj"]
+
+[sub_resource type="Curve" id="Curve_hdwyx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.659091, 0.683019), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m260x"]
+curve = SubResource("Curve_hdwyx")
+
+[resource]
+particle_flag_disable_z = true
+initial_velocity_min = 25.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_m260x")
+color = Color(0.968627, 0.886275, 0.419608, 1)

@@ -1,0 +1,22 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=3 format=3 uid="uid://blvb1idyjgjin"]
+
+[sub_resource type="Curve" id="Curve_ot62n"]
+min_value = -5.0
+max_value = 5.0
+_data = [Vector2(0, 50), 0.0, 0.0, 0, 0, Vector2(1e-05, 5), 0.0, 0.0, 0, 0, Vector2(0.99998, -5), 0.0, 0.0, 0, 0, Vector2(0.99999, -5), 0.0, 0.0, 0, 0, Vector2(1, -50), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_b0dx5"]
+curve_x = SubResource("Curve_ot62n")
+
+[resource]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 150.0
+directional_velocity_min = -50.0
+directional_velocity_max = 50.0
+directional_velocity_curve = SubResource("CurveXYZTexture_b0dx5")
+gravity = Vector3(0, 0, 0)
+color = Color(0.878431, 0.435294, 0.541176, 1)
+turbulence_noise_scale = 3.419

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://spells/vinespell/vinespell.gd" id="1_oakvx"]
 [ext_resource type="Texture2D" uid="uid://bt26am14kxq36" path="res://spells/vinespell/vinespell.png" id="2_715yn"]
+[ext_resource type="Material" uid="uid://c5n2ahrh7gi57" path="res://Materials/vinespell_particles.tres" id="3_cqjw6"]
 [ext_resource type="AudioStream" uid="uid://dix40tck7i6vl" path="res://spells/vinespell/bindsound.wav" id="3_cyiig"]
 
 [sub_resource type="Animation" id="Animation_usdtm"]
@@ -44,19 +45,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bynx3"]
 size = Vector2(5, 3.99821)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u8qkj"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 30.0
-direction = Vector3(0, 0, 0)
-spread = 0.0
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -100.0
-radial_accel_max = -100.0
-color = Color(0.266667, 0.537255, 0.101961, 1)
-
 [node name="vinespell" type="Area2D"]
 collision_layer = 3
 collision_mask = 3
@@ -79,7 +67,7 @@ shape = SubResource("RectangleShape2D_bynx3")
 [node name="explosion" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 20
-process_material = SubResource("ParticleProcessMaterial_u8qkj")
+process_material = ExtResource("3_cqjw6")
 one_shot = true
 explosiveness = 1.0
 

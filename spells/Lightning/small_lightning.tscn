@@ -3,18 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dxgov2kuej7v6" path="res://spells/Lightning/lightning.png" id="1_n0kye"]
 [ext_resource type="Script" path="res://spells/Lightning/small_lightning.gd" id="1_wwftq"]
 [ext_resource type="AudioStream" uid="uid://ce3r2lie21klh" path="res://spells/Lightning/lightning_hit.wav" id="3_qyxxj"]
+[ext_resource type="Material" uid="uid://b3s83v0k2rsda" path="res://Materials/small_lightning_particles.tres" id="4_mvvow"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ochyk"]
 size = Vector2(6, 2)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4aq8a"]
-particle_flag_disable_z = true
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = 50.0
-initial_velocity_max = 50.0
-gravity = Vector3(0, 0, 0)
-color = Color(0.968627, 0.886275, 0.419608, 1)
 
 [node name="small_lightning" type="Area2D"]
 collision_layer = 3
@@ -36,7 +28,7 @@ stream = ExtResource("3_qyxxj")
 
 [node name="explosion" type="GPUParticles2D" parent="."]
 emitting = false
-process_material = SubResource("ParticleProcessMaterial_4aq8a")
+process_material = ExtResource("4_mvvow")
 one_shot = true
 explosiveness = 1.0
 
