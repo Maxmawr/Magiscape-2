@@ -5,13 +5,17 @@ var fireballparticles = preload("res://Materials/fireball_particles.tres")
 var vinespellparticles = preload("res://Materials/vinespell_particles.tres")
 var cauldronsteam = preload("res://Materials/cauldron_steam_particles.tres")
 var cauldronbubbles = preload("res://Materials/cauldron_bubble_particles.tres")
+var lightningparticles = preload("res://Materials/lighting_particles.tres")
+var lightningparticles_s = preload("res://Materials/small_lightning_particles.tres")
 
 var materials = [
 	potionparticles,
 	fireballparticles,
 	vinespellparticles,
 	cauldronsteam,
-	cauldronbubbles
+	cauldronbubbles,
+	lightningparticles,
+	lightningparticles_s
 ]
 
 func _ready():

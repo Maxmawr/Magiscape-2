@@ -10,4 +10,4 @@ func _on_mouse_exited():
 
 func _on_pressed():
 	Permavariables.colour = "red"
-	get_tree().change_scene_to_file("res://Levels/level_4.tscn")
+	get_tree().change_scene_to_file("res://Levels/level_1.tscn")

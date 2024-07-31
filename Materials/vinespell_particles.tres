@@ -12,3 +12,5 @@ gravity = Vector3(0, 0, 0)
 radial_accel_min = -100.0
 radial_accel_max = -100.0
 color = Color(0.266667, 0.537255, 0.101961, 1)
+turbulence_noise_strength = 10.0
+turbulence_noise_scale = 5.0
