@@ -20,8 +20,7 @@ func _ready():
 	sprite.look_at(Permavariables.crosshair_position)
 	if direction == "left":
 		rotation_degrees -= 180
-
-
+		$explosion.scale.x = -1
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if direction == "right":

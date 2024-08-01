@@ -68,8 +68,10 @@ shape = SubResource("RectangleShape2D_bynx3")
 emitting = false
 amount = 20
 process_material = ExtResource("3_cqjw6")
+lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
+fixed_fps = 60
 
 [node name="delete_timer" type="Timer" parent="."]
 

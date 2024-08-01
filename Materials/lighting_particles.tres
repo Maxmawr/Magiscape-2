@@ -9,6 +9,7 @@ curve = SubResource("Curve_hdwyx")
 
 [resource]
 particle_flag_disable_z = true
+flatness = 0.7
 initial_velocity_min = 25.0
 initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
