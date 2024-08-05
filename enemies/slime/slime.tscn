@@ -1,15 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcauxxhoy1nbo"]
+[gd_scene load_steps=7 format=3 uid="uid://bcauxxhoy1nbo"]
 
 [ext_resource type="Script" path="res://enemies/slime/slime.gd" id="1_iih01"]
 [ext_resource type="Texture2D" uid="uid://bvpijsh7fjuyo" path="res://enemies/slime/slime.png" id="1_xfsys"]
 [ext_resource type="Script" path="res://enemies/slime/Slime_StateMachine.gd" id="2_qs8df"]
 [ext_resource type="Script" path="res://enemies/slime/Jump.gd" id="3_ytsqq"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhley"]
+size = Vector2(17, 12)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7llu1"]
 size = Vector2(15, 10)
 
 [node name="slime" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_iih01")
+
+[node name="collision_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_area"]
+position = Vector2(-1.5, 3)
+shape = SubResource("RectangleShape2D_rhley")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xfsys")
@@ -30,4 +40,5 @@ script = ExtResource("3_ytsqq")
 wait_time = 2.0
 one_shot = true
 
+[connection signal="body_entered" from="collision_area" to="Slime_StateMachine/Jump" method="_on_collision_area_body_entered"]
 [connection signal="timeout" from="jump_timer" to="Slime_StateMachine/Jump" method="_on_jump_timer_timeout"]

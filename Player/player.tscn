@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dpjxfjttxa3gm"]
+[gd_scene load_steps=71 format=3 uid="uid://dpjxfjttxa3gm"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_8tbuo"]
 [ext_resource type="Texture2D" uid="uid://6py1q1nv1yqu" path="res://Assets/mages/Allmages.png" id="2_p0tff"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Player/Casting.gd" id="7_q10ft"]
 [ext_resource type="Script" path="res://Player/Dead.gd" id="9_b4lrf"]
 [ext_resource type="Texture2D" uid="uid://3i5sm6g5ccl0" path="res://Player/healthbar/outline.png" id="9_v3eek"]
+[ext_resource type="Script" path="res://Player/Knockback.gd" id="10_lsl1p"]
 [ext_resource type="Texture2D" uid="uid://d2nbm4pk38cjn" path="res://Player/healthbar/top.png" id="10_p0a6t"]
 [ext_resource type="Script" path="res://Player/Get_Item.gd" id="11_8lwd5"]
 [ext_resource type="Script" path="res://Player/healthbar.gd" id="11_28avy"]
@@ -1070,6 +1071,31 @@ _data = {
 "yellow_walk": SubResource("Animation_tg6qw")
 }
 
+[sub_resource type="Animation" id="Animation_oj4um"]
+resource_name = "flash"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_m62cn"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ht46"]
+_data = {
+"RESET": SubResource("Animation_m62cn"),
+"flash": SubResource("Animation_oj4um")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vi045"]
 size = Vector2(10, 16)
 
@@ -1094,6 +1120,11 @@ libraries = {
 "": SubResource("AnimationLibrary_kis8h")
 }
 
+[node name="damage_flash" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6ht46")
+}
+
 [node name="spell_spawn" type="Marker2D" parent="."]
 position = Vector2(10, 0)
 
@@ -1114,6 +1145,9 @@ script = ExtResource("4_6dl0g")
 
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource("5_rkjk8")
+
+[node name="Knockback" type="Node" parent="StateMachine"]
+script = ExtResource("10_lsl1p")
 
 [node name="Casting" type="Node" parent="StateMachine"]
 script = ExtResource("7_q10ft")

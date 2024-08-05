@@ -17,7 +17,10 @@ func take_damage(damage):
 	Permavariables.health -= damage
 	$hurt.play()
 	if Permavariables.health <= 0:
-		$StateMachine.transition_to("Dead")
+		statemachine.transition_to("Dead")
+	else:
+		statemachine.transition_to("Knockback")
+		$damage_flash.play("flash")
 
 func change_state(state):
 	if state == "Get_Item":
