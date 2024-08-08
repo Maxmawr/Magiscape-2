@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6ljglj3qetia"]
+
+[ext_resource type="Texture2D" uid="uid://dealtcai7dujr" path="res://Assets/vine_timer_outline.png" id="1_d5sds"]
+[ext_resource type="Texture2D" uid="uid://ckrs63p8xh7or" path="res://Assets/vine_timer_bar.png" id="2_syv0f"]
+
+[node name="TextureProgressBar" type="TextureProgressBar"]
+visible = false
+offset_left = -7.0
+offset_top = -15.0
+offset_right = 7.0
+offset_bottom = -11.0
+texture_over = ExtResource("1_d5sds")
+texture_progress = ExtResource("2_syv0f")
+texture_progress_offset = Vector2(1, 1)

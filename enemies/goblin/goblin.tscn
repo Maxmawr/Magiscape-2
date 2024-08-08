@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dhnrb5paxm12y"]
+[gd_scene load_steps=30 format=3 uid="uid://dhnrb5paxm12y"]
 
 [ext_resource type="Script" path="res://enemies/goblin/goblin.gd" id="1_5vbfn"]
 [ext_resource type="Texture2D" uid="uid://bd3hyoqr5gk0d" path="res://enemies/goblin/goblin.png" id="1_bwexh"]
@@ -14,9 +14,8 @@
 [ext_resource type="Script" path="res://enemies/goblin/Jump.gd" id="7_kw340"]
 [ext_resource type="Script" path="res://enemies/goblin/Attacking.gd" id="8_2he4y"]
 [ext_resource type="Script" path="res://enemies/goblin/Bind.gd" id="8_84e7l"]
-[ext_resource type="Texture2D" uid="uid://dealtcai7dujr" path="res://Assets/vine_timer_outline.png" id="8_l0sq7"]
+[ext_resource type="PackedScene" uid="uid://b6ljglj3qetia" path="res://enemies/bindbar.tscn" id="9_3pjjp"]
 [ext_resource type="Script" path="res://enemies/goblin/viewcone.gd" id="9_5qj35"]
-[ext_resource type="Texture2D" uid="uid://ckrs63p8xh7or" path="res://Assets/vine_timer_bar.png" id="9_uxrt8"]
 [ext_resource type="Script" path="res://enemies/goblin/viewcone_left.gd" id="10_or17h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yr2b5"]
@@ -272,15 +271,7 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_vrp8u")
 debug_color = Color(0.9797, 0.0601232, 0.330698, 0.42)
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-visible = false
-offset_left = -7.0
-offset_top = -15.0
-offset_right = 7.0
-offset_bottom = -11.0
-texture_over = ExtResource("8_l0sq7")
-texture_progress = ExtResource("9_uxrt8")
-texture_progress_offset = Vector2(1, 1)
+[node name="TextureProgressBar" parent="." instance=ExtResource("9_3pjjp")]
 
 [node name="throw_cooldown" type="Timer" parent="."]
 wait_time = 2.0

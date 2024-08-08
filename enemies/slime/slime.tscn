@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcauxxhoy1nbo"]
+[gd_scene load_steps=12 format=3 uid="uid://bcauxxhoy1nbo"]
 
 [ext_resource type="Script" path="res://enemies/slime/slime.gd" id="1_iih01"]
 [ext_resource type="Texture2D" uid="uid://bvpijsh7fjuyo" path="res://enemies/slime/slime.png" id="1_xfsys"]
+[ext_resource type="PackedScene" uid="uid://tbkq8yk26ha0" path="res://enemy drops/money/money.tscn" id="2_kvex1"]
 [ext_resource type="Script" path="res://enemies/slime/Slime_StateMachine.gd" id="2_qs8df"]
 [ext_resource type="Script" path="res://enemies/slime/Jump.gd" id="3_ytsqq"]
+[ext_resource type="Script" path="res://enemies/slime/Knockback.gd" id="5_gc2oy"]
+[ext_resource type="Script" path="res://enemies/slime/Dead.gd" id="6_byluo"]
+[ext_resource type="PackedScene" uid="uid://b6ljglj3qetia" path="res://enemies/bindbar.tscn" id="7_rp4m6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhley"]
 size = Vector2(17, 12)
@@ -11,9 +15,12 @@ size = Vector2(17, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7llu1"]
 size = Vector2(15, 10)
 
-[node name="slime" type="CharacterBody2D"]
-collision_layer = 0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvytt"]
+size = Vector2(15, 4)
+
+[node name="slime" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_iih01")
+money = ExtResource("2_kvex1")
 
 [node name="collision_area" type="Area2D" parent="."]
 
@@ -36,9 +43,23 @@ initial_state = NodePath("Jump")
 [node name="Jump" type="Node" parent="Slime_StateMachine"]
 script = ExtResource("3_ytsqq")
 
+[node name="Knockback" type="Node" parent="Slime_StateMachine"]
+script = ExtResource("5_gc2oy")
+
+[node name="Dead" type="Node" parent="Slime_StateMachine"]
+script = ExtResource("6_byluo")
+
 [node name="jump_timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="dead_collision_area" type="Area2D" parent="."]
+
+[node name="dead_collision" type="CollisionShape2D" parent="dead_collision_area"]
+position = Vector2(-1.5, 6)
+shape = SubResource("RectangleShape2D_nvytt")
+
+[node name="TextureProgressBar" parent="." instance=ExtResource("7_rp4m6")]
 
 [connection signal="body_entered" from="collision_area" to="Slime_StateMachine/Jump" method="_on_collision_area_body_entered"]
 [connection signal="timeout" from="jump_timer" to="Slime_StateMachine/Jump" method="_on_jump_timer_timeout"]

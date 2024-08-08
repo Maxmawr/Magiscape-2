@@ -7,7 +7,9 @@ extends State
 
 @onready var jump_dir = randi_range(1,2)
 
-func enter(_msg := {}) -> void:
+func enter(msg := {}) -> void:
+	if msg.has("no_jump"):
+		return
 	owner.velocity.y = -owner.jump_height
 	timer.start()
 
