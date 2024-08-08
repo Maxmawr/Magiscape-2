@@ -55,6 +55,7 @@ func shoot():
 	var l = owner.laser.instantiate()
 	l.player_pos = player_position
 	l.transform = owner.global_transform
+	l.gazer = owner
 	owner.owner.add_child(l)
 
 

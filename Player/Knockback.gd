@@ -1,12 +1,14 @@
 extends State
 
 
-func enter(_msg := {}) -> void:
+func enter(msg := {}) -> void:
 	owner.velocity.y = -200
-	if Permavariables.direction_facing == "right":
+	if msg.has("left"):
 		owner.velocity.x = -200
+		print("rehheehe")
 	else:
 		owner.velocity.x = 200
+	print(msg)
 
 
 func update(_delta: float) -> void:

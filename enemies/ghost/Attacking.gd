@@ -33,7 +33,7 @@ func physics_update(delta: float) -> void:
 
 func attack():
 	if canhit == true:
-		player.take_damage(2)
+		player.take_damage(2, owner.global_position)
 	else:
 		return
 

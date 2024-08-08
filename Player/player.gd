@@ -13,14 +13,18 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var lightning_bolt : PackedScene
 @onready var crosshair_angle
 
-func take_damage(damage):
-	Permavariables.health -= damage
-	$hurt.play()
-	if Permavariables.health <= 0:
-		statemachine.transition_to("Dead")
-	else:
-		statemachine.transition_to("Knockback")
-		$damage_flash.play("flash")
+func take_damage(damage, enemy_pos):
+	if $damage_flash.current_animation != "flash":
+		Permavariables.health -= damage
+		$hurt.play()
+		if Permavariables.health <= 0:
+			statemachine.transition_to("Dead")
+		else:
+			if global_position > enemy_pos:
+				statemachine.transition_to("Knockback")
+			else:
+				statemachine.transition_to("Knockback", {left = true})
+			$damage_flash.play("flash")
 
 func change_state(state):
 	if state == "Get_Item":

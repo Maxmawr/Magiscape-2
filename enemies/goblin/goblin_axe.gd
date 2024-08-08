@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
 
-@onready var goblin = get_parent().get_node("goblin")
-
 @export var speed = 500
 
+var goblin
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
@@ -46,7 +45,7 @@ func launch(target_position):
 
 func _on_hitbox_body_entered(body):
 	if body.name == "player":
-		body.take_damage(5)
+		body.take_damage(5, goblin.global_position)
 		queue_free()
 	elif body.is_in_group("wall"):
 		queue_free()

@@ -37,4 +37,4 @@ func _on_bat_bind():
 
 func _on_bat_body_entered(body):
 	if body.name == "player" and state_machine.state == self:
-		body.take_damage(area.damage)
+		body.take_damage(area.damage, area.global_position)

@@ -25,6 +25,7 @@ func physics_update(_delta: float) -> void:
 func attack_arc():
 	var a = owner.axe.instantiate()
 	a.transform = owner.global_transform
+	a.goblin = owner
 	owner.owner.add_child(a)
 	
 	a.launch(player.global_position)

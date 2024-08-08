@@ -46,4 +46,4 @@ func _on_jump_timer_timeout():
 
 func _on_collision_area_body_entered(body):
 	if body.name == "player" and state_machine.state == self:
-		player.take_damage(1)
+		player.take_damage(1, owner.global_position)
