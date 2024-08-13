@@ -9,6 +9,7 @@ extends State
 
 func enter(msg := {}) -> void:
 	if msg.has("no_jump"):
+		timer.start()
 		return
 	owner.velocity.y = -owner.jump_height
 	timer.start()
@@ -40,9 +41,10 @@ func jump():
 	owner.velocity.y = -owner.jump_height
 
 func _on_jump_timer_timeout():
-	jump_dir = randi_range(1,2)
-	jump()
-	timer.start()
+	if state_machine.state == self:
+		jump_dir = randi_range(1,2)
+		jump()
+		timer.start()
 	
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c11k5p5ogpg6k"]
+[gd_scene load_steps=18 format=3 uid="uid://c11k5p5ogpg6k"]
 
 [ext_resource type="PackedScene" uid="uid://cmwiaweywngp7" path="res://background.tscn" id="1_achqc"]
 [ext_resource type="Script" path="res://Levels/level_4.gd" id="1_gtqob"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bcm32afv7s67h" path="res://environment.tscn" id="8_8h4lv"]
 [ext_resource type="PackedScene" uid="uid://h5p36kvc37hk" path="res://enemies/gazer/gazer.tscn" id="10_5cfar"]
 [ext_resource type="PackedScene" uid="uid://b0ayog55p4bdx" path="res://Shop Items/max_health_up.tscn" id="10_5k0xy"]
-[ext_resource type="PackedScene" uid="uid://dhplvlnmkohun" path="res://enemies/ghost/ghost.tscn" id="11_4c05h"]
 [ext_resource type="PackedScene" uid="uid://dikixif346vf6" path="res://enemies/bat/bat.tscn" id="12_qsau0"]
 [ext_resource type="PackedScene" uid="uid://dl4c8ul8glvpn" path="res://Levels/door.tscn" id="13_n4f2h"]
 [ext_resource type="PackedScene" uid="uid://cekxqfnkap8f6" path="res://Levels/fade_out.tscn" id="15_8233n"]
@@ -75,9 +74,6 @@ position = Vector2(2954.26, -24.7248)
 [node name="gazer2" parent="." instance=ExtResource("10_5cfar")]
 position = Vector2(1226.85, -25.9386)
 
-[node name="Ghost" parent="." instance=ExtResource("11_4c05h")]
-position = Vector2(2501.66, 88.796)
-
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_nea1b")
 
@@ -100,7 +96,7 @@ offset_right = 4899.0
 offset_bottom = 1022.0
 
 [node name="slime" parent="." instance=ExtResource("17_v06x3")]
-position = Vector2(700, 40)
+position = Vector2(2497, 120)
 
 [connection signal="show_text" from="max_health_up" to="GUI" method="_on_max_health_up_show_text"]
 [connection signal="change_level" from="fade_out" to="Door" method="_on_fade_out_change_level"]
