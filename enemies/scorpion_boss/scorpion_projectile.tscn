@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg85tx21dbks1"]
+
+[ext_resource type="Texture2D" uid="uid://bxtma2w6ge7q" path="res://enemies/scorpion_boss/scorpion_projectile.png" id="1_vi10p"]
+
+[node name="scorpion_projectile" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vi10p")
+hframes = 4
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c11k5p5ogpg6k"]
+[gd_scene load_steps=19 format=3 uid="uid://c11k5p5ogpg6k"]
 
 [ext_resource type="PackedScene" uid="uid://cmwiaweywngp7" path="res://background.tscn" id="1_achqc"]
 [ext_resource type="Script" path="res://Levels/level_4.gd" id="1_gtqob"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4c8ul8glvpn" path="res://Levels/door.tscn" id="13_n4f2h"]
 [ext_resource type="PackedScene" uid="uid://cekxqfnkap8f6" path="res://Levels/fade_out.tscn" id="15_8233n"]
 [ext_resource type="PackedScene" uid="uid://cob1tn4m3kifj" path="res://Levels/fade_in.tscn" id="16_ydooe"]
+[ext_resource type="PackedScene" uid="uid://wrx46btx2xyy" path="res://enemies/scorpion_boss/scorpion_boss.tscn" id="17_7iw6u"]
 [ext_resource type="PackedScene" uid="uid://bcauxxhoy1nbo" path="res://enemies/slime/slime.tscn" id="17_v06x3"]
 
 [sub_resource type="Curve2D" id="Curve2D_nea1b"]
@@ -97,6 +98,9 @@ offset_bottom = 1022.0
 
 [node name="slime" parent="." instance=ExtResource("17_v06x3")]
 position = Vector2(2497, 120)
+
+[node name="scorpion_boss" parent="." instance=ExtResource("17_7iw6u")]
+position = Vector2(704, 18)
 
 [connection signal="show_text" from="max_health_up" to="GUI" method="_on_max_health_up_show_text"]
 [connection signal="change_level" from="fade_out" to="Door" method="_on_fade_out_change_level"]
