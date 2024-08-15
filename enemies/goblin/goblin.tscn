@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://enemies/goblin/goblin.gd" id="1_5vbfn"]
 [ext_resource type="Texture2D" uid="uid://bd3hyoqr5gk0d" path="res://enemies/goblin/goblin.png" id="1_bwexh"]
-[ext_resource type="PackedScene" path="res://enemies/goblin/goblin_axe.tscn" id="2_m6fbm"]
+[ext_resource type="PackedScene" uid="uid://dgfxp6vukmbsu" path="res://enemies/goblin/goblin_axe.tscn" id="2_m6fbm"]
 [ext_resource type="Script" path="res://enemies/goblin/Goblin_StateMachine.gd" id="3_7rpta"]
 [ext_resource type="PackedScene" uid="uid://tbkq8yk26ha0" path="res://enemy drops/money/money.tscn" id="3_t7lhg"]
 [ext_resource type="Script" path="res://enemies/goblin/Idle.gd" id="4_hb65e"]

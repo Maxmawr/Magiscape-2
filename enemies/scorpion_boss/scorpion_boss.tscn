@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://wrx46btx2xyy"]
+[gd_scene load_steps=16 format=3 uid="uid://wrx46btx2xyy"]
 
 [ext_resource type="Texture2D" uid="uid://di620k68q2lxd" path="res://enemies/scorpion_boss/scorpion.png" id="1_62xlu"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/scorpion_boss.gd" id="1_l2ovy"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/S_Boss_StateMachine.gd" id="2_5oyvt"]
+[ext_resource type="PackedScene" uid="uid://tbkq8yk26ha0" path="res://enemy drops/money/money.tscn" id="2_5ur1s"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/Hostile.gd" id="3_5fxtu"]
+[ext_resource type="PackedScene" uid="uid://bg85tx21dbks1" path="res://enemies/scorpion_boss/scorpion_projectile.tscn" id="3_b3yc6"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/Attacking.gd" id="4_dp003"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/Bind.gd" id="6_dyyob"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/Knockback.gd" id="7_l51fg"]
@@ -95,6 +97,8 @@ radius = 44.5253
 [node name="scorpion_boss" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_l2ovy")
+money = ExtResource("2_5ur1s")
+projectile = ExtResource("3_b3yc6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -114,6 +118,9 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
 shape = SubResource("CircleShape2D_687ty")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(6.25, -5.75)
 
 [node name="S_Boss_StateMachine" type="Node" parent="."]
 script = ExtResource("2_5oyvt")

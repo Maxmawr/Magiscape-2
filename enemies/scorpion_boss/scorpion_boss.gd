@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var hostile_speed = 3000.0
 @export var money : PackedScene
+@export var projectile : PackedScene
 
 @onready var bindnode = get_node("S_Boss_StateMachine/Bind")
 
