@@ -28,4 +28,3 @@ func physics_update(delta: float) -> void:
 
 	if owner.is_on_floor():
 		state_machine.transition_to("Hostile")
-

@@ -2,12 +2,18 @@ extends State
 
 @onready var player = owner.get_parent().get_node("player")
 @onready var attack_area = owner.get_node("attack_area")
+@onready var melee_area = owner.get_node("melee_area")
+@onready var animationplayer = owner.get_node("AnimationPlayer")
 
 func enter(_msg := {}) -> void:
-	pass
+	animationplayer.play("walk")
 
 
 func update(_delta: float) -> void:
+	for body in melee_area.get_overlapping_bodies():
+		if body.name == "player":
+			state_machine.transition_to("Attacking", {melee = true})
+			return
 	for body in attack_area.get_overlapping_bodies():
 		if body.name == "player":
 			state_machine.transition_to("Attacking")
@@ -21,4 +27,7 @@ func physics_update(delta: float) -> void:
 	else:
 		owner.get_node("Sprite2D").flip_h = true
 		owner.direction_facing = "left"
+		
+	owner.velocity.y += owner.gravity * delta
+	
 	owner.move_and_slide()
