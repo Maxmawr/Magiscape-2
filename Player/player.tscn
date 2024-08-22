@@ -1131,32 +1131,7 @@ position = Vector2(10, 0)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 25)
 offset = Vector2(0, -50)
-zoom = Vector2(3, 3)
-
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_lxbhr")
-initial_state = NodePath("Idle")
-
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("4_yum8l")
-
-[node name="Run" type="Node" parent="StateMachine"]
-script = ExtResource("4_6dl0g")
-
-[node name="Air" type="Node" parent="StateMachine"]
-script = ExtResource("5_rkjk8")
-
-[node name="Knockback" type="Node" parent="StateMachine"]
-script = ExtResource("10_lsl1p")
-
-[node name="Casting" type="Node" parent="StateMachine"]
-script = ExtResource("7_q10ft")
-
-[node name="Dead" type="Node" parent="StateMachine"]
-script = ExtResource("9_b4lrf")
-
-[node name="Get_Item" type="Node" parent="StateMachine"]
-script = ExtResource("11_8lwd5")
+zoom = Vector2(2, 2)
 
 [node name="healthbar" type="TextureProgressBar" parent="."]
 z_index = 3
@@ -1230,9 +1205,34 @@ script = ExtResource("23_kmuxf")
 position = Vector2(-0.472771, 5.49545)
 rotation = 1.5708
 
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_lxbhr")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_yum8l")
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource("4_6dl0g")
+
+[node name="Air" type="Node" parent="StateMachine"]
+script = ExtResource("5_rkjk8")
+
+[node name="Knockback" type="Node" parent="StateMachine"]
+script = ExtResource("10_lsl1p")
+
+[node name="Casting" type="Node" parent="StateMachine"]
+script = ExtResource("7_q10ft")
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("9_b4lrf")
+
+[node name="Get_Item" type="Node" parent="StateMachine"]
+script = ExtResource("11_8lwd5")
+
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Casting" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Get_Item" method="_on_animation_player_animation_finished"]
-[connection signal="mana_changed" from="StateMachine/Casting" to="manabar" method="_on_casting_mana_changed"]
 [connection signal="timeout" from="mana_timer" to="mana_timer" method="_on_timeout"]
 [connection signal="draw" from="crosshair" to="crosshair" method="_on_draw"]
 [connection signal="draw" from="Marker2D/arm/arm_sprite" to="Marker2D/arm/arm_sprite" method="_on_draw"]
+[connection signal="mana_changed" from="StateMachine/Casting" to="manabar" method="_on_casting_mana_changed"]

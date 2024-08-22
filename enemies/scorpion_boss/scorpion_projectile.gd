@@ -22,6 +22,7 @@ func _physics_process(delta):
 		global_position += direction * speed * delta
 
 func shoot():
+	$CollisionShape2D.disabled = false
 	moving = true
 
 func _on_body_entered(body):
