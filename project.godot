@@ -25,10 +25,6 @@ ParticlesCache="*res://ParticlesCache.gd"
 
 window/stretch/mode="viewport"
 
-[global_group]
-
-water=""
-
 [input]
 
 moveright={

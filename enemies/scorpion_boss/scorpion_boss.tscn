@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wrx46btx2xyy"]
+[gd_scene load_steps=21 format=3 uid="uid://wrx46btx2xyy"]
 
 [ext_resource type="Texture2D" uid="uid://di620k68q2lxd" path="res://enemies/scorpion_boss/scorpion.png" id="1_62xlu"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/scorpion_boss.gd" id="1_l2ovy"]
@@ -129,6 +129,15 @@ radius = 44.5253
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0i5fi"]
 size = Vector2(7.5, 10.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjq7q"]
+size = Vector2(5.25, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad1uj"]
+size = Vector2(5, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45nqr"]
+size = Vector2(7.5, 10.25)
+
 [node name="scorpion_boss" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_l2ovy")
@@ -161,6 +170,13 @@ shape = SubResource("CircleShape2D_687ty")
 position = Vector2(11.75, 2.25)
 shape = SubResource("RectangleShape2D_0i5fi")
 
+[node name="melee_area_2" type="Area2D" parent="."]
+position = Vector2(10.5, 3.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="melee_area_2"]
+position = Vector2(-21.125, 0)
+shape = SubResource("RectangleShape2D_hjq7q")
+
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(6.25, -5.75)
 
@@ -179,5 +195,17 @@ script = ExtResource("6_dyyob")
 
 [node name="Knockback" type="Node" parent="S_Boss_StateMachine"]
 script = ExtResource("7_l51fg")
+
+[node name="jump_detector_left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_detector_left"]
+position = Vector2(10.5, 3.25)
+shape = SubResource("RectangleShape2D_ad1uj")
+
+[node name="jump_detector_right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_detector_right"]
+position = Vector2(-11.75, 2.25)
+shape = SubResource("RectangleShape2D_45nqr")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="S_Boss_StateMachine/Attacking" method="_on_animation_player_animation_finished"]

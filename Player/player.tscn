@@ -1131,7 +1131,7 @@ position = Vector2(10, 0)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 25)
 offset = Vector2(0, -50)
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="healthbar" type="TextureProgressBar" parent="."]
 z_index = 3
