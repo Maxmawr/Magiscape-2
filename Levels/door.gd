@@ -16,7 +16,7 @@ func _on_fade_out_change_level():
 	elif get_parent().name == "Level 3":
 		get_tree().change_scene_to_file("res://Levels/level_4.tscn")
 	elif get_parent().name == "Level 4":
-		get_tree().change_scene_to_file("res://Levels/final_screen.tscn")
+		get_tree().change_scene_to_file("res://Levels/boss_arena.tscn")
 
 	Permavariables.gold_amount = Permavariables.temp_gold_amount
 	Permavariables.temp_gold_amount = 0

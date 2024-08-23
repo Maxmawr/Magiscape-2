@@ -23,6 +23,7 @@ func _physics_process(delta):
 
 
 func shoot():
+	$CollisionShape2D.disabled = false
 	moving = true
 	player_pos = player.global_position
 	direction = (player_pos - global_position).normalized()

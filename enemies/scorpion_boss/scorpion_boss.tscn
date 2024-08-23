@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://wrx46btx2xyy"]
+[gd_scene load_steps=21 format=3 uid="uid://wrx46btx2xyy"]
 
 [ext_resource type="Texture2D" uid="uid://di620k68q2lxd" path="res://enemies/scorpion_boss/scorpion.png" id="1_62xlu"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/scorpion_boss.gd" id="1_l2ovy"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://enemies/scorpion_boss/Knockback.gd" id="7_l51fg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djtpe"]
-size = Vector2(16, 16)
+size = Vector2(16, 14)
 
 [sub_resource type="Animation" id="Animation_t7nsl"]
 length = 0.001
@@ -68,6 +68,37 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_hjcds"]
+resource_name = "melee"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 4]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("S_Boss_StateMachine/Attacking")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hit"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_vkj5d"]
 resource_name = "walk"
 loop_mode = 1
@@ -88,11 +119,24 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_t7nsl"),
 "attack": SubResource("Animation_vlskl"),
+"melee": SubResource("Animation_hjcds"),
 "walk": SubResource("Animation_vkj5d")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_687ty"]
 radius = 44.5253
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0i5fi"]
+size = Vector2(7.5, 10.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjq7q"]
+size = Vector2(5.25, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ad1uj"]
+size = Vector2(5, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45nqr"]
+size = Vector2(7.5, 10.25)
 
 [node name="scorpion_boss" type="CharacterBody2D"]
 scale = Vector2(4, 4)
@@ -101,7 +145,7 @@ money = ExtResource("2_5ur1s")
 projectile = ExtResource("3_b3yc6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_djtpe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -115,9 +159,23 @@ libraries = {
 }
 
 [node name="attack_area" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
 shape = SubResource("CircleShape2D_687ty")
+
+[node name="melee_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="melee_area"]
+position = Vector2(11.75, 2.25)
+shape = SubResource("RectangleShape2D_0i5fi")
+
+[node name="melee_area_2" type="Area2D" parent="."]
+position = Vector2(10.5, 3.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="melee_area_2"]
+position = Vector2(-21.125, 0)
+shape = SubResource("RectangleShape2D_hjq7q")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(6.25, -5.75)
@@ -137,5 +195,17 @@ script = ExtResource("6_dyyob")
 
 [node name="Knockback" type="Node" parent="S_Boss_StateMachine"]
 script = ExtResource("7_l51fg")
+
+[node name="jump_detector_left" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_detector_left"]
+position = Vector2(10.5, 3.25)
+shape = SubResource("RectangleShape2D_ad1uj")
+
+[node name="jump_detector_right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_detector_right"]
+position = Vector2(-11.75, 2.25)
+shape = SubResource("RectangleShape2D_45nqr")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="S_Boss_StateMachine/Attacking" method="_on_animation_player_animation_finished"]

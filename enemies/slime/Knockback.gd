@@ -16,4 +16,3 @@ func update(_delta: float) -> void:
 func physics_update(delta: float) -> void:
 	owner.velocity.y += owner.gravity * delta
 	owner.move_and_slide()
-
