@@ -5,7 +5,6 @@ extends State
 @onready var marker = owner.get_node("Marker2D")
 
 func enter(msg := {}) -> void:
-	
 	if msg.has("melee"):
 		animationplayer.play("melee")
 	else:
@@ -16,12 +15,14 @@ func enter(msg := {}) -> void:
 		owner.owner.add_child(p)
 
 func physics_update(delta: float) -> void:
+	owner.velocity.x = 0
 	owner.velocity.y += owner.gravity * delta
 	
 	owner.move_and_slide()
 
 func hit():
 	player.take_damage(5, owner.position)
+
 
 
 func _on_animation_player_animation_finished(anim_name):

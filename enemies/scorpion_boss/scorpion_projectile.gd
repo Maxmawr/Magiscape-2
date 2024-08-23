@@ -31,6 +31,3 @@ func shoot():
 func _on_body_entered(body):
 	if body.name == "player":
 		body.take_damage(8, scorpion.global_position)
-	
-	if body.is_in_group("enemies"):
-		body.handle_hit(8)

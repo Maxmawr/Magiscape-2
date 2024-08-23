@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wrx46btx2xyy"]
+[gd_scene load_steps=29 format=3 uid="uid://wrx46btx2xyy"]
 
 [ext_resource type="Texture2D" uid="uid://di620k68q2lxd" path="res://enemies/scorpion_boss/scorpion.png" id="1_62xlu"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/scorpion_boss.gd" id="1_l2ovy"]
@@ -9,6 +9,11 @@
 [ext_resource type="Script" path="res://enemies/scorpion_boss/Attacking.gd" id="4_dp003"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/Bind.gd" id="6_dyyob"]
 [ext_resource type="Script" path="res://enemies/scorpion_boss/Knockback.gd" id="7_l51fg"]
+[ext_resource type="Script" path="res://enemies/scorpion_boss/jump.gd" id="10_jow8p"]
+[ext_resource type="Script" path="res://enemies/scorpion_boss/jump_detector_left.gd" id="10_v8e61"]
+[ext_resource type="Script" path="res://enemies/scorpion_boss/dead.gd" id="11_4esep"]
+[ext_resource type="Script" path="res://enemies/scorpion_boss/jump_detector_right.gd" id="11_xfl6l"]
+[ext_resource type="PackedScene" uid="uid://b6ljglj3qetia" path="res://enemies/bindbar.tscn" id="14_f2n08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_djtpe"]
 size = Vector2(16, 14)
@@ -38,6 +43,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureProgressBar:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureProgressBar:value")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_vlskl"]
@@ -115,10 +144,69 @@ tracks/0/keys = {
 "values": [1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_emvd1"]
+resource_name = "dead"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_fgcxy"]
+resource_name = "bound"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureProgressBar:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureProgressBar:value")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 100.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i8ac1"]
 _data = {
 "RESET": SubResource("Animation_t7nsl"),
 "attack": SubResource("Animation_vlskl"),
+"bound": SubResource("Animation_fgcxy"),
+"dead": SubResource("Animation_emvd1"),
 "melee": SubResource("Animation_hjcds"),
 "walk": SubResource("Animation_vkj5d")
 }
@@ -130,21 +218,24 @@ radius = 44.5253
 size = Vector2(7.5, 10.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjq7q"]
-size = Vector2(5.25, 8.5)
+size = Vector2(6.75, 10.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ad1uj"]
-size = Vector2(5, 8.5)
+size = Vector2(5, 8.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45nqr"]
-size = Vector2(7.5, 10.25)
+size = Vector2(4.75, 7.875)
 
-[node name="scorpion_boss" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hv81k"]
+size = Vector2(13.5, 8)
+
+[node name="scorpion_boss" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(4, 4)
 script = ExtResource("1_l2ovy")
 money = ExtResource("2_5ur1s")
 projectile = ExtResource("3_b3yc6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="alive_collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_djtpe")
 
@@ -174,11 +265,33 @@ shape = SubResource("RectangleShape2D_0i5fi")
 position = Vector2(10.5, 3.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="melee_area_2"]
-position = Vector2(-21.125, 0)
+position = Vector2(-21.875, -1)
 shape = SubResource("RectangleShape2D_hjq7q")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(6.25, -5.75)
+
+[node name="jump_detector_left" type="Area2D" parent="."]
+script = ExtResource("10_v8e61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_detector_left"]
+position = Vector2(10.5, 3.125)
+shape = SubResource("RectangleShape2D_ad1uj")
+
+[node name="jump_detector_right" type="Area2D" parent="."]
+script = ExtResource("11_xfl6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_detector_right"]
+position = Vector2(-10.375, 3.4375)
+shape = SubResource("RectangleShape2D_45nqr")
+
+[node name="dead_collision_area" type="Area2D" parent="."]
+
+[node name="dead_collision" type="CollisionShape2D" parent="dead_collision_area"]
+position = Vector2(-0.25, 3.5)
+shape = SubResource("RectangleShape2D_hv81k")
+
+[node name="TextureProgressBar" parent="." instance=ExtResource("14_f2n08")]
 
 [node name="S_Boss_StateMachine" type="Node" parent="."]
 script = ExtResource("2_5oyvt")
@@ -196,16 +309,11 @@ script = ExtResource("6_dyyob")
 [node name="Knockback" type="Node" parent="S_Boss_StateMachine"]
 script = ExtResource("7_l51fg")
 
-[node name="jump_detector_left" type="Area2D" parent="."]
+[node name="Jump" type="Node" parent="S_Boss_StateMachine"]
+script = ExtResource("10_jow8p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_detector_left"]
-position = Vector2(10.5, 3.25)
-shape = SubResource("RectangleShape2D_ad1uj")
-
-[node name="jump_detector_right" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_detector_right"]
-position = Vector2(-11.75, 2.25)
-shape = SubResource("RectangleShape2D_45nqr")
+[node name="Dead" type="Node" parent="S_Boss_StateMachine"]
+script = ExtResource("11_4esep")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="S_Boss_StateMachine/Attacking" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="S_Boss_StateMachine/Bind" method="_on_animation_player_animation_finished"]

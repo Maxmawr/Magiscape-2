@@ -29,7 +29,3 @@ func take_damage(damage, enemy_pos):
 func change_state(state):
 	if state == "Get_Item":
 		statemachine.transition_to("Get_Item")
-
-func _process(delta: float) -> void:
-	for body in $"collision detector".get_overlapping_bodies():
-		print(body)

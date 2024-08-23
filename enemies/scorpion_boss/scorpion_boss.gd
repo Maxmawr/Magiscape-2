@@ -6,10 +6,10 @@ extends CharacterBody2D
 
 @onready var bindnode = get_node("S_Boss_StateMachine/Bind")
 
-var health = 10
+var health = 30
 var ground_speed := 300.0
 var air_speed := 300.0
-var jump_height := 275.0
+var jump_height := 500
 var speed := 175.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 4
 var direction_facing = "right"
@@ -26,6 +26,7 @@ func handle_hit(damage):
 		$S_Boss_StateMachine.transition_to("Knockback")
 
 func vine_bind():
+	print("bind")
 	if dead == false:
 		if $S_Boss_StateMachine.state == bindnode:
 			bindnode.restart()
