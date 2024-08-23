@@ -21,8 +21,11 @@ func _physics_process(delta):
 	if moving == true:
 		global_position += direction * speed * delta
 
+
 func shoot():
 	moving = true
+	player_pos = player.global_position
+	direction = (player_pos - global_position).normalized()
 
 func _on_body_entered(body):
 	if body.name == "player":
@@ -30,4 +33,3 @@ func _on_body_entered(body):
 	
 	if body.is_in_group("enemies"):
 		body.handle_hit(8)
-
