@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bwbmgsavq8j2d"]
+[gd_scene load_steps=8 format=4 uid="uid://bwbmgsavq8j2d"]
 
 [ext_resource type="TileSet" uid="uid://8cjek7slqfr5" path="res://tileset.tres" id="1_k2ry0"]
 [ext_resource type="Script" path="res://Levels/boss_arena.gd" id="1_xfcu1"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dpjxfjttxa3gm" path="res://Player/player.tscn" id="3_njegb"]
 [ext_resource type="PackedScene" uid="uid://bbxo384a8eehh" path="res://Levels/cauldron/cauldron.tscn" id="4_icfdj"]
 [ext_resource type="PackedScene" uid="uid://paywmxjb53r3" path="res://GUI/gui.tscn" id="6_8i6yr"]
+[ext_resource type="PackedScene" uid="uid://d1myqd7tktisn" path="res://enemy drops/potions/health_potion.tscn" id="7_1wanm"]
 
 [node name="boss_arena" type="Node2D"]
 script = ExtResource("1_xfcu1")
@@ -55,3 +56,12 @@ launch_height = -600
 position = Vector2(118, -200)
 
 [node name="GUI" parent="." instance=ExtResource("6_8i6yr")]
+
+[node name="health_potion" parent="." instance=ExtResource("7_1wanm")]
+position = Vector2(340, 24)
+
+[node name="health_potion2" parent="." instance=ExtResource("7_1wanm")]
+position = Vector2(497, -120)
+
+[node name="health_potion3" parent="." instance=ExtResource("7_1wanm")]
+position = Vector2(-195, -200)

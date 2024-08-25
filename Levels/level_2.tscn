@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dwae2jyi2m11"]
+[gd_scene load_steps=23 format=3 uid="uid://dwae2jyi2m11"]
 
 [ext_resource type="TileSet" uid="uid://8cjek7slqfr5" path="res://tileset.tres" id="1_baiju"]
 [ext_resource type="PackedScene" uid="uid://paywmxjb53r3" path="res://GUI/gui.tscn" id="1_fjs0c"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cob1tn4m3kifj" path="res://Levels/fade_in.tscn" id="11_kmtqv"]
 [ext_resource type="PackedScene" uid="uid://cb4vdvlt0ctl4" path="res://Levels/chest/chest.tscn" id="12_w24v8"]
 [ext_resource type="PackedScene" uid="uid://cekxqfnkap8f6" path="res://Levels/fade_out.tscn" id="13_5hpg6"]
+[ext_resource type="PackedScene" uid="uid://d1myqd7tktisn" path="res://enemy drops/potions/health_potion.tscn" id="14_6we1a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r7hax"]
 size = Vector2(320.727, 7.67317)
@@ -152,6 +153,9 @@ offset_left = -289.0
 offset_top = -102.0
 offset_right = 2786.0
 offset_bottom = 826.0
+
+[node name="health_potion" parent="." instance=ExtResource("14_6we1a")]
+position = Vector2(1098.82, 446.02)
 
 [connection signal="body_entered" from="death_area" to="death_area" method="_on_body_entered"]
 [connection signal="body_entered" from="death_area2" to="death_area2" method="_on_body_entered"]

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4c8ul8glvpn" path="res://Levels/door.tscn" id="13_n4f2h"]
 [ext_resource type="PackedScene" uid="uid://cekxqfnkap8f6" path="res://Levels/fade_out.tscn" id="15_8233n"]
 [ext_resource type="PackedScene" uid="uid://cob1tn4m3kifj" path="res://Levels/fade_in.tscn" id="16_ydooe"]
-[ext_resource type="PackedScene" uid="uid://wrx46btx2xyy" path="res://enemies/scorpion_boss/scorpion_boss.tscn" id="17_7iw6u"]
+[ext_resource type="PackedScene" uid="uid://d1myqd7tktisn" path="res://enemy drops/potions/health_potion.tscn" id="17_33u08"]
 [ext_resource type="PackedScene" uid="uid://bcauxxhoy1nbo" path="res://enemies/slime/slime.tscn" id="17_v06x3"]
 
 [sub_resource type="Curve2D" id="Curve2D_nea1b"]
@@ -99,8 +99,8 @@ offset_bottom = 1022.0
 [node name="slime" parent="." instance=ExtResource("17_v06x3")]
 position = Vector2(2497, 120)
 
-[node name="scorpion_boss" parent="." instance=ExtResource("17_7iw6u")]
-position = Vector2(704, 18)
+[node name="health_potion" parent="." instance=ExtResource("17_33u08")]
+position = Vector2(233, 168)
 
 [connection signal="show_text" from="max_health_up" to="GUI" method="_on_max_health_up_show_text"]
 [connection signal="change_level" from="fade_out" to="Door" method="_on_fade_out_change_level"]

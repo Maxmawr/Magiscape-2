@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1myqd7tktisn"]
+
+[ext_resource type="Script" path="res://enemy drops/potions/health_potion.gd" id="1_mplkd"]
+[ext_resource type="Texture2D" uid="uid://5rx8ypd5shtk" path="res://enemy drops/potions/health_potion.png" id="1_o8oqh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0oe0"]
+size = Vector2(8, 16)
+
+[node name="health_potion" type="Area2D"]
+script = ExtResource("1_mplkd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h0oe0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o8oqh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
