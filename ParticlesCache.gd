@@ -18,11 +18,17 @@ var materials = [
 	lightningparticles_s
 ]
 
-func _ready():
-	for material in materials:
-		var particles_instance = GPUParticles2D.new()
-		particles_instance.set_process_material(material)
-		particles_instance.set_one_shot(true)
-		particles_instance.set_modulate(Color(1,1,1,0))
-		particles_instance.set_emitting(true)
-		self.add_child(particles_instance)
+#var materials_size = len(materials)
+#var current_pos = 0
+#
+#
+#func load_particles():
+	#for material in materials:
+		#var particles_instance = GPUParticles2D.new()
+		#particles_instance.set_process_material(material)
+		#particles_instance.set_one_shot(true)
+		#particles_instance.set_modulate(Color(1,1,1,0))
+		#particles_instance.set_emitting(true)
+		#self.add_child(particles_instance)
+		#current_pos += 1
+		#print(current_pos)

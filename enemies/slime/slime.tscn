@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcauxxhoy1nbo"]
+[gd_scene load_steps=13 format=3 uid="uid://bcauxxhoy1nbo"]
 
 [ext_resource type="Script" path="res://enemies/slime/slime.gd" id="1_iih01"]
 [ext_resource type="Texture2D" uid="uid://bvpijsh7fjuyo" path="res://enemies/slime/slime.png" id="1_xfsys"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://enemies/slime/Knockback.gd" id="5_gc2oy"]
 [ext_resource type="Script" path="res://enemies/slime/Dead.gd" id="6_byluo"]
 [ext_resource type="PackedScene" uid="uid://b6ljglj3qetia" path="res://enemies/bindbar.tscn" id="7_rp4m6"]
+[ext_resource type="Script" path="res://enemies/slime/bind.gd" id="8_gvgyy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhley"]
 size = Vector2(17, 12)
@@ -48,6 +49,9 @@ script = ExtResource("5_gc2oy")
 
 [node name="Dead" type="Node" parent="Slime_StateMachine"]
 script = ExtResource("6_byluo")
+
+[node name="Bind" type="Node" parent="Slime_StateMachine"]
+script = ExtResource("8_gvgyy")
 
 [node name="jump_timer" type="Timer" parent="."]
 wait_time = 2.0

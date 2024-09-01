@@ -29,6 +29,3 @@ func _on_patrol_right_body_entered(body):
 	if state_machine.state == self:
 		if body.is_in_group("wall"):
 			owner.direction_facing = "left"
-
-
-
