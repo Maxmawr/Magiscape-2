@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://fa45nbsyu3rw"]
+[gd_scene load_steps=6 format=3 uid="uid://fa45nbsyu3rw"]
 
 [ext_resource type="Script" path="res://options/keybinds.gd" id="1_ox2va"]
 [ext_resource type="PackedScene" uid="uid://bmnejd3od1jkl" path="res://options/input_button.tscn" id="2_eylk8"]
+[ext_resource type="FontFile" uid="uid://doyr4x7sqpheo" path="res://Assets/Fonts/joystix monospace.otf" id="3_v3xje"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ok6va"]
+bg_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4kn8"]
+bg_color = Color(0, 0, 0, 0.784314)
 
 [node name="keybinds" type="Control"]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,8 +55,13 @@ size_flags_horizontal = 3
 [node name="InputButton" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_eylk8")]
 layout_mode = 2
 
-[node name="InputButton2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_eylk8")]
+[node name="ResetButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_v3xje")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ok6va")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ok6va")
+theme_override_styles/normal = SubResource("StyleBoxFlat_d4kn8")
+text = "Reset To Default"
 
-[node name="InputButton3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_eylk8")]
-layout_mode = 2
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
