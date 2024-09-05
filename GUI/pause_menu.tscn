@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgw87aufva7o4"]
+[gd_scene load_steps=4 format=3 uid="uid://dgw87aufva7o4"]
 
 [ext_resource type="Script" path="res://GUI/pause_menu.gd" id="1_3bmd6"]
 [ext_resource type="FontFile" uid="uid://doyr4x7sqpheo" path="res://Assets/Fonts/joystix monospace.otf" id="1_7eqlk"]
+[ext_resource type="PackedScene" uid="uid://fa45nbsyu3rw" path="res://options/keybinds.tscn" id="3_ad8tu"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -48,10 +49,20 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7eqlk")
 text = "Resume"
 
+[node name="OptionsBtn" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_7eqlk")
+text = "Options"
+
 [node name="QuitBtn" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7eqlk")
 text = "Quit"
 
+[node name="keybinds" parent="." instance=ExtResource("3_ad8tu")]
+visible = false
+layout_mode = 1
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
