@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://fa45nbsyu3rw"]
+[gd_scene load_steps=8 format=3 uid="uid://fa45nbsyu3rw"]
 
 [ext_resource type="Script" path="res://options/keybinds.gd" id="1_ox2va"]
 [ext_resource type="PackedScene" uid="uid://bmnejd3od1jkl" path="res://options/input_button.tscn" id="2_eylk8"]
@@ -8,6 +8,12 @@
 bg_color = Color(1, 1, 1, 0.392157)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4kn8"]
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2bg3"]
+bg_color = Color(0.6, 0.6, 0.6, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dq5u"]
 bg_color = Color(0, 0, 0, 0.784314)
 
 [node name="keybinds" type="Control"]
@@ -64,4 +70,14 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ok6va")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d4kn8")
 text = "Reset To Default"
 
+[node name="BackButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_v3xje")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h2bg3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h2bg3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3dq5u")
+text = "Back"
+
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

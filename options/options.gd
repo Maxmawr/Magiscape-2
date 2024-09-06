@@ -12,4 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_keybind_pressed() -> void:
-	get_tree().change_scene_to_file("res://options/keybinds.tscn")
+	$keybinds.visible = true
+
+
+func _on_quit_pressed() -> void:
+	get_tree().change_scene_to_file("res://GUI/main_menu.tscn")

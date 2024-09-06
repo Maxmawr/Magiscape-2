@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctuuvs843blyn"]
+[gd_scene load_steps=3 format=3 uid="uid://ctuuvs843blyn"]
 
 [ext_resource type="Script" path="res://options/options.gd" id="1_wiu3a"]
+[ext_resource type="PackedScene" uid="uid://fa45nbsyu3rw" path="res://options/keybinds.tscn" id="2_6qf2a"]
 
 [node name="options" type="Control"]
 layout_mode = 3
@@ -20,33 +21,51 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 13
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -4.0
-offset_right = 4.0
+anchor_bottom = 0.5
+offset_left = -488.0
+offset_top = -241.0
+offset_right = 488.0
+offset_bottom = 241.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Options"
 horizontal_alignment = 1
 
-[node name="keybind" type="Button" parent="VBoxContainer"]
+[node name="keybind" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Keybind Options
 "
 
-[node name="audio" type="Button" parent="VBoxContainer"]
+[node name="audio" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Audio Options"
 
-[node name="quit" type="Button" parent="VBoxContainer"]
+[node name="quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/keybind" to="." method="_on_keybind_pressed"]
+[node name="keybinds" parent="." instance=ExtResource("2_6qf2a")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/keybind" to="." method="_on_keybind_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
